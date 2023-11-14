@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  ~ Copyright (c) 2021-2023 NSTDA
+  -->
+<odoo>
+    <record id="reception_company_rule" model="ir.rule">
+        <field name="name">Reception: multi-company</field>
+        <field name="model_id" ref="model_ni_reception" />
+        <field name="global" eval="True" />
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="reception_own_write_rule" model="ir.rule">
+        <field name="name">Reception: Write own or unowned reception</field>
+        <field name="model_id" ref="ni_reception.model_ni_reception" />
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="perm_read" eval="False" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_unlink" eval="True" />
+        <field name="groups" eval="[(4, ref('group_user'))]" />
+    </record>
+    <record id="reception_manager_rule" model="ir.rule">
+        <field name="name">Reception: manager write all</field>
+        <field name="model_id" ref="ni_reception.model_ni_reception" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4,ref('ni_patient.group_manager')), (4,ref('ni_patient.group_admin'))]" />
+    </record>
+</odoo>

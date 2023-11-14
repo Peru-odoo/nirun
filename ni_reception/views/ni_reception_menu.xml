@@ -15,6 +15,15 @@
         parent="ni_reception_menu_root"
         action="ni_reception_action_form"
         sequence="1"
+        groups="group_user"
+    />
+    <menuitem
+        id="ni_reception_my_menu"
+        name="My Reception"
+        parent="ni_reception_menu_root"
+        action="ni_reception_action_my"
+        sequence="2"
+        groups="group_user"
     />
     <menuitem
         id="ni_reception_menu"
@@ -22,5 +31,6 @@
         parent="ni_reception_menu_root"
         action="ni_reception_action"
         sequence="2"
+        groups="group_viewer"
     />
 </odoo>

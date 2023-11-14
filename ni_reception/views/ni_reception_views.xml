@@ -12,6 +12,16 @@
             <p class="oe_view_nocontent_create">No reception note!</p>
         </field>
     </record>
+    <record id="ni_reception_action_my" model="ir.actions.act_window">
+        <field name="name">My Reception</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ni.reception</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('create_uid', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">No reception note!</p>
+        </field>
+    </record>
     <record id="ni_reception_action_form" model="ir.actions.act_window">
         <field name="name">Register</field>
         <field name="type">ir.actions.act_window</field>
@@ -33,7 +43,10 @@
                 </group>
                 <searchpanel>
                     <field name="company_id" enable_counters="1" icon="fa-building" groups="base.group_multi_company" />
+                    <field name="class_id" enable_counters="1" />
                     <field name="department_id" enable_counters="1" icon="fa-users" />
+                    <field name="priority" enable_counters="1" icon="fa-flag" />
+                    <field name="state" enable_counters="1" icon="fa-circle" />
                 </searchpanel>
             </search>
         </field>
@@ -43,7 +56,6 @@
         <field name="model">ni.reception</field>
         <field name="arch" type="xml">
             <tree decoration-info="state=='draft'" decoration-muted="state=='finished'">
-                <field name="identifier" optional="hide" />
                 <field name="encounter_id" string="Encounter No." optional="show" />
                 <field name="patient_id" widget="many2one_avatar" />
                 <field name="patient_age" string="Age" />
@@ -118,18 +130,21 @@
                                 />
                             </h3>
                         </div>
-                        <div name="identifier" attrs="{'invisible': [('state', '=', 'draft')]}">
-                            <label for="identifier" />
-                            <h3>
+                        <div attrs="{'invisible': [('state', '=', 'draft')]}">
+                            <label for="encounter_id" />
+                            <h1>
                                 <field
-                                    class="w-100 mt-1"
-                                    name="identifier"
-                                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                    name="encounter_id"
+                                    string="Encounter No."
+                                    attrs="{'invisible': [('state', '=', 'draft')]}"
+                                    options="{'no_create': True}"
+                                    readonly="True"
                                 />
-                            </h3>
-                            <div class="small mt-4" attrs="{'invisible': [('id', '=', False)]}">
-                                <field name="write_uid" widget="many2one_avatar_user" />
-                                <field name="write_date" class="text-muted ms-2" />
+                            </h1>
+                            <div class="small mt-2" attrs="{'invisible': [('id', '=', False)]}">
+                                <label for="create_uid" />
+                                <field name="create_uid" widget="many2one_avatar_user" class="ms-2" />
+                                <field name="create_date" class="text-muted ms-2" />
                             </div>
                         </div>
                     </div>

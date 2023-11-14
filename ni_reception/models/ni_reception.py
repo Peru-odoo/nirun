@@ -49,12 +49,11 @@ class Reception(models.Model):
     _name = "ni.reception"
     _description = "Reception"
     _inherit = [
-        "ni.identifier.mixin",
         "ni.observation.vitalsign.mixin",
         "ni.observation.bloodgroup.mixin",
         "image.mixin",
     ]
-    _rec_name = "identifier"
+    _rec_name = "encounter_identifier"
     _order = "create_date desc"
 
     @api.model
@@ -206,7 +205,7 @@ class Reception(models.Model):
             )
 
         if not self.patient_id or self.patient_id.company_id != self.company_id:
-            patient = self.env["ni.patient"].create(self.patient_data())
+            patient = self.env["ni.patient"].sudo().create(self.patient_data())
             self.patient_id = patient
             logging.info(
                 "Created ni.patient[%d] with res.partner[%d]",
@@ -220,7 +219,7 @@ class Reception(models.Model):
 
         data = self.encounter_data()
         if not self.encounter_id:
-            enc = self.env["ni.encounter"].create(data)[0]
+            enc = self.env["ni.encounter"].sudo().create(data)[0]
             self.write(
                 {
                     "encounter_id": enc.id,
@@ -235,7 +234,9 @@ class Reception(models.Model):
             "type": "ir.actions.act_window",
             "res_model": "ni.encounter",
             "res_id": self.encounter_id.id,
-            "target": "current",
+            "target": "main"
+            if self.env.user.has_group("ni_patient.group_user")
+            else "current",
             "views": [[False, "form"]],
         }
 

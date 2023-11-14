@@ -20,7 +20,8 @@
         "ni_coverage",
     ],
     "data": [
-        "data/ir_sequence_data.xml",
+        "security/ni_reception_group.xml",
+        "security/ni_reception_rules.xml",
         "security/ir.model.access.csv",
         "views/ni_encounter_views.xml",
         "views/ni_reception_views.xml",

@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_reception,reception user,model_ni_reception,ni_patient.group_user,1,1,1,1
+access_reception_patient_user,reception,model_ni_reception,ni_patient.group_user,1,0,0,0
+access_reception_user,reception user,model_ni_reception,group_user,1,1,1,1
+access_reception_manager,reception manager,model_ni_reception,group_manager,1,1,1,1
