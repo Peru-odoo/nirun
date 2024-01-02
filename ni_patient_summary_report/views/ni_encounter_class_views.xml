@@ -8,7 +8,7 @@
         <field name="model">ni.encounter.class</field>
         <field name="inherit_id" ref="ni_patient.ni_encounter_class_view_form" />
         <field name="arch" type="xml">
-            <field name="hospitalization" position="after">
+            <field name="name" position="after">
                 <field name="summary_report_title" />
             </field>
         </field>
