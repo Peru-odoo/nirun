@@ -10,14 +10,16 @@
         <field name="priority">4</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='history']" position="inside">
-                <separator string="Medication Statement" />
+                <separator string="Medication Statement" groups="ni_medication.group_viewer" />
                 <field
                     name="medication_statement_ids"
                     context="{'default_patient_id': patient_id, 'default_encounter_id': id, 'default_category_id': %(ni_medication.admin_location_patient_specified)d, }"
+                    groups="ni_medication.group_viewer"
                 />
             </xpath>
             <xpath expr="//page[@name='medication']" position="attributes">
                 <attribute name="badge">medication_dispense_count</attribute>
+                <attribute name="groups">ni_medication.group_viewer</attribute>
             </xpath>
             <xpath expr="//page[@name='medication']" position="inside">
                 <field
