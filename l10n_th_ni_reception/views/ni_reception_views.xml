@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  ~ Copyright (c) 2021-2023. NSTDA
+  -->
+<odoo>
+    <record id="ni_reception_view_form_inherit" model="ir.ui.view">
+        <field name="name">ni.reception.view.form.inherit</field>
+        <field name="model">ni.reception</field>
+        <field name="inherit_id" ref="ni_reception.ni_reception_view_form" />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field
+                    name="zip_id"
+                    options="{'create_name_field': 'city', 'no_open': True, 'no_create': True}"
+                    placeholder="Search for Address"
+                />
+            </field>
+            <field name="street2" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="city" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="state_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="zip" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="country_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
