@@ -1,14 +1,27 @@
-@mixin module-font($family, $type, $weight, $style) {
+@mixin module-font($family, $type, $weight) {
+    @font-face {
+        font-family: "#{$family}Thai";
+        src: url("../fonts/google/#{$family}Thai/#{$family}Thai-#{$type}.ttf") format("truetype");
+        font-weight: $weight;
+        font-style: normal;
+        unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC;
+    }
     @font-face {
         font-family: $family;
         src: url("../fonts/google/#{$family}/#{$family}-#{$type}.ttf") format("truetype");
         font-weight: $weight;
-        font-style: $style;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: $family;
+        src: url("../fonts/google/#{$family}/#{$family}-#{$type}Italic.ttf") format("truetype");
+        font-weight: $weight;
+        font-style: italic;
     }
 }
 
 @mixin module-font-pair($family, $type, $weight) {
-    @include module-font("#{$family}", $type, $weight, normal);
+    @include module-font("#{$family}", $type, $weight);
 }
 
 @mixin module-font-set($family) {
@@ -23,11 +36,11 @@
     @include module-font-pair($family, "Black", 900);
 }
 
-@include module-font-set("NotoSansThai");
-@include module-font-set("NotoSerifThai");
+@include module-font-set("NotoSans");
+@include module-font-set("NotoSerif");
 
-$custom-font-family: NotoSansThai, "Odoo Unicode Support Noto", "Lucida Grande", Helvetica, Verdana, Arial, sans-serif !important;
-$custom-header-font-family: NotoSerifThai, serif, "Odoo Unicode Support Noto" !important;
+$custom-font-family: NotoSansThai, NotoSans, sans-serif !important;
+$custom-header-font-family: NotoSerifThai, NotoSerif, sans-serif !important;
 
 h6,
 .h6,
