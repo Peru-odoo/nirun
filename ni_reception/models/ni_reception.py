@@ -271,8 +271,21 @@ class Reception(models.Model):
                 "allergy_ids": self._get_allergy_data(),
             }
         )
-        return [{k: v for k, v in d.items() if k in PATIENT_FIELD} for d in vals]
+        return [
+            {k: v for k, v in d.items() if k in self._get_patient_field()} for d in vals
+        ]
+
+    @api.model
+    def _get_patient_field(self):
+        return PATIENT_FIELD
 
     def encounter_data(self):
         vals = self.copy_data({"identifier": self.encounter_identifier or "New"})
-        return [{k: v for k, v in d.items() if k in ENCOUNTER_FIELD} for d in vals]
+        return [
+            {k: v for k, v in d.items() if k in self._get_encounter_field()}
+            for d in vals
+        ]
+
+    @api.model
+    def _get_encounter_field(self):
+        return ENCOUNTER_FIELD
