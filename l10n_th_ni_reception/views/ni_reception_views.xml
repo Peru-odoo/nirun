@@ -8,6 +8,7 @@
         <field name="model">ni.reception</field>
         <field name="inherit_id" ref="ni_reception.ni_reception_view_form" />
         <field name="arch" type="xml">
+            <!--  Address Related Field -->
             <field name="country_id" position="after">
                 <field
                     name="zip_id"
@@ -28,6 +29,13 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="country_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <!--Coverage Related Field-->
+            <field name="coverage_type_ids" position="after">
+                <field name="coverage_type_id" context="{'show_code': True}" options="{'no_open': True}" />
+            </field>
+            <field name="coverage_type_ids" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
         </field>
