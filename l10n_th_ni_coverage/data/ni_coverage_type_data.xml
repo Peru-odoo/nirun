@@ -1,0 +1,615 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+    <!-- prettier-ignore-start -->
+   <record id="cov_BFC" model="ni.coverage.type">
+       <field name="code">BFC</field>
+       <field name="name">สิทธิข้าราชการการเมือง/นักาารเมือง</field>
+    </record>
+
+   <record id="cov_DIS" model="ni.coverage.type">
+       <field name="code">DIS</field>
+       <field name="name">สิทธิประกันสุขภาพถ้วนหน้า(ผู้พิการ)</field>
+    </record>
+
+   <record id="cov_GOF" model="ni.coverage.type">
+       <field name="code">GOF</field>
+       <field name="name">สิทธิทหารผ่านศึก/สิทธิข้าราชการ/สิทธิรักวิสาหกิจ</field>
+    </record>
+
+   <record id="cov_LGO" model="ni.coverage.type">
+       <field name="code">LGO</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น</field>
+    </record>
+
+   <record id="cov_NRH" model="ni.coverage.type">
+       <field name="code">NRH</field>
+       <field name="name">บุคคลคนต่างด้าว(ซื้อประกันสุขภาพ)</field>
+    </record>
+
+   <record id="cov_OFC" model="ni.coverage.type">
+       <field name="code">OFC</field>
+       <field name="name">สิทธิข้าราชการ/สิทธิรักวิสาหกิจ</field>
+    </record>
+
+   <record id="cov_PVT" model="ni.coverage.type">
+       <field name="code">PVT</field>
+       <field name="name">สิทธิครูโรงเรียนเอกชน</field>
+    </record>
+
+   <record id="cov_SSI" model="ni.coverage.type">
+       <field name="code">SSI</field>
+       <field name="name">สิทธิประกันสังคมกรณีทุพลภาพ</field>
+    </record>
+
+   <record id="cov_SSS" model="ni.coverage.type">
+       <field name="code">SSS</field>
+       <field name="name">สิทธิประกันสังคม</field>
+    </record>
+
+   <record id="cov_STP" model="ni.coverage.type">
+       <field name="code">STP</field>
+       <field name="name">บุคคลผู้มีปัญหาสถานะและสิทธิ</field>
+    </record>
+
+   <record id="cov_UCS" model="ni.coverage.type">
+       <field name="code">UCS</field>
+       <field name="name">สิทธิประกันสุขภาพถ้วนหน้า</field>
+    </record>
+
+   <record id="cov_WEL" model="ni.coverage.type">
+       <field name="code">WEL</field>
+       <field name="name">สิทธิประกันสุขภาพถ้วนหน้า(ยกเว้นการร่วมจ่ายค่าบริการ 30 บาท)</field>
+    </record>
+
+   <record id="cov_WVO" model="ni.coverage.type">
+       <field name="code">WVO</field>
+       <field name="name">สิทธิทหารผ่านศึก</field>
+    </record>
+
+   <record id="cov_A1" model="ni.coverage.type">
+       <field name="code">A1</field>
+       <field name="name">สิทธิข้าราชการการเมือง</field>
+       <field name="parent_id" ref="cov_BFC"/>
+    </record>
+
+   <record id="cov_D1" model="ni.coverage.type">
+       <field name="code">D1</field>
+       <field name="name">สิทธิหลักประกันสุขภาพกห่งชาติ (ผู้ประกันตนคนพิการ)</field>
+       <field name="parent_id" ref="cov_DIS"/>
+    </record>
+
+   <record id="cov_Z3" model="ni.coverage.type">
+       <field name="code">Z3</field>
+       <field name="name">บุคลากรสำนักงานหลักประกันสุขภาพกห่งชาติ</field>
+       <field name="parent_id" ref="cov_GOF"/>
+    </record>
+
+   <record id="cov_E1" model="ni.coverage.type">
+       <field name="code">E1</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐ (ตนเอง)</field>
+       <field name="parent_id" ref="cov_GOF"/>
+    </record>
+
+   <record id="cov_E2" model="ni.coverage.type">
+       <field name="code">E2</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐ (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_GOF"/>
+    </record>
+
+   <record id="cov_E3" model="ni.coverage.type">
+       <field name="code">E3</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐ (ผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_GOF"/>
+    </record>
+
+   <record id="cov_E4" model="ni.coverage.type">
+       <field name="code">E4</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐ (บุคคลในครอบครัวผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_GOF"/>
+    </record>
+
+   <record id="cov_L1" model="ni.coverage.type">
+       <field name="code">L1</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (ตนเอง)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L2" model="ni.coverage.type">
+       <field name="code">L2</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L3" model="ni.coverage.type">
+       <field name="code">L3</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (ผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L4" model="ni.coverage.type">
+       <field name="code">L4</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (บุคคลในครอบครัวผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L5" model="ni.coverage.type">
+       <field name="code">L5</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (ข้าราชการการเมือง)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L6" model="ni.coverage.type">
+       <field name="code">L6</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (บุคคลในครอบครัวข้าราชการการเมือง)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_L9" model="ni.coverage.type">
+       <field name="code">L9</field>
+       <field name="name">สิทธิสวัสดิการพนักงานส่วนท้องถิ่น (ยังไม่ระบุตำแหน่ง)</field>
+       <field name="parent_id" ref="cov_LGO"/>
+    </record>
+
+   <record id="cov_N1" model="ni.coverage.type">
+       <field name="code">N1</field>
+       <field name="name">เด็ก อายุ 0-7 ปีบริบูรณ์</field>
+       <field name="parent_id" ref="cov_NRH"/>
+    </record>
+
+   <record id="cov_N5" model="ni.coverage.type">
+       <field name="code">N5</field>
+       <field name="name">แรงงานต่างด้าวที่รอเข้าระบบประกันสังคม (ตรวจสุขภาพที่รพ.อื่น)</field>
+       <field name="parent_id" ref="cov_NRH"/>
+    </record>
+
+   <record id="cov_N4" model="ni.coverage.type">
+       <field name="code">N4</field>
+       <field name="name">แรงงานต่างด้าวทั่วไป อายุเกิน 7 ปี (ตรวจสุขภาพที่รพ.อื่น)</field>
+       <field name="parent_id" ref="cov_NRH"/>
+    </record>
+
+   <record id="cov_N3" model="ni.coverage.type">
+       <field name="code">N3</field>
+       <field name="name">แรงงานต่างด้าวที่รอเข้าระบบประกันสังคม</field>
+       <field name="parent_id" ref="cov_NRH"/>
+    </record>
+
+   <record id="cov_N2" model="ni.coverage.type">
+       <field name="code">N2</field>
+       <field name="name">แรงงานต่างด้าวทั่วไป อายุเกิน 7 ปี</field>
+       <field name="parent_id" ref="cov_NRH"/>
+    </record>
+
+   <record id="cov_O1" model="ni.coverage.type">
+       <field name="code">O1</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง (ข้าราชการ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_O2" model="ni.coverage.type">
+       <field name="code">O2</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง (ลูกจ้างประจำ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_O3" model="ni.coverage.type">
+       <field name="code">O3</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง (ผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_O4" model="ni.coverage.type">
+       <field name="code">O4</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_O5" model="ni.coverage.type">
+       <field name="code">O5</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง (บุคคลในครอบครัวผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B1" model="ni.coverage.type">
+       <field name="code">B1</field>
+       <field name="name">สิทธิเบิกข้าราชการกรุงเทพมหานคร (ข้าราชการ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B2" model="ni.coverage.type">
+       <field name="code">B2</field>
+       <field name="name">สิทธิเบิกข้าราชการกรุงเทพมหานคร (ลูกจ้างประจำ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B3" model="ni.coverage.type">
+       <field name="code">B3</field>
+       <field name="name">สิทธิเบิกข้าราชการกรุงเทพมหานคร (ผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B4" model="ni.coverage.type">
+       <field name="code">B4</field>
+       <field name="name">สิทธิเบิกข้าราชการกรุงเทพมหานคร (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B5" model="ni.coverage.type">
+       <field name="code">B5</field>
+       <field name="name">สิทธิเบิกข้าราชการกรุงเทพมหานคร (บุคคลในครอบครัวผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C1" model="ni.coverage.type">
+       <field name="code">C1</field>
+       <field name="name">สิทธิเบิกหน่วยงานรักหรือรัฐวิสาหกิจ (เจ้าหน้าที่)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C2" model="ni.coverage.type">
+       <field name="code">C2</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐหรือรัฐวิสาหกิจ (ตนเอง)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C3" model="ni.coverage.type">
+       <field name="code">C3</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐหรือรัฐวิสาหกิจ (ผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C4" model="ni.coverage.type">
+       <field name="code">C4</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐหรือรัฐวิสาหกิจ (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C5" model="ni.coverage.type">
+       <field name="code">C5</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐหรือรัฐวิสาหกิจ (บุคคลในครอบครัวผู้รับเบี้ยหวัดบำนาญ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_C6" model="ni.coverage.type">
+       <field name="code">C6</field>
+       <field name="name">สิทธิเบิกหน่วยงานรัฐหรือรัฐวิสาหกิจ (กรณีได้รับสิทธิเฉพาะหน่วยงาน)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_O7" model="ni.coverage.type">
+       <field name="code">O7</field>
+       <field name="name">สิทธิเบิกกรมบัญชีกลาง(รอกรมบัญชีกลางยืนยันสิทธิ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_G1" model="ni.coverage.type">
+       <field name="code">G1</field>
+       <field name="name">สิทธิหน่วยงานรัฐอื่น (ไม่สังกัดกรมบัญชีกลาง)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_B6" model="ni.coverage.type">
+       <field name="code">B6</field>
+       <field name="name">สิทธิเบิกบุคคลในครอบครัวลูกจ้างชั่วคราวกรุงเทพมหานคร (เบิกใบเสร็จ/หนังสือรับรองสิทธิ)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_G3" model="ni.coverage.type">
+       <field name="code">G3</field>
+       <field name="name">สิทธิเบิกการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (ตนเอง)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_G4" model="ni.coverage.type">
+       <field name="code">G4</field>
+       <field name="name">สิทธิเบิกการไฟฟ้าผ่ายผลิตแห่งประเทศไทย (บุคคลในครอบครัว)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_G2" model="ni.coverage.type">
+       <field name="code">G2</field>
+       <field name="name">สิทธิเบิกสถาบันการแพทย์ฉุกเฉินแห่งชาติ (ตนเอง)</field>
+       <field name="parent_id" ref="cov_OFC"/>
+    </record>
+
+   <record id="cov_P1" model="ni.coverage.type">
+       <field name="code">P1</field>
+       <field name="name">สิทธิครูเอกชน</field>
+       <field name="parent_id" ref="cov_PVT"/>
+    </record>
+
+   <record id="cov_P2" model="ni.coverage.type">
+       <field name="code">P2</field>
+       <field name="name">สิทธิครูเอกชน (เบิกส่วนเกินหนึ่งแสนห้าหมื่นบาทจากกรมบัญชีกลาง)</field>
+       <field name="parent_id" ref="cov_PVT"/>
+    </record>
+
+   <record id="cov_P3" model="ni.coverage.type">
+       <field name="code">P3</field>
+       <field name="name">สิทธิครูเอกชน (เบิกส่วนเกินหนึ่งแสนห้าหมื่นบาทจาก อปท.)</field>
+       <field name="parent_id" ref="cov_PVT"/>
+    </record>
+
+   <record id="cov_S6" model="ni.coverage.type">
+       <field name="code">S6</field>
+       <field name="name">สิทธิเบิกกองทุนประกันสังคม (ทุพพลภาพ)</field>
+       <field name="parent_id" ref="cov_SSI"/>
+    </record>
+
+   <record id="cov_S1" model="ni.coverage.type">
+       <field name="code">S1</field>
+       <field name="name">สิทธิเบิกกองทุนประกันสังคม (ผู้ประกันตน)</field>
+       <field name="parent_id" ref="cov_SSS"/>
+    </record>
+
+   <record id="cov_S2" model="ni.coverage.type">
+       <field name="code">S2</field>
+       <field name="name">สิทธิเบิกกองทุนประกันสังคม (เบิกส่วนต่างกรมบัญชีกลางได้เฉพาะกรณี)</field>
+       <field name="parent_id" ref="cov_SSS"/>
+    </record>
+
+   <record id="cov_S3" model="ni.coverage.type">
+       <field name="code">S3</field>
+       <field name="name">สิทธิเบิกกองทุนประกันสังคม (เบิกส่วนต่างจากอปท. ได้เฉพาะกรณี)</field>
+       <field name="parent_id" ref="cov_SSS"/>
+    </record>
+
+   <record id="cov_S4" model="ni.coverage.type">
+       <field name="code">S4</field>
+       <field name="name">สิทธิเบิกกองทุนประกันสังคม (เบิกส่วนต่างกรมบัญชีกลางได้เฉพาะกรณี)(2)</field>
+       <field name="parent_id" ref="cov_SSS"/>
+    </record>
+
+   <record id="cov_ST" model="ni.coverage.type">
+       <field name="code">ST</field>
+       <field name="name">ให้ตรวจสอบสิทธิจากกองทุนประกันสุขภาพบุคคลที่มีปัญหาสถานะและสิทธิ กระทรวงสาธารณสุข</field>
+       <field name="parent_id" ref="cov_STP"/>
+    </record>
+
+   <record id="cov_89" model="ni.coverage.type">
+       <field name="code" eval="89"/>
+       <field name="name">ช่วงอายุ 12-59 ปี</field>
+       <field name="parent_id" ref="cov_UCS"/>
+    </record>
+
+   <record id="cov_60" model="ni.coverage.type">
+       <field name="code" eval="60"/>
+       <field name="name">อาสาสมัครมาเลเรีย</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_61" model="ni.coverage.type">
+       <field name="code" eval="61"/>
+       <field name="name">บุคคลในครอบครัวของอาสาสมัครมาเลเรีย</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_62" model="ni.coverage.type">
+       <field name="code" eval="62"/>
+       <field name="name">ช่างสุขภัณฑ์หมู่บ้าน</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_63" model="ni.coverage.type">
+       <field name="code" eval="63"/>
+       <field name="name">บุคคลในครอบครัวของช่างสุขภัณฑ์หมู่บ้าน</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_64" model="ni.coverage.type">
+       <field name="code" eval="64"/>
+       <field name="name">ผู้บริหารโรงเรียน และครูของโรงเรียนเอกชนที่สอนศาสนาอิสลาม</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_65" model="ni.coverage.type">
+       <field name="code" eval="65"/>
+       <field name="name">บุคคลในครอบครัวของผู้บริหารโรงเรียน และครูของโรงเรียนเอกชนที่สอนศาสนาอิสลาม</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_66" model="ni.coverage.type">
+       <field name="code" eval="66"/>
+       <field name="name">ผู้ได้รับพระราชทานเหรียญราชการชายแดน</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_67" model="ni.coverage.type">
+       <field name="code" eval="67"/>
+       <field name="name">ผู้ได้รับพระราชทานเหรียญพิทักษ์เสรีชน</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_68" model="ni.coverage.type">
+       <field name="code" eval="68"/>
+       <field name="name">สมาชิกผู้บริจาคโลหิตของสภากาชาดไทย ซึ่งบริจาคโลหิตตั้งแต่ 18 ครั้ง ขึ้นไป</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_69" model="ni.coverage.type">
+       <field name="code" eval="69"/>
+       <field name="name">หมออาสาหมู่บ้านตามโครงการของกระทรวงกลาโหม</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_70" model="ni.coverage.type">
+       <field name="code" eval="70"/>
+       <field name="name">อาสาสมัครคุมประพฤติ กระทรวงยุติธรรม</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_71" model="ni.coverage.type">
+       <field name="code" eval="71"/>
+       <field name="name">เด็กอายุไม่เกิน 12 ปีบริบูรณ์</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_72" model="ni.coverage.type">
+       <field name="code" eval="72"/>
+       <field name="name">ผู้มีรายได้น้อย</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_73" model="ni.coverage.type">
+       <field name="code" eval="73"/>
+       <field name="name">นักเรียนมัธยมศึกษาตอนต้น</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_74" model="ni.coverage.type">
+       <field name="code" eval="74"/>
+       <field name="name">คนพิการ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_77" model="ni.coverage.type">
+       <field name="code" eval="77"/>
+       <field name="name">ผู้มีอายุเกิน 60 ปีบริบูรณ์</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_80" model="ni.coverage.type">
+       <field name="code" eval="80"/>
+       <field name="name">บุคคลในครอบครัวทหารผ่านศึกชั้น 1 รวมถึงผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_81" model="ni.coverage.type">
+       <field name="code" eval="81"/>
+       <field name="name">ผู้นำชุมชน (กำนัน สารวัตรกำนัน ผู้ใหญ่บ้าน ผู้ช่วยผู้ใหญ่บ้านและแพทย์ประจำตำบล)</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_83" model="ni.coverage.type">
+       <field name="code" eval="83"/>
+       <field name="name">ผู้นำศาสนาอิสลาม ( อิหม่าม คอเต็บ บิหลั่น)</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_84" model="ni.coverage.type">
+       <field name="code" eval="84"/>
+       <field name="name">บุคคลในครอบครัวของผู้นำศาสนาอิสลามของผู้นำศาสนาอิสลาม ( อิหม่าม คอเต็บ บิหลั่น)</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_87" model="ni.coverage.type">
+       <field name="code" eval="87"/>
+       <field name="name">บุคคลในครอบครัวของผู้นำชุมชน (กำนัน สารวัตรกำนัน ผู้ใหญ่บ้าน ผู้ช่วยผู้ใหญ่บ้านและแพทย์ประจำตำบล)</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_90" model="ni.coverage.type">
+       <field name="code" eval="90"/>
+       <field name="name">ทหารเกณฑ์</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_91" model="ni.coverage.type">
+       <field name="code" eval="91"/>
+       <field name="name">ผู้พำนักในสถานที่ภายใต้การดูแลของส่วนราชการ 1</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_92" model="ni.coverage.type">
+       <field name="code" eval="92"/>
+       <field name="name">ผู้พำนักในสถานที่ภายใต้การดูแลของส่วนราชการ 2</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_93" model="ni.coverage.type">
+       <field name="code" eval="93"/>
+       <field name="name">นักเรียนทหาร</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_95" model="ni.coverage.type">
+       <field name="code" eval="95"/>
+       <field name="name">บุคคลในครอบครัวทหารผ่านศึกชั้น 2 - 4 รวมถึงผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_96" model="ni.coverage.type">
+       <field name="code" eval="96"/>
+       <field name="name">ทหารพราน</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_97" model="ni.coverage.type">
+       <field name="code" eval="97"/>
+       <field name="name">บุคคลในครอบครัวทหารของกรมสวัสดิการสามเหล่าทัพ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_98" model="ni.coverage.type">
+       <field name="code" eval="98"/>
+       <field name="name">บุคคลในครอบครัวทหารผ่านศึกนอกประจำการบัตรชั้นที่ 1</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_75" model="ni.coverage.type">
+       <field name="code" eval="75"/>
+       <field name="name">ทหารผ่านศึกชั้น 1-3 ที่มีบัตรทหารผ่านศึก รวมถึงผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_76" model="ni.coverage.type">
+       <field name="code" eval="76"/>
+       <field name="name">พระภิกษุ สามเณร แม่ชี นักบวช และนักพรตในพระพุทธศาสนาซึ่งมีหนังสือสุทธิรับรอง</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_82" model="ni.coverage.type">
+       <field name="code" eval="82"/>
+       <field name="name">อาสาสมัครสาธารณสุขประจำหมู่บ้าน (อสม.) หรืออาสาสมัครสาธารณสุขกรุงเทพมหานคร</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_85" model="ni.coverage.type">
+       <field name="code" eval="85"/>
+       <field name="name">ผู้ได้รับพระราชทานเหรียญงานพระราชสงครามในทวีปยุโรป</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_86" model="ni.coverage.type">
+       <field name="code" eval="86"/>
+       <field name="name">บุคคลในครอบครัวของผู้ได้รับพระราชทานเหรียญงานพระราชสงครามในทวีปยุโรป</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_88" model="ni.coverage.type">
+       <field name="code" eval="88"/>
+       <field name="name">บุคคลในครอบครัวของอาสาสมัครสาธารณสุขประจำหมู่บ้าน (อสม.) หรืออาสาสมัครสาธารณสุขกรุงเทพมหานคร</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_94" model="ni.coverage.type">
+       <field name="code" eval="94"/>
+       <field name="name">ทหารผ่านศึกชั้น 4 ที่มีบัตรทหารผ่านศึก รวมถึงผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_59" model="ni.coverage.type">
+       <field name="code" eval="59"/>
+       <field name="name">บุคคลในครอบครัวทหารของกรมแพทย์ทหารเรือ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_58" model="ni.coverage.type">
+       <field name="code" eval="58"/>
+       <field name="name">บุคคลในครอบครัวทหารของกรมแพทย์ทหารอากาศ</field>
+       <field name="parent_id" ref="cov_WEL"/>
+    </record>
+
+   <record id="cov_V2" model="ni.coverage.type">
+       <field name="code">V2</field>
+       <field name="name">สิทธิเบิกองค์การสงเคราะห์ทหารผ่านศึก (ทายาทผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ)</field>
+       <field name="parent_id" ref="cov_WVO"/>
+    </record>
+
+   <record id="cov_V1" model="ni.coverage.type">
+       <field name="code">V1</field>
+       <field name="name">สิทธิเบิกองค์การสงเคราะห์ทหารผ่านศึก (ผู้ได้รับพระราชทานเหรียญชัยสมรภูมิ)</field>
+       <field name="parent_id" ref="cov_WVO"/>
+    </record>
+    <!-- prettier-ignore-end -->
+</odoo>

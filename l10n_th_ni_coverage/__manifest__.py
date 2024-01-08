@@ -2,7 +2,7 @@
 
 {
     "name": "Thai Coverage",
-    "version": "16.0.0.1.0",
+    "version": "16.0.0.1.1",
     "development_status": "Alpha",
     "category": "Medical",
     "author": "NSTDA, Piruin P.",
@@ -12,7 +12,7 @@
     "depends": [
         "ni_coverage",
     ],
-    "data": ["data/ni.coverage.type.csv"],
+    "data": ["data/ni_coverage_type_data.xml", "views/ni_encounter_views.xml"],
     "application": False,
     "auto_install": False,
     "installable": True,
