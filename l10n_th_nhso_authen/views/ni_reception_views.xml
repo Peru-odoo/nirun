@@ -18,7 +18,7 @@
                 <attribute name="invisible">True</attribute>
             </field>
             <field name="coverage_type_ids" position="after">
-                <field name="claim_code" readonly="True" />
+                <field name="claim_code" />
             </field>
         </field>
     </record>
