@@ -153,7 +153,7 @@
                             <field name="patient_id" invisible="1" options="{'no_create': True, 'no_open': True}" />
                             <label for="identification_id" />
                             <div class="o_row">
-                                <field name="identification_id" placeholder="💳 X-XXXX-XXXXX-XX-1" />
+                                <field name="identification_id" placeholder="X-XXXX-XXXXX-XX-1" />
                                 <field name="nationality_id" placeholder="Nationality" options="{'no_open': True}" />
                             </div>
                             <label for="name" />
@@ -166,25 +166,14 @@
                                 />
                                 <field name="name" placeholder="John Smith" />
                             </div>
-                            <label for="gender" />
+                            <field name="gender" widget="radio" options="{'horizontal': True}" />
+                            <label for="blood_abo" string="Blood Group" />
                             <div class="o_row">
-                                <field name="gender" widget="radio" options="{'horizontal': True}" />
-                                <label for="blood_abo" string="Blood Group" class="mx-1" />
-                                <field
-                                    name="blood_abo"
-                                    class="narrow_field"
-                                    placeholder="ABO"
-                                    options="{'no_open': True}"
-                                />
-                                <field
-                                    name="blood_rh"
-                                    class="narrow_field"
-                                    placeholder="RH"
-                                    options="{'no_open': True, 'always_reload':True}"
-                                    context="{'only_abbr': True}"
-                                />
+                                <field name="blood_abo" widget="radio" placeholder="ABO" options="{'no_open': True}" />
+                                <label for="blood_rh" />
+                                <field name="blood_rh" placeholder="RH" widget="radio" context="{'only_abbr': True}" />
                             </div>
-                            <field name="birthdate" placeholder="🎂 09-31-XXXX" />
+                            <field name="birthdate" placeholder="09-31-XXXX" />
                             <label name="address_name" for="street" string="Address" />
                             <div class="o_address_format">
                                 <field name="street" class="o_address_street" placeholder="Street..." />
@@ -207,26 +196,24 @@
                             </div>
                             <label for="mobile" />
                             <div class="o_row">
-                                <field name="mobile" widget="phone" placeholder="📱 086-XXX-XXXX" />
-                                <field name="phone" widget="phone" placeholder="📞 02-XXX-XXXX" />
+                                <i class="fa fa-mobile me-2" aria-hidden="true" />
+                                <field name="mobile" widget="phone" placeholder="086-XXX-XXXX" />
+                                <i class="fa fa-phone me-2" aria-hidden="true" />
+                                <field name="phone" widget="phone" placeholder="02-XXX-XXXX" />
                             </div>
-                            <field name="email" widget="email" placeholder="📧 John21@freemail.com" />
-                            <field name="allergy_code_ids" widget="many2many_tags" placeholder="e.g. 🦐Shrimp..." />
+                            <field name="email" widget="email" placeholder="John21@freemail.com" />
+                            <field name="allergy_code_ids" widget="many2many_tags" placeholder="e.g. Shrimp..." />
                             <field
                                 name="condition_problem_ids"
                                 widget="many2many_tags"
-                                placeholder="e.g. 🍦Type II Diabetes, 🥓Hypertension... "
+                                placeholder="e.g. Type II Diabetes, Hypertension... "
                             />
                         </group>
                         <group string="Encounter">
                             <label for="chief_complaint" />
                             <div>
                                 <field name="chief_complaint" />
-                                <field
-                                    name="reason_ids"
-                                    widget="many2many_tags"
-                                    placeholder="e.g. 🤒Fever, 😷Cough..."
-                                />
+                                <field name="reason_ids" widget="many2many_tags" placeholder="e.g. Fever, Cough..." />
                             </div>
                             <label for="body_weight" string="Weight/Height" />
                             <div class="row">
@@ -276,7 +263,7 @@
                             </div>
                             <label for="priority" />
                             <div class="o_row">
-                                <field name="priority" class="narrow_field me-2" />
+                                <field name="priority" class="me-2" />
                                 <i
                                     class="fa fa-flag text-muted"
                                     title="Routine"
@@ -300,7 +287,7 @@
                             </div>
                             <field
                                 name="class_id"
-                                placeholder="🏥 Outpatient"
+                                placeholder="Outpatient"
                                 options="{'no_create': True, 'no_open': True}"
                                 context="{'show_parent': True}"
                             />
