@@ -121,7 +121,7 @@ msgid ""
 "Patient\n"
 "                            <span class=\"text-danger\">*</span>"
 msgstr ""
-"ชื่อ-นามสกุลผู้ป่วย\n"
+"ชื่อ-นามสกุลผู้รับบริการ\n"
 "                            <span class=\"text-danger\">*</span>"
 
 #. module: ni_appointment_website

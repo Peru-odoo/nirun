@@ -337,12 +337,12 @@ msgstr "แสดงรายการแรก"
 #. module: ni_patient_summary_report
 #: model:ir.actions.report,name:ni_patient_summary_report.action_report_summary
 msgid "Summary Report"
-msgstr "ใบตรวจรักษาผู้ป่วย"
+msgstr "ใบตรวจรักษาผู้รับบริการ"
 
 #. module: ni_patient_summary_report
 #: model:ir.model.fields,field_description:ni_patient_summary_report.field_ni_encounter_class__summary_report_title
 msgid "Summary Report Title"
-msgstr "ชื่อใบตรวจรักษาผู้ป่วย"
+msgstr "ชื่อใบตรวจรักษาผู้รับบริการ"
 
 #. module: ni_patient_summary_report
 #: model_terms:ir.ui.view,arch_db:ni_patient_summary_report.encounter_report

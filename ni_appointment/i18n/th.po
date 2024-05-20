@@ -26,7 +26,7 @@ msgstr ""
 #. module: ni_appointment
 #: model_terms:ir.ui.view,arch_db:ni_appointment.portal_my_appointment
 #: model_terms:ir.ui.view,arch_db:ni_appointment.report_appointment
-msgid "<b class=\"h4\">บัตรนัดหมายผู้ป่วย</b>"
+msgid "<b class=\"h4\">บัตรนัดหมายผู้รับบริการ</b>"
 msgstr ""
 
 #. module: ni_appointment
@@ -146,7 +146,7 @@ msgstr "<strong>ข้อความ</strong>"
 #. module: ni_appointment
 #: model_terms:ir.ui.view,arch_db:ni_appointment.portal_my_appointment
 msgid "<strong>Patient</strong>"
-msgstr "<strong>ผู้ป่วย</strong>"
+msgstr "<strong>ผู้รับบริการ</strong>"
 
 #. module: ni_appointment
 #: model_terms:ir.ui.view,arch_db:ni_appointment.portal_my_appointment
@@ -247,7 +247,7 @@ msgstr "ระยะเวลาที่นัดหมาย"
 #: model:ir.actions.act_window,name:ni_appointment.ni_appointment_instruction_action
 #: model:ir.model,name:ni_appointment.model_ni_appointment_instruction
 msgid "Appointment Patient Instruction"
-msgstr "ข้อแนะนำสำหรับผู้ป่วย"
+msgstr "ข้อแนะนำสำหรับผู้รับบริการ"
 
 #. module: ni_appointment
 #: model_terms:ir.ui.view,arch_db:ni_appointment.portal_my_appointments
@@ -886,13 +886,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_appointment.field_ni_appointment__patient_id
 #: model_terms:ir.ui.view,arch_db:ni_appointment.ni_appointment_view_search
 msgid "Patient"
-msgstr "ผู้ป่วย"
+msgstr "ผู้รับบริการ"
 
 #. module: ni_appointment
 #: model:ir.model.fields,field_description:ni_appointment.field_res_company__appointment_instruction_ids
 #: model:ir.ui.menu,name:ni_appointment.ni_appointment_instruction_menu
 msgid "Patient Instruction"
-msgstr "คำแนะนำสำหรับผู้ป่วย"
+msgstr "คำแนะนำสำหรับผู้รับบริการ"
 
 #. module: ni_appointment
 #: model:ir.model.fields,help:ni_appointment.field_ni_appointment__privacy

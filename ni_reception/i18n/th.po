@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-search \" title=\"Search\"/>\n"
 "                            <span class=\"mx-2\">\n"
-"                                <b>ค้นหาผู้ป่วยรายเก่า</b>\n"
+"                                <b>ค้นหาผู้รับบริการรายเก่า</b>\n"
 "                            </span>"
 
 #. module: ni_reception
@@ -455,7 +455,7 @@ msgstr "สัญชาติ"
 #. module: ni_reception
 #: model_terms:ir.actions.act_window,help:ni_reception.ni_reception_action
 msgid "No reception note!"
-msgstr "ไม่พบบันทึกทะเบียนผู้ป่วย"
+msgstr "ไม่พบบันทึกทะเบียนผู้รับบริการ"
 
 #. module: ni_reception
 #: model:ir.model.fields,field_description:ni_reception.field_ni_reception__oxygen_sat
@@ -475,12 +475,12 @@ msgstr "คู่ค้า"
 #. module: ni_reception
 #: model:ir.model.fields,field_description:ni_reception.field_ni_reception__patient_id
 msgid "Patient"
-msgstr "ผู้ป่วย"
+msgstr "ผู้รับบริการ"
 
 #. module: ni_reception
 #: model_terms:ir.ui.view,arch_db:ni_reception.ni_reception_view_form
 msgid "Patient Information"
-msgstr "ข้อมูลผู้ป่วย"
+msgstr "ข้อมูลผู้รับบริการ"
 
 #. module: ni_reception
 #: model:ir.model.fields,field_description:ni_reception.field_ni_reception__performer_id
@@ -610,7 +610,7 @@ msgstr "คำนำหน้า"
 #: model:ir.model.fields,field_description:ni_reception.field_ni_reception__priority
 #: model_terms:ir.ui.view,arch_db:ni_reception.ni_reception_view_search
 msgid "Triage"
-msgstr "การคัดแยกผู้ป่วย"
+msgstr "การคัดแยกผู้รับบริการ"
 
 #. module: ni_reception
 #: model:ir.model.fields.selection,name:ni_reception.selection__ni_reception__priority__urgent

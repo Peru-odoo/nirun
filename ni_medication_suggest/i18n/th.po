@@ -336,7 +336,7 @@ msgid ""
 "Supplemental instruction or warnings to the patient - e.g. \"with meals\", "
 "\"may cause drowsiness\""
 msgstr ""
-"วิธีการใช้ยาหรือคำเตือนเพิ่มเติมสำหรับผู้ป่วย เช่น \"พร้อมอาหาร\", "
+"วิธีการใช้ยาหรือคำเตือนเพิ่มเติมสำหรับผู้รับบริการ เช่น \"พร้อมอาหาร\", "
 "\"อาจทำให้ง่วง\""
 
 #. module: ni_medication_suggest

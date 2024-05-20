@@ -1456,22 +1456,22 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_search
 msgid "Patient"
-msgstr "ผู้ป่วย"
+msgstr "ผู้รับบริการ"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__patient_count
 msgid "Patient Count"
-msgstr "จำนวนผู้ป่วย"
+msgstr "จำนวนผู้รับบริการ"
 
 #. module: ni_medication
 #: model:ni.medication.admin.location,name:ni_medication.admin_location_patient_specified
 msgid "Patient Specified"
-msgstr "ผู้ป่วยระบุ"
+msgstr "ผู้รับบริการระบุ"
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_view_form
 msgid "Patients"
-msgstr "ข้อมูลผู้ป่วย"
+msgstr "ข้อมูลผู้รับบริการ"
 
 #. module: ni_medication
 #: model:ni.medication.dosage.route,name:ni_medication.route_PR
@@ -1729,7 +1729,7 @@ msgid ""
 "Supplemental instruction or warnings to the patient - e.g. \"with meals\", "
 "\"may cause drowsiness\""
 msgstr ""
-"วิธีการใช้ยาหรือคำเตือนเพิ่มเติมสำหรับผู้ป่วย เช่น \"พร้อมอาหาร\", "
+"วิธีการใช้ยาหรือคำเตือนเพิ่มเติมสำหรับผู้รับบริการ เช่น \"พร้อมอาหาร\", "
 "\"อาจทำให้ง่วง\""
 
 #. module: ni_medication

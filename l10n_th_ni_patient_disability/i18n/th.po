@@ -148,7 +148,7 @@ msgstr "รหัส"
 #: model:ir.model.fields,help:l10n_th_ni_patient_disability.field_ni_encounter__disability_card
 #: model:ir.model.fields,help:l10n_th_ni_patient_disability.field_ni_patient__disability_card
 msgid "Indicate patient have disability card or not"
-msgstr "ระบุว่าผู้ป่วยมีบัตรผู้พิการหรือไม่"
+msgstr "ระบุว่าผู้รับบริการมีบัตรผู้พิการหรือไม่"
 
 #. module: l10n_th_ni_patient_disability
 #: model:ni.disability,name:l10n_th_ni_patient_disability.type5_intellect
@@ -202,7 +202,7 @@ msgstr "ชื่อ"
 #: model:ir.model,name:l10n_th_ni_patient_disability.model_ni_patient
 #: model:ir.model.fields,field_description:l10n_th_ni_patient_disability.field_ni_disability__patient_ids
 msgid "Patient"
-msgstr "ผู้ป่วย"
+msgstr "ผู้รับบริการ"
 
 #. module: l10n_th_ni_patient_disability
 #: model:ir.model.fields,help:l10n_th_ni_patient_disability.field_ni_encounter__disability_card_reason
