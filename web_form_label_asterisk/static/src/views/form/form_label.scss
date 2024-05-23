@@ -2,3 +2,7 @@
     color: $danger;
     padding-left: ($spacer * 0.15);
 }
+
+.o_form_label.o_form_label_readonly .o_form_label_asterisk {
+    display: none;
+}
