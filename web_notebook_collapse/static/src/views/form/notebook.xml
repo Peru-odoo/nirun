@@ -9,10 +9,10 @@
                 <button
                     type="button"
                     id="btnCollapse"
-                    class="btn btn-secondary float-end"
+                    class="btn btn-mute float-end mx-1"
                     t-on-click="() => collapXpand(true)"
                 >
-                    <i class="fa fa-minus-square-o mx-1" aria-hidden="true" />
+                    <i class="fa fa-compress mx-1" aria-hidden="true" />
                     Collapse
                 </button>
                 <button
@@ -21,12 +21,12 @@
                     class="btn btn-secondary float-end"
                     t-on-click="() => collapXpand(false)"
                 >
-                    <i class="fa fa-plus-square-o mx-1" aria-hidden="true" />
+                    <i class="fa fa-expand mx-1" aria-hidden="true" />
                     Expand
                 </button>
             </div>
             <t t-if="props.orientation === 'horizontal'">
-                <div class="accordion nav-link o_notebook o_notebook_collapse" id="notebookCollapse">
+                <div class="accordion o_notebook o_notebook_collapse" id="notebookCollapse">
                     <div
                         class="accordion-item o_notebook_item"
                         t-foreach="pages"
@@ -49,7 +49,7 @@
                                     <div>
                                         <t t-out="pageItem[1].title" />
                                         <span
-                                            class="ms-2 badge text-bg-info"
+                                            class="ms-2 badge text-bg-primary"
                                             t-if="pageItem[1].badge"
                                             t-esc="pageItem[1].badge"
                                         />
@@ -102,7 +102,7 @@
                                         <div>
                                             <t t-out="pageItem[1].title" />
                                             <span
-                                                class="ms-2 badge text-bg-info"
+                                                class="ms-2 badge text-bg-primary"
                                                 t-if="pageItem[1].badge"
                                                 t-esc="pageItem[1].badge"
                                             />
