@@ -7,9 +7,9 @@ class MedicationAbstract(models.AbstractModel):
     _description = "Medication Abstract Resource"
     _inherits = {"ni.medication.dosage": "dosage_id"}
 
-    name = fields.Char(related="medication_id.name", store=True)
+    name = fields.Char("Medication Name", required=True)
     category_id = fields.Many2one("ni.medication.admin.location")
-    medication_id = fields.Many2one("ni.medication", required=True)
+    medication_id = fields.Many2one("ni.medication", required=False)
     medication_dosage_ids = fields.Many2many(related="medication_id.dosage_ids")
     medication_dosage_count = fields.Integer(related="medication_id.dosage_count")
     medication_dose_unit_id = fields.Many2one(related="medication_id.dose_unit_id")
@@ -32,6 +32,12 @@ class MedicationAbstract(models.AbstractModel):
     dosage_when = fields.Many2many(
         related="dosage_id.timing_when", help="Use for search filter with `When`"
     )
+
+    @api.onchange("medication_id")
+    def _onchange_medication_id(self):
+        for rec in self:
+            if rec.medication_id:
+                rec.name = rec.medication_id.name
 
     @api.model_create_multi
     def create(self, vals_list):

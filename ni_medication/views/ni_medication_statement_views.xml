@@ -68,7 +68,7 @@
                 <field name="patient_id" invisible="1" />
                 <field name="encounter_id" invisible="1" />
                 <field name="occurrence" optional="hide" />
-                <field name="medication_id" />
+                <field name="name" />
                 <field name="dosage_id" optional="show" />
                 <field name="category_id" optional="hide" />
                 <field name="state" optional="hide" />
@@ -97,7 +97,10 @@
                     <div class="oe_title">
                         <label for="medication_id" />
                         <div>
-                            <field name="medication_id" class="w-100" nolabel="True" />
+                            <field name="name" placeholder="ชื่อยา" />
+                        </div>
+                        <div>
+                            <field name="medication_id" class="w-100" nolabel="True" placeholder="ค้นหาด้วยชื่อยา..." />
                         </div>
                     </div>
                     <group>
@@ -113,7 +116,11 @@
                                 invisible="context.get('default_encounter_id')"
                                 options="{'no_open': True}"
                             />
-                            <field name="category_id" options="{'no_open': True}" />
+                            <field
+                                name="category_id"
+                                options="{'no_open': True}"
+                                invisible="context.get('default_category_id')"
+                            />
                         </group>
                         <group>
                             <field name="occurrence" />

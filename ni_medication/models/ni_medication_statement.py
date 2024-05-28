@@ -14,8 +14,6 @@ class MedicationStatement(models.Model):
     ]
     _check_period_start = True
 
-    name = fields.Char(related="medication_id.name", store=True)
-    display_name = fields.Char(compute="_compute_display_name", store=True)
     category_id = fields.Many2one(
         default=lambda self: self.env.ref(
             "ni_medication.admin_location_patient_specified"
@@ -47,26 +45,20 @@ class MedicationStatement(models.Model):
             res = {"value": {"condition_ids": condition.ids}}
         return res
 
-    @api.depends("medication_id.name", "patient_id.name")
-    def _compute_display_name(self):
-        diff = dict(show_patient=True, show_occurrence=None, show_state=None)
-        names = dict(self.with_context(**diff).name_get())
-        for rec in self:
-            rec.display_name = names.get(rec.id)
-
     def name_get(self):
         return [(rec.id, rec._name_get()) for rec in self]
 
     def _name_get(self):
         rec = self
         name = rec.name or rec.medication_id.name
-        if self._context.get("show_patient"):
+        if self.env.context.get("show_patient"):
             name = "{}, {}".format(rec.patient_id._name_get(), name)
-        if self._context.get("show_occurrence"):
-            if rec.occurrence:
-                name = "{} | {}".format(name, rec.occurrence_date)
-        if self._context.get("show_state"):
+        if self.env.context.get("show_dosage") and rec.dosage_id:
+            name = "{} - {}".format(name, rec.dosage_id.display_name)
+        if self.env.context.get("show_state"):
             name = "{} ({})".format(name, rec._get_state_label())
+        if self.env.context.get("show_occurrence") and rec.occurrence:
+            name = "{} | {}".format(name, rec.occurrence_date)
         return name
 
     @property
