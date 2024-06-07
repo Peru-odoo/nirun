@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <record id="ni_service_view_form_inherit" model="ir.ui.view">
+        <field name="name">ni.service.view.form.inherit</field>
+        <field name="model">ni.service</field>
+        <field name="inherit_id" ref="ni_service.ni_service_view_form" />
+        <field name="arch" type="xml">
+            <field position="after" name="duration">
+                <field name="target_type_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                <label for="target" />
+                <div class="o_row">
+                    <field name="target" />
+                    <div>คน</div>
+                </div>
+            </field>
+            <xpath expr="//page[@name='description']" position="before">
+                <page name="objective" string="วัตถุประสงค์" icon="fa-bullseye">
+                    <field name="objective" placeholder="วัตถุประสงค์..." />
+                </page>
+                <page name="procedure" string="วิธีการ/ขั้นตอนการทำงาน" icon="fa-th-list">
+                    <field name="procedure" placeholder="วิธีการ/ขั้นตอนการทำงาน..." />
+                </page>
+                <page name="benefit" string="ผลประโยชน์" icon="fa-gift">
+                    <field name="benefit" placeholder="ผลประโยชน์..." />
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record id="ni_service_view_tree_inherit" model="ir.ui.view">
+        <field name="name">ni.service.view.tree.inherit</field>
+        <field name="model">ni.service</field>
+        <field name="inherit_id" ref="ni_service.ni_service_view_tree" />
+        <field name="arch" type="xml">
+            <field name="type_id" position="after">
+                <field name="target_type_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                <field name="target" />
+            </field>
+        </field>
+    </record>
+</odoo>

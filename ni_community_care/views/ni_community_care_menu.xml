@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <menuitem
+        id="cc_report_menu_root"
+        name="รายงาน"
+        sequence="3"
+        web_icon="ni_community_care,static/description/icon.png"
+    />
+    <menuitem
+        id="cc_report_monthly_menu"
+        name="รายงานประจำเดือน"
+        parent="cc_report_menu_root"
+        action="ni_cc_report_monthly_action"
+        sequence="0"
+    />
+</odoo>

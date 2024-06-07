@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <record id="ni_service_event_view_form_inherit" model="ir.ui.view">
+        <field name="name">ni.service.event.view.form.inherit</field>
+        <field name="model">ni.service.event</field>
+        <field name="inherit_id" ref="ni_service.ni_service_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="inside">
+                <page name="Attendance" string="ผู้เข้าร่วมกิจกรรม" icon="fa-blind">
+                    <field name="attend_patient_ids" mode="tree">
+                        <tree>
+                            <field name="display_name" />
+                            <field name="display_age" />
+                            <field name="phone" />
+                            <field name="mobile" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

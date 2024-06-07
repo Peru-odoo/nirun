@@ -10,12 +10,12 @@
     "license": "LGPL-3",
     "maintainers": ["piruin"],
     "depends": [
-        "ni_patient",
-        "product",
         "ni_timing",
-        "uom_alias",
+        "ni_patient",
         "ni_condition",
         "ni_practitioner",
+        "product",
+        "uom_alias",
     ],
     "data": [
         "security/ni_medication_group.xml",

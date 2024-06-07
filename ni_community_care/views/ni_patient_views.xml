@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <record id="ni_patient_view_form_inherit" model="ir.ui.view">
+        <field name="name">ni.patient.view.form.inherit</field>
+        <field name="model">ni.patient</field>
+        <field name="inherit_id" ref="ni_patient.ni_patient_view_form" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="type_id" widget="radio" />
+            </field>
+            <xpath expr="//page[@name='private']" position="before">
+                <page name="problem" string="สภาพปัญหา" icon="fa-exclamation-triangle">
+                    <field name="problem" />
+                </page>
+                <page name="plan" string="แนวทางในการให้ความช่วยเหลือดูแล" icon="fa-bullseye">
+                    <field name="plan_service_ids" domain="[('target_type_ids', '=', type_id)]" widget="many2many_tags">
+
+                    </field>
+                    <field name="plan" />
+                </page>
+            </xpath>
+            <field name="father_name" position="before">
+                <field name="family_count" />
+                <field name="family_relation" />
+            </field>
+        </field>
+    </record>
+</odoo>
