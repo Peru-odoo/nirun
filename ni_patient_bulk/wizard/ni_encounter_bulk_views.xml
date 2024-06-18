@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <record id="ni_encounter_bulk_view_form" model="ir.ui.view">
+        <field name="name">ni.encounter.bulk.view.form</field>
+        <field name="model">ni.encounter.bulk</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <field name="company_id" invisible="1" />
+                <sheet>
+                    <group>
+                        <field
+                            name="company_id"
+                            groups="base.group_multi_company"
+                            options="{'no_create': True, 'no_open':True}"
+                        />
+                        <field name="class_id" options="{'no_create': True, 'no_open':True}" />
+                        <field name="period_start" />
+                        <field name="patient_ids" widget="many2many_tags_avatar" />
+                        <field name="calendar_id" options="{'no_create': True, 'no_open':True}" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_create"
+                        type="object"
+                        string="เข้ารับบริการ"
+                        attrs="{'invisible': [('patient_ids', '=', False)]}"
+                    />
+                    <button special="cancel" string="ยกเลิก" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
