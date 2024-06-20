@@ -98,6 +98,7 @@
                             options="{'color_field': 'category_color', 'no_create': True}"
                             attrs="{'readonly': [('patient_id', '=', False)]}"
                         />
+                        <field name="feedback" widget="priority" class="mt-3" />
                         <field name="outcome" />
                     </group>
                 </sheet>
@@ -119,6 +120,7 @@
                     attrs="{'readonly': [('patient_id', '=', False)]}"
                 />
                 <field name="duration" widget="float_time" />
+                <field name="feedback" widget="priority" />
                 <field name="outcome" />
             </tree>
         </field>

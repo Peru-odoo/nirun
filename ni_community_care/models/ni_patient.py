@@ -9,8 +9,10 @@ class Patient(models.Model):
     family_relation = fields.Many2one("ni.family.relation", "ความสัมพันธ์ในครับครัว")
 
     type_id = fields.Many2one("ni.patient.type", "ประเภทผู้สูงอายุ")
+    problem_ids = fields.Many2one("ni.condition.code")
+    problem = fields.Text()
+    line = fields.Char("LINE ID")
 
-    problem = fields.Text("สภาพปัญหา")
     plan = fields.Text("แนวทางในการให้ความช่วยเหลือดูแล")
 
     plan_service_ids = fields.Many2many(

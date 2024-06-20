@@ -106,6 +106,18 @@ class CommunityCareReportLine(models.Model):
     )
     duration = fields.Float("ระยะเวลา", compute="_compute_duration")
 
+    feedback = fields.Selection(
+        [
+            ("0", "ไม่มีผล"),
+            ("1", "น้อยที่สุด"),
+            ("2", "น้อย"),
+            ("3", "ปานกลาง"),
+            ("4", "มาก"),
+            ("5", "มากที่สุด"),
+        ],
+        "รอยยิ้ม",
+        default="0",
+    )
     outcome = fields.Html("ผลการดูแล")
 
     _sql_constraints = [
