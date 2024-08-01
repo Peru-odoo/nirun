@@ -1,0 +1,523 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ni_careplan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-02 07:11+0000\n"
+"PO-Revision-Date: 2024-08-02 07:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_kanban
+msgid ""
+"<i class=\"fa fa-bug text-warning\" aria-hidden=\"true\" title=\"condition\"/>\n"
+"                                        <span class=\"small mx-2\">Address :</span>"
+msgstr ""
+"<i class=\"fa fa-bug text-warning\" aria-hidden=\"true\" title=\"condition\"/>\n"
+"                                        <span class=\"small mx-2\">ประเด็นปัญหา :</span>"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_kanban
+msgid ""
+"<i class=\"fa fa-bullseye text-danger\" aria-hidden=\"true\" title=\"goal\"/>\n"
+"                                        <span class=\"small mx-2\">Goal :</span>"
+msgstr ""
+"<i class=\"fa fa-bullseye text-danger\" aria-hidden=\"true\" title=\"goal\"/>\n"
+"                                        <span class=\"small mx-2\">เป้าหมาย :</span>"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_kanban
+msgid "<i class=\"fa fa-clock-o me-2\" aria-hidden=\"true\" title=\"period_end\"/>"
+msgstr ""
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_kanban
+msgid ""
+"<i class=\"fa fa-inbox text-primary\" aria-hidden=\"true\" title=\"service\"/>\n"
+"                                        <span class=\"small mx-2\">Activity :</span>"
+msgstr ""
+"<i class=\"fa fa-inbox text-primary\" aria-hidden=\"true\" title=\"service\"/>\n"
+"                                        <span class=\"small mx-2\">แผนการดูแล :</span>"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__abbr
+msgid "Abbreviation"
+msgstr "ตัวย่อ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Achieved"
+msgstr "บรรลุผล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__achievement_id
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Achievement"
+msgstr "การบรรลุผล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__achievement_date
+msgid "Achievement Date"
+msgstr "วันที่ประเมินผล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__achievement_reason
+msgid "Achievement Reason"
+msgstr "ผลการประเมิน"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__achievement_uid
+msgid "Achievement Uid"
+msgstr "ผู้ประเมินผล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__active
+msgid "Active"
+msgstr "เปิดใช้งาน"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_tree
+msgid "Add care plan"
+msgstr "เพิ่มแผนการดูแล"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Address"
+msgstr "ประเด็นปัญหา"
+
+#. module: ni_careplan
+#: model:ir.model.fields.selection,name:ni_careplan.selection__ni_careplan__goal_mode__advance
+msgid "Advance"
+msgstr "ขั้นสูง"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_search
+msgid "Archived"
+msgstr "ถูกเก็บ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Are you sure to revoke this careplan?"
+msgstr "คุณต้องการ ยกเลิก แผนการดูแลนี้?"
+
+#. module: ni_careplan
+#: model:ir.model,name:ni_careplan.model_ni_careplan
+msgid "Care Plan"
+msgstr "แผนการดูแล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_encounter__careplan_ids
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_goal__careplan_id
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_goal_achievement__careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_patient__careplan_ids
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_service_request__careplan_id
+msgid "Careplan"
+msgstr "แผนการดูแล"
+
+#. module: ni_careplan
+#: model:ir.actions.act_window,name:ni_careplan.ni_careplan_category_action
+#: model:ir.model,name:ni_careplan.model_ni_careplan_category
+msgid "Careplan Category"
+msgstr "หมวดหมู่แผนการดูแล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_encounter__careplan_count
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_patient__careplan_count
+msgid "Careplan Count"
+msgstr "จำนวนแผนการดูแล"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__category_id
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__code
+msgid "Code"
+msgstr "รหัส"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__color
+msgid "Color"
+msgstr "สี"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__company_id
+msgid "Company"
+msgstr "หน่วยบริการ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__condition_ids
+msgid "Condition"
+msgstr "ปัญหา"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+msgid "Configuration"
+msgstr "การตั้งค่า"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__create_uid
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__create_uid
+msgid "Created by"
+msgstr "สร้างโดย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__create_date
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__create_date
+msgid "Created on"
+msgstr "สร้างเมื่อ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__definition
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+msgid "Definition"
+msgstr "คำนิยาม"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+msgid "Definition..."
+msgstr "คำนิยาม..."
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Describe goal"
+msgstr "ระบุเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__display_name
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__display_name
+msgid "Display Name"
+msgstr "ชื่อแสดง"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__duration
+msgid "Duration"
+msgstr "ระยะเวลา"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__duration_hours
+msgid "Duration (Hours)"
+msgstr "ระยะเวลา (ชั่วโมง)"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__duration_days
+msgid "Duration (days)"
+msgstr "ระยะเวลา (วัน)"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__duration_months
+msgid "Duration (months)"
+msgstr "ระยะเวลา (เดือน)"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__duration_years
+msgid "Duration (years)"
+msgstr "ระยะเวลา (ปี)"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__encounter_id
+msgid "Encounter No."
+msgstr "เลขรับบริการ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__enforce_specialty
+msgid "Enforce Specialty"
+msgstr ""
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+msgid "Extra Info"
+msgstr "ข้อมูลเพิ่มเติม"
+
+#. module: ni_careplan
+#: model:ir.model,name:ni_careplan.model_ni_goal
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_ids
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_encounter__goal_ids
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_patient__goal_ids
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Goal"
+msgstr "เป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_achieved_count
+msgid "Goal Achieved Count"
+msgstr "จำนวนเป้าหมายที่สำเร็จ"
+
+#. module: ni_careplan
+#: model:ir.model,name:ni_careplan.model_ni_goal_achievement
+msgid "Goal Achievement"
+msgstr "การบรรลุเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_category_id
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__goal_category_id
+msgid "Goal Category"
+msgstr "หมวดหมู่เป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_code_ids
+msgid "Goal Code"
+msgstr "รหัสเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_count
+msgid "Goal Count"
+msgstr "จำนวนเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_mode
+msgid "Goal Mode"
+msgstr "รูปแบบเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_ratio
+msgid "Goal Ratio"
+msgstr "สัดส่วนความสำเร็จของเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_review_ids
+msgid "Goal Review"
+msgstr "ทบทวนเป้าหมาย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__goal_text
+msgid "Goal Text"
+msgstr "เป้าหมาย"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_search
+msgid "Group By"
+msgstr "จัดกลุ่มโดย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__id
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__id
+msgid "ID"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__intent
+msgid "Intent"
+msgstr "เจตนา"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__is_future
+msgid "Is Future"
+msgstr "ในอนาคต"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__is_past
+msgid "Is Past"
+msgstr "อดีต"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__is_present
+msgid "Is Present"
+msgstr "ปัจจุบัน"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan____last_update
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category____last_update
+msgid "Last Modified on"
+msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__write_uid
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__write_uid
+msgid "Last Updated by"
+msgstr "แก้ไขล่าสุดโดย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__write_date
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__write_date
+msgid "Last Updated on"
+msgstr "แก้ไขล่าสุดเมื่อ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__name
+msgid "Name"
+msgstr "ชื่อ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Not achieve"
+msgstr "ไม่สำเร็จ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_kanban
+msgid "Not specify"
+msgstr "ไม่ระบุ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_careplan__partner_id
+msgid "Partner-related data of patient"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model,name:ni_careplan.model_ni_patient
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__patient_id
+msgid "Patient"
+msgstr "ผู้รับบริการ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_mode
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Period"
+msgstr "ช่วงเวลา"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_end_date_calendar
+msgid "Period End Date Calendar"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__priority
+msgid "Priority"
+msgstr "ความสำคัญ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_careplan__achievement_reason
+msgid "Reason for current achievement"
+msgstr "ผลการประเมินล่าสุด"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Reason for current achievement..."
+msgstr "ผลการประเมิน..."
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__partner_id
+msgid "Related Partner"
+msgstr "คู่ค้าที่เกี่ยวข้อง"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__request_id
+msgid "Request"
+msgstr ""
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Resume"
+msgstr "ทำต่อ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Revoke"
+msgstr "ยกเลิก"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Search for predefined goal..."
+msgstr "ค้นหาเป้าหมาย..."
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__sequence
+msgid "Sequence"
+msgstr "ลำดับ"
+
+#. module: ni_careplan
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_form
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Service"
+msgstr "กิจกรรม"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__service_category_id
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__service_category_id
+msgid "Service Category"
+msgstr "หมวดหมู่กิจกรรม"
+
+#. module: ni_careplan
+#: model:ir.model,name:ni_careplan.model_ni_service_request
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__service_request_ids
+msgid "Service Request"
+msgstr "แผนกิจกรรม"
+
+#. module: ni_careplan
+#: model:ir.model.fields.selection,name:ni_careplan.selection__ni_careplan__goal_mode__simple
+msgid "Simple"
+msgstr "แบบง่าย"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_start
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Since"
+msgstr "ตั้งแต่"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_start_date
+msgid "Since (Date)"
+msgstr "ตั้งแต่วันที่"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__state
+msgid "State"
+msgstr "สถานะ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__system_id
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_category_view_search
+msgid "System"
+msgstr "ระบบ"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__tense
+msgid "Tense"
+msgstr "ช่วงเวลา"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_end
+#: model_terms:ir.ui.view,arch_db:ni_careplan.ni_careplan_view_form
+msgid "Until"
+msgstr "สิ้นสุด"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__period_end_date
+msgid "Until (Date)"
+msgstr "วันที่สิ้นสุด"
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan_category__system
+msgid "Url"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,field_description:ni_careplan.field_ni_careplan__user_specialty
+msgid "User Specialty"
+msgstr "บทบาทของผู้ใช้"
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_goal_achievement__careplan
+msgid "Weather this state will appear on careplan achievement"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_goal__careplan_id
+msgid "What goal fulfills"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_service_request__careplan_id
+msgid "What request fulfills"
+msgstr ""
+
+#. module: ni_careplan
+#: model:ir.model.fields,help:ni_careplan.field_ni_careplan__achievement_date
+msgid "When achievement status took effect"
+msgstr ""
