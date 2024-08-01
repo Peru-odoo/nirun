@@ -3,3 +3,6 @@ access_ni_family_relation,access_ni_family_relation,model_ni_family_relation,,1,
 access_ni_patient_type,access_ni_patient_type,model_ni_patient_type,,1,1,1,1
 access_ni_cc_report_monthly,access_ni_cc_report_monthly,model_ni_cc_report_monthly,,1,1,1,1
 access_ni_cc_report_monthly_line,access_ni_cc_report_monthly_line,model_ni_cc_report_monthly_line,,1,1,1,1
+access_ni_service_event_outcome,access_ni_service_event_outcome,model_ni_service_event_outcome,,1,1,1,1
+access_ni_risk_assessment,access_ni_risk_assessment,model_ni_risk_assessment,,1,1,1,1
+access_ni_risk_assessment_prediction,access_ni_risk_assessment_prediction,model_ni_risk_assessment_prediction,,1,1,1,1

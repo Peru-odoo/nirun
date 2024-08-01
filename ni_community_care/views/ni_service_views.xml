@@ -8,14 +8,14 @@
         <field name="model">ni.service</field>
         <field name="inherit_id" ref="ni_service.ni_service_view_form" />
         <field name="arch" type="xml">
-            <field position="after" name="duration">
+            <xpath position="inside" expr="//sheet/group/group[2]">
                 <field name="target_type_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
                 <label for="target" />
                 <div class="o_row">
                     <field name="target" />
                     <div>คน</div>
                 </div>
-            </field>
+            </xpath>
             <xpath expr="//page[@name='description']" position="before">
                 <page name="objective" string="วัตถุประสงค์" icon="fa-bullseye">
                     <field name="objective" placeholder="วัตถุประสงค์..." />

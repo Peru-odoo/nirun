@@ -11,18 +11,140 @@
             <field name="partner_id" position="before">
                 <field name="type_id" widget="radio" />
             </field>
-            <xpath expr="//page[@name='private']" position="before">
-                <page name="problem" string="สภาพปัญหา" icon="fa-exclamation-triangle">
-                    <field name="problem" />
-                </page>
-                <page name="plan" string="แนวทางในการให้ความช่วยเหลือดูแล" icon="fa-bullseye">
-                    <field name="plan" />
-                </page>
-            </xpath>
             <field name="father_name" position="before">
                 <field name="family_count" />
                 <field name="family_relation" />
             </field>
+        </field>
+    </record>
+    <record id="ni_patient_view_kanban_simp" model="ir.ui.view">
+        <field name="name">ni.patient.view.kanban.simp</field>
+        <field name="model">ni.patient</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_partner_kanban" default_order="encounter_id, name">
+                <field name="name" />
+                <field name="identifier" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="deceased" />
+                <field name="deceased_date" />
+                <field name="partner_id" />
+                <field name="presence_state" />
+                <field name="encounter_id" />
+                <field name="is_encountering" />
+                <field name="location_id" />
+                <field name="image_128" />
+                <field name="type_decoration" />
+                <field name="identification_id" />
+                <field name="type_id" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                            <field
+                                name="image_1024"
+                                class="o_kanban_image_fill_left d-block"
+                                preview_image="image_128"
+                                widget="background_image"
+                                options="{'zoom': true, 'zoom_delay': 1000}"
+                            />
+                            <div class="oe_kanban_details">
+                                <div name="kanban_top" class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'unknown'">
+                                            <span
+                                                name="presence_to_define"
+                                                aria-label="Unknown"
+                                                class="fa fa-circle text-secondary"
+                                                role="img"
+                                                title="Unknown"
+                                            />
+                                        </div>
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'draft'">
+                                            <span
+                                                name="presence_draft"
+                                                aria-label="Draft"
+                                                class="fa fa-circle text-info"
+                                                role="img"
+                                                title="Draft"
+                                            />
+                                        </div>
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'planned'">
+                                            <span
+                                                name="presence_planned"
+                                                aria-label="Planned"
+                                                class="fa fa-circle text-warning"
+                                                role="img"
+                                                title="Planned"
+                                            />
+                                        </div>
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'in-progress'">
+                                            <span
+                                                name="presence_in_progress"
+                                                aria-label="Treating"
+                                                class="fa fa-circle text-success"
+                                                role="img"
+                                                title="Treating"
+                                            />
+                                        </div>
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'finished'">
+                                            <span
+                                                name="presence_finished"
+                                                aria-label="Treated"
+                                                class="fa fa-circle text-primary"
+                                                role="img"
+                                                title="Treated"
+                                            />
+                                        </div>
+                                        <div class="float-end" t-if="record.presence_state.raw_value == 'deceased'">
+                                            <span
+                                                name="presence_deceased"
+                                                aria-label="Deceased"
+                                                class="fa fa-circle"
+                                                role="img"
+                                                title="Deceased"
+                                            />
+                                        </div>
+                                        <span class="o_kanban_record_title fs-2">
+                                            <field name="name" placeholder="Patient's Name" />
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li t-if="record.gender.value or record.age.value &gt; 0">
+                                        <field name="gender" />
+                                        <t t-if="record.age.value &gt; 0">
+                                            <t t-if="record.gender.value">,</t>
+                                            <field name="age" />
+                                            <span>ปี</span>
+                                        </t>
+                                        <field
+                                            name="type_id"
+                                            widget="badge"
+                                            class="mx-2"
+                                            decoration-primary="type_decoration == 'primary'"
+                                            decoration-success="type_decoration == 'success'"
+                                            decoration-info="type_decoration == 'info'"
+                                            decoration-warning="type_decoration == 'warning'"
+                                            decoration-danger="type_decoration == 'danger'"
+                                            decoration-muted="type_decoration == 'muted'"
+                                        />
+                                    </li>
+                                    <li t-if="context.show_deceased and record.deceased_date.value">
+                                        <span>Deceased:</span>
+                                        <field name="deceased_date" />
+                                    </li>
+                                    <li class="mt-1">
+                                        <span class="fw-bold">สถานะการประเมิน</span>
+                                    </li>
+                                    <li>
+                                        <field name="actual_ratio" widget="progressbar" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
     <record id="ni_patient_view_form_simp" model="ir.ui.view">
@@ -30,86 +152,188 @@
         <field name="model">ni.patient</field>
         <field name="priority" eval="30" />
         <field name="arch" type="xml">
-            <form>
+            <form duplicate="0" create="0">
+                <field name="id" invisible="1" />
+                <field name="is_encountering" invisible="1" />
+                <field name="active" invisible="1" />
+                <field name="presence_state" invisible="1" />
+                <field name="identifier" invisible="1" />
+                <header class="oe_read_only" />
                 <sheet>
-                    <div class="oe_title mb24">
-                        <label for="identifier" />
-                        s
+                    <div name="button_box" attrs="{'invisible': [('id', '=', False)]}" class="oe_button_box" />
+                    <field name="image_1920" class="oe_avatar" options='{"preview_image":"image_128"}' widget='image' />
+                    <widget
+                        name="web_ribbon"
+                        attrs="{'invisible': ['|',('deceased', '=', False), ('active', '=', False)]}"
+                        bg_color="bg-dark"
+                        title="เสียชีวิต"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                        bg_color="bg-danger"
+                        title="ลบชั่วคราว"
+                    />
+                    <div class="oe_title">
+                        <label for="identification_id" />
                         <h1>
-                            <field name="identifier" placeholder="e.g. X-XXXX-XXXXX-XX-X" />
+                            <field name="identification_id" placeholder="e.g. HN-001204" />
                         </h1>
-                        <group>
-                            <label for="name" />
-                            <div class="o_row">
-                                <field name="title" />
-                                <field name="name" />
-                            </div>
-                            <field name="type_id" widget="radio" />
-                        </group>
-                        <group>
-                            <group string="ข้อมูลส่วนบุคคล">
-                                <field name="birthdate" />
-                                <label for="age" />
-                                <div class="o_row">
-                                    <field name="age" />
-                                    <span class="mx-2">Years</span>
-                                    <field
-                                        name="age_range_id"
-                                        attrs="{'readonly': ['|', ('birthdate', '!=', False), ('age', '!=', 0)]}"
-                                    />
-                                </div>
-                                <field name="age" />
-                                <field name="nationality_id" />
-                                <field name="function" />
-                            </group>
-                            <group string="การติดต่อ">
-                                <field name="mobile" />
-                                <field name="line" />
-                            </group>
-                            <group string="ที่อยู่">
-                                <label name="address_name" for="street" string="Address" />
-                                <div class="o_address_format">
-                                    <field name="street" class="o_address_street" placeholder="Street..." />
-                                    <field name="street2" class="o_address_street" placeholder="Street 2..." />
-                                    <field name="city" class="o_address_city" placeholder="City" />
-                                    <field
-                                        name="state_id"
-                                        class="o_address_state"
-                                        context="{'country_id': country_id, 'zip': zip}"
-                                        options='{"no_open": True}'
-                                        placeholder="State"
-                                    />
-                                    <field name="zip" class="o_address_zip" placeholder="ZIP" />
-                                    <field
-                                        name="country_id"
-                                        class="o_address_country"
-                                        options='{"no_open": True, "no_create": True}'
-                                        placeholder="Country"
-                                    />
-                                </div>
-                            </group>
-                            <group string="ครอบครัว">
-                                <label for="family_count" />
-                                <div class="o_row">
-                                    <field name="family_count" />
-                                    <span>คน</span>
-                                </div>
-                                <field name="family_relation" />
-                            </group>
-                            <group string="สภาพปัญหา">
-                                <field name="problem_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
-                                <field name="problem" />
-                            </group>
-                            <group string="แนวทางในการให้ความช่วยเหลือดูแล">
-                                <field
-                                    name="plan_service_ids"
-                                    domain="[('target_type_ids', '=', type_id)]"
-                                    widget="many2many_tags"
-                                />
-                                <field name="plan" />
-                            </group>
-                        </group>
+                        <label for="name" string="ชื่อ-นามสกุล" />
+                        <h2>
+                            <field name="name" placeholder="Patient's Name" readonly="False" required="True" />
+                        </h2>
+                        <field
+                            name="type_id"
+                            widget="badge"
+                            decoration-primary="type_decoration == 'primary'"
+                            decoration-success="type_decoration == 'success'"
+                            decoration-info="type_decoration == 'info'"
+                            decoration-warning="type_decoration == 'warning'"
+                            decoration-danger="type_decoration == 'danger'"
+                            decoration-muted="type_decoration == 'muted'"
+                        />
+                        <field name="type_decoration" invisible="1" />
                     </div>
+                    <notebook>
+                        <page name="personal" string="ข้อมูลส่วนบุคคล" icon="fa-address-book-o">
+                            <group>
+                                <group name="personal" string="ข้อมูลส่วนบคคล">
+                                    <field name="birthdate" />
+                                    <field name="deceased" invisible="1" />
+                                    <field name="deceased_date" attrs="{'invisible': [('deceased', '=', False)]}" />
+                                    <label for="age" string="อายุ" />
+                                    <div class="o_row">
+                                        <field name="age" class="o_narrow_field" />
+                                        <span class="mx-2">ปี</span>
+                                    </div>
+                                    <field
+                                        name="nationality_id"
+                                        options="{'no_create': True, 'no_open':True}"
+                                        invisible="1"
+                                    />
+                                    <field name="religion_id" options="{'no_create': True, 'no_open':True}" />
+                                    <field name="function" string="อาชีพ" />
+                                </group>
+                                <group name="partner" string="การติดต่อ">
+                                    <field name="phone" widget="phone" />
+                                    <field name="mobile" widget="phone" />
+                                    <field name="email" widget="email" />
+                                    <field name="line" />
+                                </group>
+                                <group string="ที่อยู่">
+                                    <label name="address_name" for="street" string="ที่อยู่" />
+                                    <div class="o_address_format">
+                                        <field name="street" class="o_address_street" placeholder="ที่อยู่..." />
+                                        <field name="street2" class="o_address_street" placeholder="ที่อยู่..." />
+                                        <field name="city" class="o_address_city" placeholder="อำเภอ" />
+                                        <field
+                                            name="state_id"
+                                            class="o_address_state"
+                                            context="{'country_id': country_id, 'zip': zip}"
+                                            options='{"no_open": True}'
+                                            placeholder="จังหวัด"
+                                        />
+                                        <field name="zip" class="o_address_zip" placeholder="รหัสไปษณีย์" />
+                                        <field
+                                            name="country_id"
+                                            class="o_address_country"
+                                            options='{"no_open": True, "no_create": True}'
+                                            placeholder="ประเทศไทย"
+                                            invisible="1"
+                                        />
+                                    </div>
+                                    <field
+                                        name="other_address_id"
+                                        placeholder="เช่น ที่อยู่ปัจจุบัน, ที่อยู่บุตรหลาน"
+                                        options="{'always_reload':True, 'no_quick_create': True}"
+                                        context="{'form_view_ref': 'base.res_partner_view_form_private', 'default_type': 'private', 'default_name': 'Home Address', 'show_address': True, 'show_name': False, 'no_bank':True, 'default_ref': identifier}"
+                                    />
+                                </group>
+                                <group name="family" string="ครอบครัว">
+                                    <field name="marital_status" />
+                                    <field
+                                        name="spouse_name"
+                                        attrs="{'invisible':[('marital_status', '=', 'single')]}"
+                                    />
+                                    <field name="family_count" />
+                                    <field name="family_relation" />
+                                </group>
+                                <group name="encounter" invisible="1">
+                                    <field
+                                        name="partner_id"
+                                        attrs="{'readonly':[('id', '!=', False)], 'invisible': [('id', '!=', False)]}"
+                                        options='{"always_reload": True, "no_create": True}'
+                                        required="False"
+                                        placeholder="from Contacts..."
+                                    />
+                                    <field
+                                        name="partner_id"
+                                        groups="base.group_no_one"
+                                        attrs="{'invisible': [('id', '=', False)]}"
+                                        options='{"always_reload": True, "no_create": True}'
+                                        readonly="True"
+                                        required="False"
+                                    />
+                                    <field name="company_id" invisible="1" />
+                                    <field
+                                        name="company_id"
+                                        groups="base.group_multi_company"
+                                        options="{'no_create': True, 'no_open':True}"
+                                    />
+                                    <field
+                                        name="encounter_id"
+                                        attrs="{'invisible': [('is_encountering', '=', False)]}"
+                                        context="{'show_state': True, 'show_location': True}"
+                                        options='{"always_reload": True}'
+                                    />
+                                </group>
+                            </group>
+                        </page>
+                        <page name="health" string="ข้อมูลสุขภาพ">
+                            <group>
+                                <label for="allergy_code_ids" string="แพ้ยา/อาหาร" />
+                                <div>
+                                    <field name="allergy_code_ids" widget="many2many_checkboxes" class="mt-3" />
+                                    <field name="allergy_other" placeholder="แพ้ยาอาหารอื่นๆ..." />
+                                </div>
+                                <label for="condition_code_ids" string="โรคประจำตัว" />
+                                <div>
+                                    <field name="condition_code_ids" widget="many2many_checkboxes" class="mt-3" />
+                                    <field name="condition_other" placeholder="โรคประจำตัวอื่นๆ..." />
+                                </div>
+                                <label for="type_id" class="mt-2" />
+                                <div class="o_row">
+                                    <field name="type_id" widget="radio" options="{'horizontal': True}" class="mt-2" />
+                                    <button
+                                        name="action_condition"
+                                        type="object"
+                                        class="mx-2 btn-secondary"
+                                        string="ทำการประเมิน"
+                                        icon="fa-pencil-square-o"
+                                    />
+                                </div>
+                            </group>
+                        </page>
+                        <page
+                            name="assessment"
+                            string="ประวัติการประเมินผู้สูงอายุ"
+                            icon="fa-life-ring"
+                            badge="risk_assessment_count"
+                        >
+                            <field name="risk_assessment_count" invisible="1" />
+                            <field name="risk_assessment_ids" readonly="1" />
+                            <div class="text-center">
+                                <button
+                                    name="action_risk"
+                                    type="object"
+                                    class="btn-primary"
+                                    icon="fa-life-ring"
+                                    string="ทำการประเมิน"
+                                />
+                            </div>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -118,14 +342,14 @@
         <field name="name">ผู้สูงอายุ</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">ni.patient</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field
             name="view_ids"
             eval="[(5, 0, 0),
-                          (0, 0, {'view_mode': 'tree', 'view_id': ref('ni_patient.ni_patient_view_tree')}),
-                          (0, 0, {'view_mode': 'kanban', 'view_id': ref('ni_patient.ni_patient_view_kanban')}),
-                          (0, 0, {'view_mode': 'form', 'view_id': ref('ni_patient_view_form_simp')}),
-                          ]"
+               (0, 0, {'view_mode': 'kanban', 'view_id': ref('ni_patient_view_kanban_simp')}),
+               (0, 0, {'view_mode': 'tree', 'view_id': ref('ni_patient.ni_patient_view_tree')}),
+               (0, 0, {'view_mode': 'form', 'view_id': ref('ni_patient_view_form_simp')}),
+               ]"
         />
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">ไม่พบผู้สูงอายุ</p>

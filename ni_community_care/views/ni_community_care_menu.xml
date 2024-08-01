@@ -3,18 +3,56 @@
   ~ Copyright (c) 2024 NSTDA
   -->
 <odoo>
-    <menuitem id="elder_menu" name="ผุ้สูงอายุ" action="ni_community_care.ni_patient_action" sequence="1" />
     <menuitem
-        id="cc_report_menu_root"
-        name="รายงาน"
-        sequence="3"
+        id="elder_menu"
+        name="ผุ้สูงอายุ"
+        action="ni_community_care.ni_patient_action"
+        sequence="1"
+        web_icon="ni_community_care,static/description/elder.png"
+    />
+    <!--    <menuitem-->
+    <!--        id="cc_report_menu_root"-->
+    <!--        name="รายงาน"-->
+    <!--        sequence="3"-->
+    <!--        web_icon="ni_community_care,static/description/icon.png"-->
+    <!--    />-->
+    <!--    <menuitem-->
+    <!--        id="cc_report_monthly_menu"-->
+    <!--        name="รายงานประจำเดือน"-->
+    <!--        parent="cc_report_menu_root"-->
+    <!--        action="ni_cc_report_monthly_action"-->
+    <!--        sequence="0"-->
+    <!--    />-->
+    <record model="ir.ui.menu" id="ni_patient.patient_menu_root">
+        <field name="active" eval="0" />
+    </record>
+    <record model="ir.ui.menu" id="ni_service.root_menu">
+        <field name="web_icon">ni_community_care,static/description/service.png</field>
+    </record>
+    <menuitem
+        id="assessment_menu_root"
+        name="ผลการประเมิน"
+        sequence="2"
         web_icon="ni_community_care,static/description/icon.png"
     />
     <menuitem
-        id="cc_report_monthly_menu"
-        name="รายงานประจำเดือน"
-        parent="cc_report_menu_root"
-        action="ni_cc_report_monthly_action"
+        id="assessment_menu"
+        name="รายการผลการประเมิน"
+        parent="assessment_menu_root"
+        action="ni_community_care.ni_risk_assessment_action"
         sequence="0"
+    />
+    <menuitem id="assessment_report_menu" name="รายงาน" parent="assessment_menu_root" />
+    <menuitem
+        id="report_by_performer_menu"
+        name="รายผู้บริบาล"
+        parent="assessment_report_menu"
+        action="ni_risk_assessment_action_pivot_performer"
+    />
+    <menuitem
+        id="report_by_service_menu"
+        name="รายกิจกรรม"
+        parent="assessment_report_menu"
+        action="ni_risk_assessment_prediction_action_pivot_service"
     />
 </odoo>
