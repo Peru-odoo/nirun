@@ -18,8 +18,19 @@
                         />
                         <field name="class_id" options="{'no_create': True, 'no_open':True}" />
                         <field name="period_start" />
-                        <field name="patient_ids" widget="many2many_tags_avatar" />
                         <field name="calendar_id" options="{'no_create': True, 'no_open':True}" />
+                    </group>
+                    <separator string="Patient" />
+                    <field name="patient_ids">
+                        <tree>
+                            <field name="identifier" />
+                            <field name="identification_id" optional="hide" />
+                            <field name="partner_id" widget="many2one_avatar" string="name" />
+                            <field name="age" />
+                        </tree>
+                    </field>
+                    <group>
+                        <field name="state" widget="radio" options="{'horizontal': True}" />
                     </group>
                 </sheet>
                 <footer>

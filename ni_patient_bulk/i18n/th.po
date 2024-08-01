@@ -1,0 +1,123 @@
+
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ni_patient_bulk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-25 04:13+0000\n"
+"PO-Revision-Date: 2024-06-25 04:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ni_patient_bulk
+#. odoo-python
+#: code:addons/ni_patient_bulk/wizard/ni_encounter_bulk.py:0
+#, python-format
+msgid "%(name)s's Encounter"
+msgstr "รับบริการ %(name)s "
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__calendar_id
+msgid "Calendar"
+msgstr "ตารางเวลา"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__class_id
+msgid "Class"
+msgstr "ประเภท"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__company_id
+msgid "Company"
+msgstr "หน่วยงาน"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields.selection,name:ni_patient_bulk.selection__ni_encounter_bulk__state__confirm
+msgid "Confirmed"
+msgstr "ยืนยัน"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__create_uid
+msgid "Created by"
+msgstr "สร้างโดย"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__create_date
+msgid "Created on"
+msgstr "สร้างเมื่อ"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields.selection,name:ni_patient_bulk.selection__ni_encounter_bulk__state__draft
+msgid "Draft"
+msgstr "ร่าง"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__id
+msgid "ID"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__patient_ids
+#: model_terms:ir.ui.view,arch_db:ni_patient_bulk.ni_encounter_bulk_view_form
+msgid "Patient"
+msgstr "ผู้รับบริการ"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__period_start
+msgid "Period Start"
+msgstr "เริ่มเมื่อ"
+
+#. module: ni_patient_bulk
+#: model:ir.model.fields,field_description:ni_patient_bulk.field_ni_encounter_bulk__state
+msgid "Status"
+msgstr "สถานะ"
+
+#. module: ni_patient_bulk
+#: model_terms:ir.ui.view,arch_db:ni_patient_bulk.ni_encounter_bulk_view_form
+msgid "name"
+msgstr "ชื่อ-นามสกุล"
+
+#. module: ni_patient_bulk
+#: model_terms:ir.ui.view,arch_db:ni_patient_bulk.ni_encounter_bulk_view_form
+msgid "ยกเลิก"
+msgstr ""
+
+#. module: ni_patient_bulk
+#. odoo-javascript
+#: code:addons/ni_patient_bulk/static/src/views/bulk_views.xml:0
+#: model:ir.model,name:ni_patient_bulk.model_ni_encounter_bulk
+#, python-format
+msgid "รับบริการ"
+msgstr ""
+
+#. module: ni_patient_bulk
+#: model_terms:ir.ui.view,arch_db:ni_patient_bulk.ni_encounter_bulk_view_form
+msgid "เข้ารับบริการ"
+msgstr ""

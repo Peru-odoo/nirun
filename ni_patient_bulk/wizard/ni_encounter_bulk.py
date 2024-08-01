@@ -20,6 +20,14 @@ class EncounterBulk(models.TransientModel):
         required=True,
         default=lambda self: self.env.company.service_calendar_id,
     )
+    state = fields.Selection(
+        [
+            ("draft", "Draft"),
+            ("confirm", "Confirmed"),
+        ],
+        string="Status",
+        default="confirm",
+    )
 
     def action_create(self):
         pat_ids = [
@@ -27,6 +35,7 @@ class EncounterBulk(models.TransientModel):
                 "class_id": self.class_id.id,
                 "patient_id": p.id,
                 "period_start": self.period_start,
+                "period_start_date": self.period_start.date(),
                 "resource_calendar_id": self.calendar_id.id,
             }
             for p in self.patient_ids
@@ -34,6 +43,8 @@ class EncounterBulk(models.TransientModel):
         pats = self.env["ni.encounter"].create(pat_ids)
         for p in pats:
             p.action_generate_service_resource()
+        if self.state == "confirm":
+            pats.action_confirm()
         return self.action_view_encounter()
 
     def action_view_encounter(self):
@@ -45,8 +56,9 @@ class EncounterBulk(models.TransientModel):
         action["display_name"] = _(
             "%(name)s's Encounter", name=self.period_start.date()
         )
-        action["domain"] = [("period_start_date", "=", self.period_start)]
+        action["domain"] = [("period_start_date", "=", self.period_start.date())]
         context = action["context"].replace("active_id", str(self.id))
         context = ast.literal_eval(context)
+        context.update({"search_default_encounter": True})
         action["context"] = context
         return action
