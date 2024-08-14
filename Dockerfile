@@ -1,4 +1,4 @@
-FROM odoo:16.0
+FROM ghcr.io/oca/oca-ci/py3.10-odoo16.0:latest
 
 USER root
 
