@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record model="ni.coding.system" id="system_tmt_tpu">
+        <field name="name">TMT | TPU</field>
+        <field name="url">https://www.this.or.th/service/tmt#tpu</field>
+    </record>
+    <record model="ni.coding.system" id="system_tmt_gpu">
+        <field name="name">TMT | GPU</field>
+        <field name="url">https://www.this.or.th/service/tmt#gpu</field>
+    </record>
+</odoo>
