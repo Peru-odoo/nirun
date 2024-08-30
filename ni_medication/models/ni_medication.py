@@ -21,7 +21,7 @@ class Medication(models.Model):
     manufacturer_id = fields.Many2one(
         "res.partner", domain=[("is_company", "=", True)], tracking=True
     )
-    form = fields.Many2one("ni.medication.form", index=True, tracking=True)
+    form_id = fields.Many2one("ni.medication.form", index=True, tracking=True)
     ingredient = fields.Char(
         "Ingredient",
         compute="_compute_ingredient",

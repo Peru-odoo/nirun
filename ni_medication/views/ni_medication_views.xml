@@ -17,7 +17,7 @@
                 <field name="name" />
                 <field name="manufacturer_name" />
                 <field name="ingredient" />
-                <field name="form" />
+                <field name="form_id" />
                 <field name="amount" />
                 <filter name="inactive" string="Archived" domain="[('active', '=', False)]" />
             </search>
@@ -31,7 +31,7 @@
                 <field name="name" />
                 <field name="manufacturer_name" optional="show" />
                 <field name="ingredient" optional="show" />
-                <field name="form" optional="show" />
+                <field name="form_id" optional="show" />
                 <field name="amount" optional="show" />
                 <field name="patient_count" optional="show" />
                 <field name="active" optional="hide" />
@@ -72,7 +72,7 @@
                     </div>
                     <group>
                         <group>
-                            <field name="form" />
+                            <field name="form_id" />
                             <label string="Amount" for="amount_numerator" />
                             <div class="o_row">
                                 <field name="amount_numerator" class="oe_edit_only" />
@@ -165,7 +165,7 @@
         <field name="model">ni.medication</field>
         <field name="arch" type="xml">
             <pivot>
-                <field name="form" type="row" />
+                <field name="form_id" type="row" />
                 <field name="name" type="row" />
                 <field name="patient_count" type="measure" />
             </pivot>
