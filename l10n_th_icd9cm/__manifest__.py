@@ -19,6 +19,8 @@
         "views/ni_condition_chapter_views.xml",
         "data/ni_coding_system_data.xml",
         "data/ni_procedure_chapter_data.xml",
+    ],
+    "demo": [
         "data/ni_procedure_code_data.xml",
     ],
     "application": False,
