@@ -1,7 +1,10 @@
 #  Copyright (c) 2024 NSTDA
 import ast
+import logging
 
 from odoo import _, fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class EncounterBulk(models.TransientModel):
@@ -41,9 +44,12 @@ class EncounterBulk(models.TransientModel):
             for p in self.patient_ids
         ]
         pats = self.env["ni.encounter"].create(pat_ids)
+        _logger.info("Created bulk encounters {}".format(pats.ids))
         for p in pats:
             p.action_generate_service_resource()
+        _logger.debug("Generated service for Encounters {}".format(pats.ids))
         if self.state == "confirm":
+            _logger.debug("Confirming encounter")
             pats.action_confirm()
         return self.action_view_encounter()
 
