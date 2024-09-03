@@ -2,7 +2,7 @@
 
 {
     "name": "Care Plan",
-    "version": "16.0.0.1.1",
+    "version": "16.0.0.1.2",
     "development_status": "Alpha",
     "category": "Medical",
     "author": "NSTDA, Piruin P.",
@@ -22,6 +22,7 @@
         "views/ni_careplan_views.xml",
         "views/ni_careplan_category_views.xml",
         "views/ni_encounter_views.xml",
+        "views/ni_patient_views.xml",
         "views/ni_goal_achievement_views.xml",
     ],
     "application": False,
