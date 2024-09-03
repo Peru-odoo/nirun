@@ -5,8 +5,8 @@ from odoo.exceptions import ValidationError
 
 
 class EncounterObservationLatest(models.Model):
-    _name = "ni.encounter.observation"
-    _description = "Encounter Latest Observation"
+    _name = "ni.patient.observation"
+    _description = "Patient Latest Observation"
     _auto = False
     _order = "occurrence desc"
 
@@ -14,7 +14,7 @@ class EncounterObservationLatest(models.Model):
     title = fields.Char()
     sheet_id = fields.Many2one("ni.observation.sheet", readonly=True)
     company_id = fields.Many2one("res.company", readonly=True)
-    patient_id = fields.Many2one("ni.patient", readonly=True)
+    patient_id = fields.Many2one("ni.patient")
     encounter_id = fields.Many2one("ni.encounter")
     occurrence = fields.Datetime(readonly=True)
     display_type = fields.Selection(
@@ -51,7 +51,7 @@ class EncounterObservationLatest(models.Model):
                 SELECT max(id)
                 FROM ni_observation
                 WHERE value IS NOT NULL
-                GROUP BY encounter_id, type_id
+                GROUP BY patient_id, type_id
             )
         )
         """
