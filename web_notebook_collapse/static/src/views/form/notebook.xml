@@ -5,26 +5,29 @@
 <templates xml:space="preserve">
     <t t-inherit="web.Notebook" t-inherit-mode="extension" owl="1">
         <xpath expr="//div" position="replace">
-            <div t-attf-class="o_notebook_collapse_control btn-group {{ props.className }}">
-                <button
-                    type="button"
-                    id="btnCollapse"
-                    class="btn btn-mute float-end mx-1"
-                    t-on-click="() => collapXpand(true)"
-                >
-                    <i class="fa fa-compress mx-1" aria-hidden="true" />
-                    Collapse
-                </button>
-                <button
-                    type="button"
-                    id="btnExpand"
-                    class="btn btn-secondary float-end"
-                    t-on-click="() => collapXpand(false)"
-                >
-                    <i class="fa fa-expand mx-1" aria-hidden="true" />
-                    Expand
-                </button>
-            </div>
+            <t t-set="notebook_id" t-value="Math.floor(Math.random() * 1000)" />
+            <t t-if="pages.length > 3 &amp;&amp; props.orientation !== 'original'">
+                <div t-attf-class="o_notebook_collapse_control btn-group {{ props.className }}">
+                    <button
+                        type="button"
+                        id="btnCollapse"
+                        class="btn btn-mute float-end mx-1"
+                        t-on-click="() => collapXpand(true)"
+                    >
+                        <i class="fa fa-compress mx-1" aria-hidden="true" />
+                        Collapse
+                    </button>
+                    <button
+                        type="button"
+                        id="btnExpand"
+                        class="btn btn-secondary float-end"
+                        t-on-click="() => collapXpand(false)"
+                    >
+                        <i class="fa fa-expand mx-1" aria-hidden="true" />
+                        Expand
+                    </button>
+                </div>
+            </t>
             <t t-if="props.orientation === 'horizontal'">
                 <div
                     t-attf-class="accordion o_notebook o_notebook_collapse {{ props.className }}"
@@ -42,9 +45,9 @@
                                 class="accordion-button o_notebook_header_button fs-4"
                                 type="button"
                                 data-bs-toggle="collapse"
-                                t-attf-data-bs-target="#panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                                t-attf-data-bs-target="#panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                                 aria-expanded="true"
-                                t-attf-aria-controls="panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                                t-attf-aria-controls="panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                                 aria-controls="panelsStayOpen-collapseThree"
                             >
                                 <i t-if="pageItem[1].icon" t-attf-class="fa {{pageItem[1].icon}} me-3" />
@@ -65,7 +68,7 @@
                             </button>
                         </h2>
                         <div
-                            t-attf-id="panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                            t-attf-id="panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                             class="accordion-collapse collapse show "
                         >
                             <div class="accordion-body o_notebook_content">
@@ -95,9 +98,9 @@
                                     class="accordion-button o_notebook_header_button fs-4"
                                     type="button"
                                     data-bs-toggle="collapse"
-                                    t-attf-data-bs-target="#panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                                    t-attf-data-bs-target="#panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                                     aria-expanded="true"
-                                    t-attf-aria-controls="panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                                    t-attf-aria-controls="panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                                     aria-controls="panelsStayOpen-collapseThree"
                                 >
                                     <i t-if="pageItem[1].icon" t-attf-class="fa {{pageItem[1].icon}} me-3" />
@@ -118,7 +121,7 @@
                                 </button>
                             </h2>
                             <div
-                                t-attf-id="panelsStayOpen-collapseOne-{{ pageItem[1].name }}"
+                                t-attf-id="panelsStayOpen-collapseOne-{{ pageItem[1].name }}_{{notebook_id}}"
                                 class="accordion-collapse collapse show"
                             >
                                 <div class="accordion-body o_notebook_content">
