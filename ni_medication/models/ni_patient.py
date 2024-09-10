@@ -25,7 +25,7 @@ class Patient(models.Model):
             patient.medication_statement_count = data.get(patient.id, 0)
 
     def action_medication_statement(self, target=None):
-        action_rec = self.env.ref("ni_medication.ni_medication_statement_action")
+        action_rec = self.env.ref("ni_medication.ni_medication_statement_action").sudo()
         action = action_rec.read()[0]
         ctx = dict(self.env.context)
         ctx.update(

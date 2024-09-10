@@ -35,7 +35,7 @@ class Encounter(models.Model):
             enc.medication_dispense_count = data.get(enc.id, 0)
 
     def action_medication_statement(self):
-        action_rec = self.env.ref("ni_medication.ni_medication_statement_action")
+        action_rec = self.env.ref("ni_medication.ni_medication_statement_action").sudo()
         action = action_rec.read()[0]
         ctx = dict(self.env.context)
         ctx.update(

@@ -37,6 +37,7 @@ class MedicationStatement(models.Model):
 
     @api.onchange("medication_id")
     def _onchange_medication_id(self):
+        super()._onchange_medication_id()
         res = {}
         if self.medication_id and self.medication_id.condition_code_ids:
             condition = self.env["ni.condition.latest"].search(

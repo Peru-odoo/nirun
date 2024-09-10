@@ -7,7 +7,7 @@
         id="medication_menu_root"
         name="Medications"
         sequence="3"
-        web_icon="ni_medication,static/description/icon.png"
+        web_icon="ni_medication,static/description/medication.png"
     />
     <menuitem
         id="medication_statement_menu"

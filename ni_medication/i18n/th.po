@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 07:08+0000\n"
-"PO-Revision-Date: 2023-08-10 07:08+0000\n"
+"POT-Creation-Date: 2024-09-10 05:53+0000\n"
+"PO-Revision-Date: 2024-09-10 05:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,8 @@ msgstr ""
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid ""
 "<span class=\"oe_edit_only\" attrs=\"{'invisible': ['|', ('timing_id', '!=', False), ('timing_tmpl_id','!=', False)]}\">\n"
 "                                                or\n"
@@ -155,12 +157,17 @@ msgid ""
 msgstr ""
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
+msgid "Abbr."
+msgstr "คำย่อ"
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location__abbr
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__abbr
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__abbr
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__abbr
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__abbr
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__abbr
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__abbr
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__abbr
 msgid "Abbreviation"
 msgstr "คำย่อ"
@@ -169,11 +176,6 @@ msgstr "คำย่อ"
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 msgid "Abort"
 msgstr "ยกเบิก"
-
-#. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__account_tag_ids
-msgid "Account Tags"
-msgstr ""
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__message_needaction
@@ -189,9 +191,9 @@ msgstr "ต้องดำเนินการ"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__active
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__active
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__active
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__active
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__active
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__active
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__active
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__active
 msgid "Active"
 msgstr "เปิดใช้งาน"
@@ -226,6 +228,11 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_tree
+msgid "Add Prescription"
+msgstr "เพิ่มรายการสั่งยา"
+
+#. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_tree
 msgid "Add dispense"
 msgstr "เพิ่มรายการจ่ายยา"
@@ -238,7 +245,9 @@ msgstr "เพิ่มประวัติการใช้ยา"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__additional_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__additional_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__additional_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__additional_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__additional_ids
 msgid "Additional Instruction"
 msgstr "เพิ่มเติม"
 
@@ -280,6 +289,7 @@ msgstr "จำนวนยาในบรรจุภัณฑ์"
 
 #. module: ni_medication
 #: model:ni.medication.dosage.method,name:ni_medication.method_apply
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
 msgid "Apply"
 msgstr "ใช้"
 
@@ -287,6 +297,12 @@ msgstr "ใช้"
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_admin_location_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_admin_location_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_form_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_form_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_search
@@ -300,7 +316,9 @@ msgstr "ถูกเก็บ"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__as_need
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__as_need
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__as_need
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__as_need
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__as_need
 msgid "As need?"
 msgstr "เมื่อมีอาการ"
 
@@ -336,6 +354,11 @@ msgid "Attachment Count"
 msgstr "จำนวนไฟล์แนบ"
 
 #. module: ni_medication
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__medication_request_id
+msgid "Authorized Prescription"
+msgstr "ใบสั่งยา"
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__barcode
 msgid "Barcode"
 msgstr "บาร์โค้ด"
@@ -346,17 +369,21 @@ msgid "Bathe"
 msgstr "อาบน้ำ"
 
 #. module: ni_medication
-#: model:ir.model,name:ni_medication.model_ni_medication_dosage_site
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__site_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__site_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__site_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__site_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__site_id
+#: model:ir.ui.menu,name:ni_medication.body_site_menu
 msgid "Body Site"
 msgstr "บริเวณ"
 
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__site_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage__site_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__site_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__site_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__site_id
 msgid "Body site to administer to"
 msgstr "บริเวณบนร่างการที่รับยา"
 
@@ -383,7 +410,9 @@ msgstr "สามารถขายได้"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__category_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__category_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__category_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__category_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__category_id
 #: model:ir.ui.menu,name:ni_medication.medication_statement_category_menu
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 msgid "Category"
@@ -399,8 +428,8 @@ msgstr "เคี้ยว"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__code
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__code
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__code
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__code
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__code
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__code
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__code
 msgid "Code"
 msgstr "รหัส"
@@ -417,9 +446,11 @@ msgstr "ตัวเลือก"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__color
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__color
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__color
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__color
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__color
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__color
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__color
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__color
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__color
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__color
 msgid "Color"
 msgstr "สี"
@@ -437,6 +468,7 @@ msgstr "ที่บ้าน"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__company_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__company_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__company_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__company_id
 msgid "Company"
 msgstr "บริษัท"
@@ -461,6 +493,9 @@ msgstr "รหัสโรค/ปัญหา"
 
 #. module: ni_medication
 #: model:ir.ui.menu,name:ni_medication.configuration_menu
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
 msgid "Configuration"
 msgstr "การกำหนดค่า"
 
@@ -482,10 +517,13 @@ msgstr "สกุลเงินต้นทุน"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__create_uid
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__create_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__create_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__create_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__create_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__create_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__create_uid
 msgid "Created by"
 msgstr "สร้างโดย"
@@ -498,10 +536,13 @@ msgstr "สร้างโดย"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__create_date
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__create_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__create_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__create_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__create_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__create_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__create_date
 msgid "Created on"
 msgstr "สร้างเมื่อ"
@@ -517,35 +558,23 @@ msgid "Currently"
 msgstr "ปัจจุบัน"
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__taxes_id
-msgid "Customer Taxes"
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__timing_dow
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__timing_dow
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__timing_dow
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__timing_dow
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__timing_dow
 msgid "Day Of Week"
 msgstr "วันในสัปดาห์"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__days_supply
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__days_supply
 msgid "Days Supply"
 msgstr "จำนวนวัน"
 
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage_route__method_id
 msgid "Default method for this route"
-msgstr ""
-
-#. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__supplier_taxes_id
-msgid "Default taxes used when buying the product."
-msgstr ""
-
-#. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__taxes_id
-msgid "Default taxes used when selling the product."
 msgstr ""
 
 #. module: ni_medication
@@ -565,14 +594,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__definition
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__definition
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__definition
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__definition
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__definition
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__definition
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__definition
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_admin_location_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_form_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_unit_view_form
 msgid "Definition"
 msgstr "คำนิยาม"
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
+msgid "Definition..."
+msgstr "คำอธิบาย..."
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_ingredient_view_tree
@@ -582,7 +618,9 @@ msgstr "หน่วยนับ"
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "Describe more additional dosage here..."
 msgstr "อธิบายเพิ่มเติมเกี่ยวกับวิธีการใช้ยา"
 
@@ -593,6 +631,7 @@ msgstr "อธิบายรายละเอียด"
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
 msgid "Detail"
 msgstr "รายละเอียด"
 
@@ -602,7 +641,23 @@ msgid "Dialysis"
 msgstr "กรองของเสีย"
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_encounter__medication_dispense_ids
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_kanban
+msgid "Disp :"
+msgstr ""
+
+#. module: ni_medication
+#. odoo-python
+#: code:addons/ni_medication/models/ni_encounter.py:0
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_encounter_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_kanban
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_tree
+#, python-format
 msgid "Dispense"
 msgstr "จ่ายยา"
 
@@ -612,9 +667,18 @@ msgid "Dispensed"
 msgstr "จ่ายยา"
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
+msgid "Display"
+msgstr ""
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__display_dose
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__display_dose
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__display_dose
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__display_dose
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__display_dose
 msgid "Display Dose"
 msgstr "วิธีการใข้ยา"
 
@@ -626,10 +690,13 @@ msgstr "วิธีการใข้ยา"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__display_name
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__display_name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__display_name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__display_name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__display_name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__display_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__display_name
 msgid "Display Name"
 msgstr "ชื่อที่ใช้แสดง"
@@ -641,16 +708,25 @@ msgstr "ชื่อที่ใช้แสดง"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_dosage_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dosage_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_dosage_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dosage_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_dosage_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dosage_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_dosage_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dosage_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_dosage_ids
+#: model:ir.ui.menu,name:ni_medication.dosage_menu_categ
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_view_form
 msgid "Dosage"
 msgstr "ขนาดและวิธีใช้ยา"
 
 #. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_dosage_additional_action
 #: model:ir.model,name:ni_medication.model_ni_medication_dosage_additional
+#: model:ir.ui.menu,name:ni_medication.dosage_additional_menu
 msgid "Dosage Additional Instruction"
 msgstr "วิธีการใช้งานเพิ่มเติม"
 
@@ -658,21 +734,27 @@ msgstr "วิธีการใช้งานเพิ่มเติม"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__dosage_count
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_dosage_count
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_dosage_count
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_dosage_count
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_dosage_count
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_dosage_count
 msgid "Dosage Count"
 msgstr "จำนวนวิธีการใช้ยา"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__dosage_tmpl_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dosage_tmpl_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dosage_tmpl_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dosage_tmpl_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dosage_tmpl_id
 msgid "Dosage Template"
 msgstr "แม่แบบวิธีการใช้ยา"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dose
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__dose
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dose
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dose
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dose
 msgid "Dose"
 msgstr "ปริมาณ"
 
@@ -682,8 +764,12 @@ msgstr "ปริมาณ"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dose_unit_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_dose_unit_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__dose_unit_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dose_unit_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_dose_unit_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dose_unit_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_dose_unit_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dose_unit_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_dose_unit_id
 msgid "Dose Unit"
 msgstr "หน่วย"
 
@@ -699,14 +785,23 @@ msgstr "แก้ไข"
 
 #. module: ni_medication
 #: model:ir.model,name:ni_medication.model_ni_encounter
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__encounter_id
 msgid "Encounter"
 msgstr "ข้อมูลรับบริการ"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__encounter_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__encounter_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__encounter_id
 msgid "Encounter No."
 msgstr "รหัสรับบริการ"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__enforce_specialty
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__enforce_specialty
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__enforce_specialty
+msgid "Enforce Specialty"
+msgstr ""
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__event_id
@@ -715,12 +810,10 @@ msgid "Event"
 msgstr "เหตุการณ์"
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__property_account_expense_id
-msgid "Expense Account"
-msgstr ""
-
-#. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_admin_location_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_form_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_unit_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_view_form
@@ -731,6 +824,11 @@ msgstr "ช้อมูลเพิ่มเติม"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__priority
 msgid "Favorite"
 msgstr "รายการโปรด"
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
+msgid "Filter"
+msgstr "ตัวกรอง"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__message_follower_ids
@@ -753,7 +851,7 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__form
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__form_id
 msgid "Form"
 msgstr "รูปแบบ"
 
@@ -770,6 +868,7 @@ msgstr "ข้อมูลเพิ่มเติมที่เกี่ยว
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 msgid "Further information about the dispense"
 msgstr "ข้อมูลเพิ่มเติมที่เกี่ยวของกับการจ่ายยานี้"
 
@@ -804,6 +903,13 @@ msgid "Gives the sequence order when displaying a product list"
 msgstr ""
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_search
+msgid "Group By"
+msgstr "จัดกลุ่มโดย"
+
+#. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_search
 msgid "Group by"
@@ -811,6 +917,7 @@ msgstr "จัดกลุ่มโดย"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__occurrence
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__occurrence
 msgid "Handed Over"
 msgstr "จ่ายยาเมื่อ"
 
@@ -824,14 +931,18 @@ msgstr ""
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__route_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage__route_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__route_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__route_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__route_id
 msgid "How drug should enter body"
 msgstr "ยาควรเข้าสู่ร่างกายอย่างไร"
 
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__text
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage__text
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__text
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__text
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__text
 msgid "How the medication is/was taken or should be taken"
 msgstr "วิธิการใช้ยาเพิ่มเติม"
 
@@ -843,10 +954,13 @@ msgstr "วิธิการใช้ยาเพิ่มเติม"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__id
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__id
 msgid "ID"
 msgstr "รหัส"
@@ -865,6 +979,7 @@ msgstr "ไอคอนเพื่อระบุกิจกรรมข้อ
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__identifier
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__identifier
 msgid "Identifier"
 msgstr ""
 
@@ -895,7 +1010,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__image_1920
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_image_1920
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_image_1920
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_image_1920
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_image_1920
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_image_1920
 msgid "Image"
 msgstr "รูปภาพ"
 
@@ -903,7 +1020,9 @@ msgstr "รูปภาพ"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__image_1024
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_image_1024
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_image_1024
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_image_1024
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_image_1024
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_image_1024
 msgid "Image 1024"
 msgstr ""
 
@@ -911,7 +1030,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__image_128
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_image_128
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_image_128
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_image_128
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_image_128
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_image_128
 msgid "Image 128"
 msgstr ""
 
@@ -919,7 +1040,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__image_256
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_image_256
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_image_256
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_image_256
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_image_256
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_image_256
 msgid "Image 256"
 msgstr ""
 
@@ -927,7 +1050,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__image_512
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_image_512
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_image_512
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_image_512
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_image_512
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_image_512
 msgid "Image 512"
 msgstr ""
 
@@ -946,12 +1071,8 @@ msgid ""
 msgstr ""
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__property_account_income_id
-msgid "Income Account"
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__reason_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__reason_id
 msgid "Indication"
 msgstr "ข้อบ่งใช้"
 
@@ -1003,6 +1124,11 @@ msgid "Insufflate"
 msgstr "พ่น"
 
 #. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__intent
+msgid "Intent"
+msgstr ""
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__default_code
 msgid "Internal Reference"
 msgstr "การอ้างอิงภายใน"
@@ -1010,7 +1136,9 @@ msgstr "การอ้างอิงภายใน"
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_abstract__dosage_tmpl_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__dosage_tmpl_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__dosage_tmpl_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__dosage_tmpl_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__dosage_tmpl_id
 msgid "Internal: only use to choose from medication's dosage choices"
 msgstr ""
 
@@ -1064,20 +1192,6 @@ msgid "Is a product variant"
 msgstr "เป็นแบบที่ต่างกันของสินค้า"
 
 #. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__property_account_income_id
-msgid ""
-"Keep this field empty to use the default value from the product category."
-msgstr ""
-
-#. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__property_account_expense_id
-msgid ""
-"Keep this field empty to use the default value from the product category. If"
-" anglo-saxon accounting with automated valuation method is configured, the "
-"expense account on the product category will be used."
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense____last_update
@@ -1085,10 +1199,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route____last_update
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient____last_update
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement____last_update
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest____last_update
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line____last_update
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard____last_update
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit____last_update
 msgid "Last Modified on"
 msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
@@ -1101,10 +1218,13 @@ msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__write_uid
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__write_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__write_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__write_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__write_uid
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__write_uid
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__write_uid
 msgid "Last Updated by"
 msgstr "อัพเดทครั้งสุดท้ายโดย"
@@ -1117,13 +1237,22 @@ msgstr "อัพเดทครั้งสุดท้ายโดย"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__write_date
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__write_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__write_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__write_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__write_date
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__write_date
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__write_date
 msgid "Last Updated on"
 msgstr "อัพเดทครั้งสุดท้ายเมื่อ"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__line_count
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__suggest_line_count
+msgid "Line Count"
+msgstr "จำนวน"
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.medication_label
@@ -1156,11 +1285,17 @@ msgstr "ชื่อผู้ผลิต"
 #: model:ir.model,name:ni_medication.model_ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__medication_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__medication_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__medication_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__medication_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__line_display
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__line_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__medication_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__suggest_line_ids
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_search
-#: model_terms:ir.ui.view,arch_db:ni_medication.patient_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_view_form
 msgid "Medication"
 msgstr "ยารักษาโรค"
 
@@ -1178,11 +1313,14 @@ msgstr "จำนวนยาที่ใช้"
 
 #. module: ni_medication
 #: model:ir.model,name:ni_medication.model_ni_medication_dispense
+#: model:ir.model.fields,field_description:ni_medication.field_ni_encounter__medication_dispense_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_dispense_ids
 msgid "Medication Dispense"
 msgstr "จ่ายยา"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_encounter__medication_dispense_count
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__medication_dispense_count
 msgid "Medication Dispense Count"
 msgstr "จำนวนจ่ายยา"
 
@@ -1204,22 +1342,43 @@ msgid "Medication Ingredient"
 msgstr "ส่วนประกอบในยา"
 
 #. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__name
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_view_form
 msgid "Medication Name"
-msgstr "ชื่อยา"
+msgstr "ชื่อ"
 
 #. module: ni_medication
+#: model:ir.model,name:ni_medication.model_ni_medication_request
+#: model:ir.model.fields,field_description:ni_medication.field_ni_encounter__medication_request_ids
+msgid "Medication Request"
+msgstr "สั่งยา"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_encounter__medication_request_count
+msgid "Medication Request Count"
+msgstr "จำนวนสั่งยา"
+
+#. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_dosage_route_action
 #: model:ir.model,name:ni_medication.model_ni_medication_dosage_route
+#: model:ir.ui.menu,name:ni_medication.dosage_route_menu
 msgid "Medication Route"
 msgstr "ช่องทางรับยาเข้าสู่รางกาย"
 
 #. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_statement_action
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_statement_action_completed
 #: model:ir.model,name:ni_medication.model_ni_medication_statement
 #: model:ir.model.fields,field_description:ni_medication.field_ni_condition__medication_statement_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_condition_latest__medication_statement_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_encounter_diagnosis__medication_statement_ids
 #: model:ir.ui.menu,name:ni_medication.medication_statement_configuration_menu_section
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_encounter_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:ni_medication.patient_view_form_inherit
 msgid "Medication Statement"
 msgstr "การใช้ยา"
 
@@ -1241,7 +1400,27 @@ msgid "Medication Statements"
 msgstr "ประวัติการใช้ยา"
 
 #. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_suggest_action
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_suggest_wizard_action
+#: model:ir.model,name:ni_medication.model_ni_medication_suggest
+msgid "Medication Suggestion"
+msgstr "แนะนำรายการยา"
+
+#. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_suggest_line_action
+#: model:ir.model,name:ni_medication.model_ni_medication_suggest_line
+msgid "Medication Suggestion Line"
+msgstr "รายการยาที่แนะนำ"
+
+#. module: ni_medication
+#: model:ir.model,name:ni_medication.model_ni_medication_suggest_wizard
+msgid "Medication Suggestion Wizard"
+msgstr "แนะนำรายการยา"
+
+#. module: ni_medication
+#: model:ir.actions.act_window,name:ni_medication.ni_medication_dosage_method_action
 #: model:ir.model,name:ni_medication.model_ni_medication_dosage_method
+#: model:ir.ui.menu,name:ni_medication.dosage_method_menu
 msgid "Medication Technique"
 msgstr "วิธีการใช้ยา"
 
@@ -1258,7 +1437,6 @@ msgstr "จ่ายยา"
 #. module: ni_medication
 #: model:ir.actions.act_window,name:ni_medication.ni_medication_action
 #: model:ir.module.category,name:ni_medication.module_category_medical_medication
-#: model:ir.ui.menu,name:ni_medication.medication_configuration_menu_section
 #: model:ir.ui.menu,name:ni_medication.medication_menu
 #: model:ir.ui.menu,name:ni_medication.medication_menu_default
 #: model:ir.ui.menu,name:ni_medication.medication_menu_root
@@ -1269,12 +1447,6 @@ msgstr "ยารักษาโรค"
 #: model:ir.actions.act_window,name:ni_medication.ni_medication_dispense_action
 msgid "Medications Dispense"
 msgstr "จ่ายยา"
-
-#. module: ni_medication
-#: model:ir.actions.act_window,name:ni_medication.ni_medication_statement_action
-#: model:ir.actions.act_window,name:ni_medication.ni_medication_statement_action_completed
-msgid "Medications Statement"
-msgstr "การใช้ยา"
 
 #. module: ni_medication
 #: model:ir.actions.act_window,name:ni_medication.ni_medication_dispense_action_completed
@@ -1301,12 +1473,28 @@ msgid "Messages"
 msgstr "ข้อความ"
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_form
+msgid "Metadata"
+msgstr ""
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__method_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__method_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__method_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__method_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__method_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__method_id
 msgid "Method"
 msgstr "วิธีใช้"
+
+#. module: ni_medication
+#. odoo-python
+#: code:addons/ni_medication/models/ni_medication_abstract.py:0
+#, python-format
+msgid "Must save medication link"
+msgstr ""
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__my_activity_date_deadline
@@ -1317,22 +1505,26 @@ msgstr ""
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__dosage_name
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_abstract__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dosage_name
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__name
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_ingredient__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dosage_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dosage_name
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__name
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dosage_name
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__name
 msgid "Name"
 msgstr "ชื่อ"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__name_length
+msgid "Name Length"
+msgstr "ความยาชื่อ"
 
 #. module: ni_medication
 #: model:ni.medication.dosage.route,name:ni_medication.route_NG
@@ -1365,8 +1557,10 @@ msgstr "ประเภทกิจกรรมถัดไป"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__note
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__note
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__note
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
 msgid "Note"
 msgstr "หมายเหตุ"
@@ -1389,7 +1583,7 @@ msgstr "จำนวนข้อผิดพลาด"
 #: model:ir.model.fields,help:ni_medication.field_ni_medication__message_needaction_counter
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__message_needaction_counter
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr "จํานวนข้อความที่ต้องการการดําเนินการ"
 
 #. module: ni_medication
@@ -1444,6 +1638,7 @@ msgstr "ผู้ป่วยนอก"
 
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__partner_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__partner_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__partner_id
 msgid "Partner-related data of patient"
 msgstr ""
@@ -1452,6 +1647,7 @@ msgstr ""
 #: model:ir.model,name:ni_medication.model_ni_patient
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__patient_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__patient_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__patient_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__patient_id
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_search
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_search
@@ -1465,6 +1661,7 @@ msgstr "จำนวนผู้รับบริการ"
 
 #. module: ni_medication
 #: model:ni.medication.admin.location,name:ni_medication.admin_location_patient_specified
+#: model_terms:ir.ui.view,arch_db:ni_medication.patient_view_form_inherit
 msgid "Patient Specified"
 msgstr "ผู้รับบริการระบุ"
 
@@ -1492,6 +1689,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_tree
 msgid "Print"
 msgstr "พิมพ์"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__priority
+msgid "Priority"
+msgstr ""
 
 #. module: ni_medication
 #: model:ir.model,name:ni_medication.model_product_template
@@ -1552,22 +1754,35 @@ msgstr ""
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__quantity
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__quantity
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__quantity
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_tree
 msgid "Quantity"
 msgstr "จำนวน"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__quantity_display
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__quantity_display
 msgid "Quantity Display"
 msgstr "จำนวน"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__reason_ids
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__reason_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__reason_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__reason_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__reason_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__reason_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__reason_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__reason_ids
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
 msgid "Reason"
 msgstr "อาการ"
 
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__reason_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__reason_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_wizard__reason_ids
 msgid "Reason the encounter takes place"
 msgstr "สาเหตุที่เข้ารับบริการครั้งนั้น"
 
@@ -1578,12 +1793,14 @@ msgstr "บันทึกเมื่อ"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__partner_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__partner_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__partner_id
 msgid "Related Partner"
 msgstr "คู่ค้าที่เกี่ยวข้อง"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location__request
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__request_id
 msgid "Request"
 msgstr "ร้องขา"
 
@@ -1606,9 +1823,17 @@ msgstr "ล้างหรือซัก"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__route_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__route_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__route_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__route_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__route_id
 msgid "Route"
 msgstr "ช่องทาง"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__medication_request_id
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_encounter_view_form_inherit
+msgid "Rx"
+msgstr ""
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__message_has_sms_error
@@ -1628,6 +1853,21 @@ msgid "Sales Price"
 msgstr "ราคาขาย"
 
 #. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
+msgid "Save as templete"
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggest_wizard_view_form
+msgid "Search..."
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.patient_view_form_inherit
+msgid "See More"
+msgstr ""
+
+#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__sequence
@@ -1635,12 +1875,30 @@ msgstr "ราคาขาย"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__sequence
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__sequence
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__sequence
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__sequence
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__sequence
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__sequence
 msgid "Sequence"
 msgstr "ลำดับ"
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_kanban
+msgid "Sig :"
+msgstr ""
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_admin_location__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__specialty_ids
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__specialty_ids
+msgid "Specialty"
+msgstr "บทบาท"
 
 #. module: ni_medication
 #: model:ni.medication.dosage.method,name:ni_medication.method_spray
@@ -1649,6 +1907,7 @@ msgstr "สเปรย์"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__state
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__state
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__state
 msgid "State"
 msgstr "สถานะ"
@@ -1722,9 +1981,23 @@ msgid "Suck"
 msgstr "ดูด"
 
 #. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__suggest_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_wizard__suggest_id
+msgid "Suggest"
+msgstr "แนะนำ"
+
+#. module: ni_medication
+#: model:ir.ui.menu,name:ni_medication.medication_configuration_menu_section
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_encounter_view_form_inherit
+msgid "Suggestion"
+msgstr "ยารักษาโรค"
+
+#. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__additional_ids
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage__additional_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__additional_ids
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__additional_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__additional_ids
 msgid ""
 "Supplemental instruction or warnings to the patient - e.g. \"with meals\", "
 "\"may cause drowsiness\""
@@ -1742,60 +2015,64 @@ msgstr "กลืน"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__system_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__system_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__system_id
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__system_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__system_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__system_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__system_id
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_search
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_route_view_search
 msgid "System"
 msgstr "ระบบ"
 
 #. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__account_tag_ids
-msgid ""
-"Tags to be set on the base and tax journal items created for this product."
-msgstr ""
-
-#. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__tax_string
-msgid "Tax String"
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__method_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dosage__method_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__method_id
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__method_id
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__method_id
 msgid "Technique for administering medication"
 msgstr "วิธึการหรือเทคนิคที่ใช้ในการรับยา"
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "Template"
 msgstr "แม่แบบ"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__text
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__text
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__text
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__text
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__text
 msgid "Text"
 msgstr "ข้อความ"
 
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "There is no template for this medication"
 msgstr "ไม่มีแม่แบบสำหรับยาที่เลือก"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__timing_tod
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__timing_tod
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__timing_tod
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__timing_tod
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__timing_tod
 msgid "Time Of Day"
 msgstr "เวลา"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__timing_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__timing_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__timing_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__timing_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__timing_id
 #: model:ir.ui.menu,name:ni_medication.timing_template_menu
 msgid "Timing"
 msgstr "ช่วงเวลา"
@@ -1803,7 +2080,9 @@ msgstr "ช่วงเวลา"
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__timing_tmpl_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__timing_tmpl_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__timing_tmpl_id
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__timing_tmpl_id
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__timing_tmpl_id
 msgid "Timing Tmpl"
 msgstr "แม่แบบช่วงเวลา"
 
@@ -1854,8 +2133,8 @@ msgstr "หน่วย"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_additional__system
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_method__system
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_route__system
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage_site__system
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_form__system
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__system
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_unit__system
 msgid "Url"
 msgstr ""
@@ -1863,14 +2142,39 @@ msgstr ""
 #. module: ni_medication
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_abstract__dosage_when
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__dosage_when
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__dosage_when
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__dosage_when
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__dosage_when
 msgid "Use for search filter with `When`"
 msgstr ""
 
 #. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest__user_id
 #: model:res.groups,name:ni_medication.group_user
 msgid "User"
 msgstr "ผู้ใช้งาน"
+
+#. module: ni_medication
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__user_specialty
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__user_specialty
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__user_specialty
+msgid "User Specialty"
+msgstr "บทบาทผู้ใช้"
+
+#. module: ni_medication
+#: model:res.groups,name:ni_medication.group_dispenser
+msgid "User: Dispense Only"
+msgstr "ผู้ใช้: จ่ายยาเท่านั้น"
+
+#. module: ni_medication
+#: model:res.groups,name:ni_medication.group_super_user
+msgid "User: Request & Dispense"
+msgstr "ผู้ใช้: สั่งยาและจ่ายยา"
+
+#. module: ni_medication
+#: model:res.groups,name:ni_medication.group_requester
+msgid "User: Request Only"
+msgstr "ผู้ใช้: สั่งยาเท่านั้น"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__valid_product_template_attribute_line_ids
@@ -1883,14 +2187,14 @@ msgid "Variant Seller"
 msgstr ""
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__supplier_taxes_id
-msgid "Vendor Taxes"
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__seller_ids
 msgid "Vendors"
 msgstr "ผู้ขาย"
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_encounter_view_form_inherit
+msgid "View Dispense"
+msgstr "ดูรายการจ่ายยา"
 
 #. module: ni_medication
 #: model:res.groups,name:ni_medication.group_viewer
@@ -1908,20 +2212,6 @@ msgid "Volume unit of measure label"
 msgstr "หน่วยวัดปริมาตร"
 
 #. module: ni_medication
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication__website_message_ids
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__website_message_ids
-#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: ni_medication
-#: model:ir.model.fields,help:ni_medication.field_ni_medication__website_message_ids
-#: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__website_message_ids
-#: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__website_message_ids
-msgid "Website communication history"
-msgstr ""
-
-#. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__weight
 msgid "Weight"
 msgstr "น้ําหนัก"
@@ -1936,8 +2226,12 @@ msgstr "หน่วยวัดน้ำหนัก"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__dosage_when
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dispense__timing_when
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_dosage__timing_when
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__dosage_when
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_request__timing_when
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dosage_when
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__timing_when
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dosage_when
+#: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__timing_when
 msgid "When"
 msgstr "ช่วงเวลา"
 
@@ -1945,6 +2239,12 @@ msgstr "ช่วงเวลา"
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__condition_ids
 msgid "Why medication is being/was taken"
 msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_additional_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_method_view_form
+msgid "abbr."
+msgstr "ตัวย่อ"
 
 #. module: ni_medication
 #: model:uom.uom,name:ni_medication.uom_actuation
@@ -2034,7 +2334,9 @@ msgstr "หมากฝรั่ง"
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "choose from..."
 msgstr "เลือกจาก..."
 
@@ -2106,7 +2408,9 @@ msgstr "ครีม"
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dosage_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "create new..."
 msgstr "สร้างใหม่..."
 
@@ -2194,7 +2498,9 @@ msgstr ""
 #: model:ir.model.fields,help:ni_medication.field_ni_medication__dosage_ids
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_abstract__medication_dosage_ids
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_dispense__medication_dosage_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_request__medication_dosage_ids
 #: model:ir.model.fields,help:ni_medication.field_ni_medication_statement__medication_dosage_ids
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest_line__medication_dosage_ids
 msgid "dosages available for this medication"
 msgstr "วิธีการใช้ยาตัวนี้"
 
@@ -2216,6 +2522,11 @@ msgstr ""
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_view_form
 msgid "e.g. Nstdamol (Paracetamol 500mg)"
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
+msgid "e.g. Paracetamol 500mg"
 msgstr ""
 
 #. module: ni_medication
@@ -2594,6 +2905,7 @@ msgstr ""
 #. module: ni_medication
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
 #: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_suggestion_line_view_form
 msgid "or"
 msgstr "หรือ"
 
@@ -3027,6 +3339,11 @@ msgid "tablets"
 msgstr "เม็ด"
 
 #. module: ni_medication
+#: model:ir.model.fields,help:ni_medication.field_ni_medication_suggest__user_id
+msgid "this suggestion belong to user"
+msgstr ""
+
+#. module: ni_medication
 #: model:ni.medication.form,name:ni_medication.form_transdermal_patch
 msgid "transdermal patch"
 msgstr ""
@@ -3074,4 +3391,18 @@ msgstr ""
 #. module: ni_medication
 #: model:uom.uom,name:ni_medication.uom_vial
 msgid "vial"
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+msgid "ค้นหาด้วยชื่อยา..."
+msgstr ""
+
+#. module: ni_medication
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_dispense_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_request_view_form
+#: model_terms:ir.ui.view,arch_db:ni_medication.ni_medication_statement_view_form
+msgid "ชื่อยา"
 msgstr ""
