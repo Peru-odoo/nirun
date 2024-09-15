@@ -43,21 +43,20 @@
                         name="action_confirm"
                         type="object"
                         string="Confirm"
-                        class="btn-outline-success"
+                        class="btn-primary"
                         attrs="{'invisible': [('state', 'not in', ['draft'])]}"
                     />
                     <button
                         name="action_resume"
                         type="object"
                         string="Resume"
-                        class="btn-outline-success"
                         attrs="{'invisible': [('state', 'not in', ['on-hold'])]}"
                     />
                     <button
                         name="action_revoked"
                         type="object"
                         string="Revoke"
-                        class="btn-outline-danger"
+                        class="btn-danger"
                         attrs="{'invisible': [('state', 'in', ['draft', 'completed', 'revoked'])]}"
                         confirm="Are you sure to revoke this careplan?"
                     />
@@ -86,32 +85,15 @@
                         </page>
                         <page name="goal" string="Goal" badge="goal_count" icon="fa-bullseye">
                             <field name="goal_count" invisible="1" />
-                            <field name="goal_mode" invisible="1" />
-                            <field
-                                name="goal_mode"
-                                widget="radio"
-                                options="{'horizontal': True}"
-                                groups="base.group_no_one"
-                            />
                             <field name="goal_category_id" invisible="1" />
-                            <div attrs="{'invisible': [('goal_mode', '!=', 'advance')]}">
+                            <div>
                                 <field
                                     name="goal_ids"
                                     mode="kanban"
                                     class="w-100"
-                                    context="{'default_patient_id': patient_id, 'default_encounter_id': encounter_id}"
+                                    context="{'default_patient_id': patient_id, 'default_encounter_id': encounter_id, 'default_category_id': goal_category_id}"
                                 />
                             </div>
-                            <div attrs="{'invisible': [('goal_mode', '!=', 'simple')]}">
-                                <field
-                                    name="goal_code_ids"
-                                    widget="many2many_tags"
-                                    placeholder="Search for predefined goal..."
-                                    class="w-100"
-                                />
-                                <field name="goal_text" placeholder="Describe goal" />
-                            </div>
-                            />
                         </page>
                         <page name="action" string="Action" badge="action_count" icon="fa-inbox">
                             <field name="action_count" invisible="1" />
@@ -124,7 +106,7 @@
                                         options="{'create': True}"
                                         widget="one2many"
                                         mode="kanban"
-                                        context="{'default_patient_id': patient_id, 'default_careplan_id': id}"
+                                        context="{'default_patient_id': patient_id, 'default_careplan_id': id, 'default_category_id': service_category_id, 'default_period_start': period_start, 'default_period_end': period_end}"
                                     />
                                 </page>
                                 <page name="medication" string="Medication" badge="medication_request_count">
@@ -133,7 +115,7 @@
                                         name="medication_request_ids"
                                         options="{'create': True}"
                                         mode="kanban"
-                                        context="{'default_patient_id': patient_id, 'default_careplan_id': id, 'hide_encounter_id': 1}"
+                                        context="{'default_patient_id': patient_id, 'default_careplan_id': id, 'hide_encounter_id': 1, 'default_period_start': period_start, 'default_period_end': period_end}"
                                     />
                                 </page>
                             </notebook>
@@ -145,7 +127,12 @@
                             />
                             <field name="document_count" invisible="1" />
                         </page>
-                        <page name="achievement" string="Achievement" icon="fa-podcast">
+                        <page
+                            name="achievement"
+                            string="Achievement"
+                            icon="fa-podcast"
+                            attrs="{'invisible': [('state', 'in', ['draft', 'revoked', 'on-hold'])]}"
+                        >
                             <div class="row">
                                 <div class="col-12 col-lg-5">
                                     <label for="goal_review_ids" />
@@ -203,6 +190,13 @@
                                         />
                                         <field name="achievement_date" class="text-muted mx-2" />
                                     </div>
+                                    <button
+                                        name="action_complete"
+                                        type="object"
+                                        class="btn-primary"
+                                        string="Mark as Completed"
+                                        attrs="{'invisible': ['|', ('state', '!=', 'active'),('achievement_id', '=', False)]}"
+                                    />
                                 </div>
                             </div>
                         </page>

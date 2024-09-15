@@ -72,6 +72,9 @@
                                 </group>
                             </group>
                         </page>
+                        <page name="condition" string="Condition">
+                            <field name="condition_code_ids" />
+                        </page>
                         <page string="Extra Info">
                             <group>
                                 <group>
