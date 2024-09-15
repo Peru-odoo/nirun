@@ -2,7 +2,7 @@
 
 {
     "name": "Care Plan",
-    "version": "16.0.0.1.2",
+    "version": "16.0.0.1.3",
     "development_status": "Alpha",
     "category": "Medical",
     "author": "NSTDA, Piruin P.",
@@ -19,6 +19,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "data/ir_sequence_data.xml",
         "views/ni_careplan_views.xml",
         "views/ni_careplan_category_views.xml",
         "views/ni_encounter_views.xml",

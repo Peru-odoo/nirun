@@ -7,7 +7,7 @@ from odoo.tools.date_utils import relativedelta
 class Careplan(models.Model):
     _name = "ni.careplan"
     _description = "Care Plan"
-    _inherit = ["ni.workflow.request.mixin", "ni.period.mixin"]
+    _inherit = ["ni.workflow.request.mixin", "ni.period.mixin", "ni.identifier.mixin"]
     _check_period_start = False
 
     @api.model
