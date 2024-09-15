@@ -3,6 +3,12 @@
   ~ Copyright (c) 2024 NSTDA
   -->
 <odoo>
+    <record id="ni_careplan_action" model="ir.actions.act_window">
+        <field name="name">Careplan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ni.careplan</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
     <record id="ni_careplan_view_tree" model="ir.ui.view">
         <field name="name">ni.careplan.view.tree</field>
         <field name="model">ni.careplan</field>
@@ -68,14 +74,16 @@
                         <field name="user_specialty" invisible="1" />
                         <field name="user_specialty" groups="base.group_no_one" />
                     </group>
-                    <separator string="Address" />
-                    <field
-                        name="condition_ids"
-                        mode="kanban"
-                        context="{'default_patient_id': patient_id, 'default_encounter_id': encounter_id, 'enforce_specialty': 1}"
-                        domain="[('patient_id', '=', patient_id), ('clinical_state', 'not in', ['inactive', 'resolved']), '|', ('code_id.specialty_ids', '=', False), ('code_id.specialty_ids', '=', user_specialty)]"
-                    />
                     <notebook>
+                        <page name="dx" string="Diagnosis" icon="fa-list-ul" badge="condition_count">
+                            <field
+                                name="condition_ids"
+                                mode="kanban"
+                                context="{'default_patient_id': patient_id, 'default_encounter_id': encounter_id, 'enforce_specialty': 1}"
+                                domain="[('patient_id', '=', patient_id), ('clinical_state', 'not in', ['inactive', 'resolved']), '|', ('code_id.specialty_ids', '=', False), ('code_id.specialty_ids', '=', user_specialty)]"
+                            />
+                            <field name="condition_count" invisible="1" />
+                        </page>
                         <page name="goal" string="Goal" badge="goal_count" icon="fa-bullseye">
                             <field name="goal_count" invisible="1" />
                             <field name="goal_mode" invisible="1" />

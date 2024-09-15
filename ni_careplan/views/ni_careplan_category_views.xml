@@ -55,22 +55,24 @@
                         </group>
                         <group>
                             <field name="code" />
-                            <field name="system_id" />
                         </group>
                     </group>
-                    <group string="Configuration">
-                        <group string="Goal">
-                            <field name="goal_category_id" />
-                        </group>
-                        <group string="Service">
-                            <field name="service_category_id" />
-                        </group>
-                    </group>
-                    <notebook>
-                        <page string="Definition">
-                            <field name="definition" placeholder="Definition..." />
+                    <field name="definition" placeholder="Definition..." />
+                    <notebook groups="base.group_no_one">
+                        <page name="configuration" string="Configuration">
+                            <group>
+                                <field name="system_id" />
+                            </group>
+                            <group>
+                                <group string="Goal">
+                                    <field name="goal_category_id" />
+                                </group>
+                                <group string="Service">
+                                    <field name="service_category_id" />
+                                </group>
+                            </group>
                         </page>
-                        <page string="Extra Info" groups="base.group_no_one">
+                        <page string="Extra Info">
                             <group>
                                 <group>
                                     <field name="color" widget="color_picker" />

@@ -34,6 +34,7 @@ class Careplan(models.Model):
         domain="[('patient_id', '=', patient_id)]",
         context={"default_patient_id": "patient_id"},
     )
+    condition_count = fields.Integer(compute="_compute_condition_count")
     goal_mode = fields.Selection(
         [("simple", "Simple"), ("advance", "Advance")], default="advance", required=True
     )
@@ -79,6 +80,11 @@ class Careplan(models.Model):
         help="When achievement status took effect", readonly=1
     )
     achievement_uid = fields.Many2one("res.users", readonly=1)
+
+    @api.depends("condition_ids")
+    def _compute_condition_count(self):
+        for rec in self:
+            rec.condition_count = len(rec.condition_ids)
 
     @api.depends("service_request_ids", "medication_request_ids")
     def _compute_action_count(self):
