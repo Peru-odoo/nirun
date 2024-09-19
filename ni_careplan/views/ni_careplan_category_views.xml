@@ -50,8 +50,11 @@
                         title="Archived"
                     />
                     <group>
+                        <field name="name" />
+                    </group>
+                    <group>
                         <group>
-                            <field name="name" />
+                            <field name="abbr" string="abbr." />
                         </group>
                         <group>
                             <field name="code" />
@@ -59,33 +62,39 @@
                     </group>
                     <field name="definition" placeholder="Definition..." />
                     <notebook groups="base.group_no_one">
-                        <page name="configuration" string="Configuration">
-                            <group>
-                                <field name="system_id" />
-                            </group>
-                            <group>
-                                <group string="Goal">
-                                    <field name="goal_category_id" />
-                                </group>
-                                <group string="Service">
-                                    <field name="service_category_id" />
-                                </group>
-                            </group>
-                        </page>
                         <page name="condition" string="Condition">
                             <field name="condition_code_ids" />
                         </page>
-                        <page string="Extra Info">
+                        <page name="goal" string="Goal">
                             <group>
+                                <field name="goal_category_id" />
+                            </group>
+                            <field name="goal_code_ids" />
+                        </page>
+                        <page name="service" string="Service">
+                            <group>
+                                <field name="service_category_id" />
+                            </group>
+                        </page>
+                        <page string="Extra Info" groups="base.group_no_one">
+                            <group name="configuration" string="Configuration">
                                 <group>
+                                    <field name="system_id" />
+                                </group>
+                                <group>
+                                    <field name="parent_id" />
+                                </group>
+                            </group>
+                            <group>
+                                <group name="display" string="Display">
                                     <field name="color" widget="color_picker" />
                                     <field name="sequence" />
                                 </group>
-                                <group>
+                                <group name="metadata" string="Metadata">
                                     <field name="create_date" />
-                                    <field name="create_uid" />
+                                    <field name="create_uid" widget="many2one_avatar_user" />
                                     <field name="write_date" />
-                                    <field name="write_uid" />
+                                    <field name="write_uid" widget="many2one_avatar_user" />
                                 </group>
                             </group>
                         </page>
