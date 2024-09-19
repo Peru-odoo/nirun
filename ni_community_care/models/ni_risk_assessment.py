@@ -165,14 +165,16 @@ class RiskAssessmentPrediction(models.Model):
             from dateutil import relativedelta
 
             if rec.actual:
+                start = fields.Datetime.now()
+                stop = start + relativedelta.relativedelta(hours=1)
                 event = self.env["ni.service.event"].create(
                     {
                         "name": rec.service_id.name,
+                        "mode": "single",
                         "service_id": rec.service_id.id,
                         "user_id": self.env.user.id,
-                        "start": fields.Datetime.now(),
-                        "stop": fields.Datetime.now()
-                        + relativedelta.relativedelta(hours=1),
+                        "start": start,
+                        "stop": stop,
                         "prediction_id": rec.id,
                         "patient_id": rec.assessment_id.patient_id.id,
                     }
