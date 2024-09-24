@@ -21,12 +21,12 @@
         "data/ni_condition_block_data.xml",
         "data/ni_encounter_diagnosis_role_data.xml",
     ],
-    "demo": [
-        "data/ni_condition_code_data_1.xml",
-        "data/ni_condition_code_data_2.xml",
-        "data/ni_condition_code_data_3.xml",
-        "data/ni_condition_code_data_4.xml",
-    ],
+    # "demo": [
+    #     "demo/ni_condition_code_data_1.xml",
+    #     "demo/ni_condition_code_data_2.xml",
+    #     "demo/ni_condition_code_data_3.xml",
+    #     "demo/ni_condition_code_data_4.xml",
+    # ],
     "application": False,
     "auto_install": False,
     "installable": True,
