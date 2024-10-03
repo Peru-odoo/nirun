@@ -13,6 +13,10 @@ class Patient(models.Model):
     type_decoration = fields.Selection(related="type_id.decoration")
     line = fields.Char("LINE ID")
 
+    service_event_ids = fields.One2many(
+        "ni.service.event", compute="_compute_service_event"
+    )
+
     plan = fields.Text("แนวทางในการให้ความช่วยเหลือดูแล")
 
     plan_service_ids = fields.Many2many(
@@ -34,6 +38,13 @@ class Patient(models.Model):
 
     condition_other = fields.Char()
     allergy_other = fields.Char()
+
+    def _compute_service_event(self):
+        for rec in self:
+            event = self.env["ni.service.event"].search(
+                [("plan_patient_ids", "=", rec.id)], order="start desc"
+            )
+            rec.service_event_ids = event
 
     @api.depends("risk_assessment_ids")
     def _compute_risk_assessment(self):
@@ -61,6 +72,18 @@ class Patient(models.Model):
             "context": ctx,
         }
         return view
+
+    def action_survey_subject(self):
+        action_rec = self.env.ref("survey_subject.survey_subject_action").sudo()
+        action = action_rec.read()[0]
+        ctx = dict(self.env.context)
+        ctx.update(
+            {
+                "default_subject_ni_patient": self.id,
+            }
+        )
+        action["context"] = ctx
+        return action
 
 
 class PatientType(models.Model):

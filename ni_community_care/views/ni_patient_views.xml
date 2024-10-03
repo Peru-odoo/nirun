@@ -194,6 +194,7 @@
                             decoration-muted="type_decoration == 'muted'"
                         />
                         <field name="type_decoration" invisible="1" />
+                        <!--                         <field name="type_id" widget="radio" options="{'horizontal': True}" groups="base.group_no_one"/>-->
                     </div>
                     <notebook>
                         <page name="personal" string="ข้อมูลส่วนบุคคล" icon="fa-address-book-o">
@@ -290,7 +291,7 @@
                                 </group>
                             </group>
                         </page>
-                        <page name="health" string="ข้อมูลสุขภาพ">
+                        <page name="health" string="ข้อมูลสุขภาพ" icon="fa-thermometer-half">
                             <group>
                                 <label for="allergy_code_ids" string="แพ้ยา/อาหาร" />
                                 <div>
@@ -302,37 +303,39 @@
                                     <field name="condition_code_ids" widget="many2many_checkboxes" class="mt-3" />
                                     <field name="condition_other" placeholder="โรคประจำตัวอื่นๆ..." />
                                 </div>
-                                <label for="type_id" class="mt-2" />
-                                <div class="o_row">
-                                    <field name="type_id" widget="radio" options="{'horizontal': True}" class="mt-2" />
-                                    <button
-                                        name="action_condition"
-                                        type="object"
-                                        class="mx-2 btn-secondary"
-                                        string="ทำการประเมิน"
-                                        icon="fa-pencil-square-o"
-                                    />
-                                </div>
                             </group>
                         </page>
-                        <page
-                            name="assessment"
-                            string="ประวัติการประเมินผู้สูงอายุ"
-                            icon="fa-life-ring"
-                            badge="risk_assessment_count"
-                        >
-                            <field name="risk_assessment_count" invisible="1" />
-                            <field name="risk_assessment_ids" readonly="1" />
-                            <div class="text-center">
-                                <button
-                                    name="action_risk"
-                                    type="object"
-                                    class="btn-primary"
-                                    icon="fa-life-ring"
-                                    string="ทำการประเมิน"
-                                />
-                            </div>
+                        <page name="observation" string="ผลการประเมินผล" icon="fa-stethoscope">
+                            <field name="patient_observation_ids" mode="kanban" />
+                            <button
+                                name="action_survey_subject"
+                                type="object"
+                                string="ทำแบบประเมิน"
+                                class="btn-primary"
+                                context="{'default_patient_id': id}"
+                            />
                         </page>
+                        <page name="service" string="กิจกรรมการดูแลผู้สูงอายุ" icon="fa-life-ring">
+                            <field name="service_event_ids" mode="kanban" />
+                        </page>
+                        <!--                        <page-->
+                        <!--                            name="assessment"-->
+                        <!--                            string="ประวัติการประเมินผู้สูงอายุ"-->
+                        <!--                            icon="fa-life-ring"-->
+                        <!--                            badge="risk_assessment_count"-->
+                        <!--                        >-->
+                        <!--                            <field name="risk_assessment_count" invisible="1" />-->
+                        <!--                            <field name="risk_assessment_ids" readonly="1" />-->
+                        <!--                            <div class="text-center">-->
+                        <!--                                <button-->
+                        <!--                                    name="action_risk"-->
+                        <!--                                    type="object"-->
+                        <!--                                    class="btn-primary"-->
+                        <!--                                    icon="fa-life-ring"-->
+                        <!--                                    string="ทำการประเมิน"-->
+                        <!--                                />-->
+                        <!--                            </div>-->
+                        <!--                        </page>-->
                     </notebook>
                 </sheet>
             </form>

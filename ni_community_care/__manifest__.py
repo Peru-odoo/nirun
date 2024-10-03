@@ -2,14 +2,21 @@
 
 {
     "name": "Community Care",
-    "version": "16.0.0.2.0",
+    "version": "16.0.0.3.0",
     "development_status": "Alpha",
     "category": "Medical",
     "author": "NSTDA, Piruin P.",
     "website": "https://nirun.life/",
     "license": "LGPL-3",
     "maintainers": ["piruin"],
-    "depends": ["ni_patient", "ni_service", "ni_condition", "ni_allergy", "account"],
+    "depends": [
+        "ni_patient",
+        "ni_service",
+        "ni_condition",
+        "ni_allergy",
+        "account",
+        "ni_questionnaire",
+    ],
     "data": [
         "datas/ir_sequence_data.xml",
         "datas/ni_patient_type_data.xml",
