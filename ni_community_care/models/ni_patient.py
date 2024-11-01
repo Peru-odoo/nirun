@@ -1,6 +1,8 @@
 #  Copyright (c) 2024 NSTDA
+import ast
+from pprint import pprint
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class Patient(models.Model):
@@ -38,6 +40,27 @@ class Patient(models.Model):
 
     condition_other = fields.Char()
     allergy_other = fields.Char()
+
+    def action_view_service_event(self):
+        action = (
+            self.env["ir.actions.act_window"]
+            .sudo()
+            ._for_xml_id("ni_community_care.ni_service_event_action_from_patient")
+        )
+        action["display_name"] = _("%(name)s's Service", name=self.name)
+        context = action["context"].replace("active_id", str(self.id))
+        context = ast.literal_eval(context)
+        context.update(
+            {
+                "create": self.active,
+                "active_test": self.active,
+                "default_plan_patient_ids": [fields.Command.set(self.ids)],
+            }
+        )
+        action["view_mode"] = "kanban,calendar,tree,pivot,form"
+        action["context"] = context
+        pprint(action)
+        return action
 
     def _compute_service_event(self):
         for rec in self:

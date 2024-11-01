@@ -316,7 +316,101 @@
                             />
                         </page>
                         <page name="service" string="กิจกรรมการดูแลผู้สูงอายุ" icon="fa-life-ring">
-                            <field name="service_event_ids" mode="kanban" />
+                            <div>
+                                <button
+                                    name="action_view_service_event"
+                                    type="object"
+                                    class="btn-primary my-2"
+                                    string=" กิจกรรมการดูแลผู้สูงอายุ +"
+                                    icon="fa-tasks"
+                                    attrs="{'invisible': [('deceased', '=', True)]}"
+                                />
+                            </div>
+                            <label
+                                for="service_event_ids"
+                                string="ประวัติการทำกิจกรรม"
+                                class="mt-4 text-black fw-bold"
+                            />
+                            <field name="service_event_ids">
+                                <tree>
+                                    <field name="start" string="วันที่" widget="remaining_days" />
+                                    <field
+                                        name="service_category_ids"
+                                        string="มิติ"
+                                        optional="show"
+                                        widget="many2many_tags"
+                                        options="{'color_field': 'color'}"
+                                    />
+                                    <field name="name" string="กิจกรรม" />
+                                </tree>
+                                <kanban>
+                                    <field name="name" />
+                                    <field name="service_category_id" />
+                                    <field name="start" />
+                                    <field name="color" />
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div
+                                                t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click"
+                                            >
+                                                <div class="oe_kanban_content">
+                                                    <div class="o_kanban_record_top">
+                                                        <div class="o_kanban_record_headings">
+                                                            <div>
+                                                                <field
+                                                                    name="service_category_ids"
+                                                                    widget="many2many_tags"
+                                                                    options="{'color_field': 'color'}"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            class="o_dropdown_kanban dropdown"
+                                                            t-if="!selection_mode"
+                                                            groups="base.group_user"
+                                                        >
+                                                            <a
+                                                                role="button"
+                                                                class="dropdown-toggle o-no-caret btn"
+                                                                data-bs-toggle="dropdown"
+                                                                data-bs-display="static"
+                                                                href="#"
+                                                                aria-label="Dropdown menu"
+                                                                title="Dropdown menu"
+                                                            >
+                                                                <span class="fa fa-ellipsis-v" />
+                                                            </a>
+                                                            <div class="dropdown-menu" role="menu">
+                                                                <a
+                                                                    t-if="widget.editable"
+                                                                    role="menuitem"
+                                                                    type="edit"
+                                                                    class="dropdown-item"
+                                                                >
+                                                                    Edit
+                                                                </a>
+                                                                <div role="separator" class="dropdown-divider" />
+                                                                <ul class="oe_kanban_colorpicker" data-field="color" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <field name="name" />
+                                                    <div class="o_kanban_record_body mt-2">
+                                                        <div class="small text-muted">
+                                                            <i
+                                                                class="fa fa-clock-o me-1"
+                                                                aria-hidden="true"
+                                                                title="start"
+                                                            />
+                                                            <field name="start" widget="remaining_days" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
                         </page>
                         <!--                        <page-->
                         <!--                            name="assessment"-->
