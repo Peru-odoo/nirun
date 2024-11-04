@@ -40,16 +40,24 @@
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
+                    <field name="display_name" string="กิจกรรม" invisible="1" />
                     <group>
                         <field name="name" invisible="1" />
-                        <field name="display_name" string="กิจกรรม" class="oe_readonly" />
-                        <field name="service_category_id" invisible="1" />
+                        <field
+                            name="service_category_id"
+                            string="กิจกรรมการดูแล"
+                            invisible="context.get('default_service_category_id')"
+                            widget="radio"
+                            options="{'horizontal': True}"
+                        />
                         <field name="service_id" invisible="1" />
                         <field
                             name="service_ids"
                             widget="many2many_checkboxes"
+                            string=""
                             domain="[('category_id', '=', service_category_id)]"
                         />
+                        <field name="plan_patient_ids" widget="many2many_tags_avatar" />
                         <field name="start" string="วันเวลาที่ปฎิบัติจริง" force_save="1" />
                         <field name="stop" invisible="1" />
                         <field name="duration" invisible="1" />
