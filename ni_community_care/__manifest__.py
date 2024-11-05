@@ -29,6 +29,8 @@
         "views/ni_risk_assessment_prediction_views.xml",
         "views/ni_risk_assessment_views.xml",
         "views/ni_community_care_menu.xml",
+        "report/elder_report_templates.xml",
+        "report/elder_report.xml",
     ],
     "application": True,
     "auto_install": False,
