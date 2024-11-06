@@ -37,6 +37,11 @@
                 <field name="type_decoration" />
                 <field name="identification_id" />
                 <field name="type_id" />
+                <field name="heal_progress" />
+                <field name="soci_progress" />
+                <field name="econ_progress" />
+                <field name="envi_progress" />
+                <field name="tech_progress" />
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
@@ -133,11 +138,62 @@
                                         <span>Deceased:</span>
                                         <field name="deceased_date" />
                                     </li>
-                                    <li class="mt-1">
-                                        <span class="fw-bold">สถานะการประเมิน</span>
+                                    <li class="mt-2">
+                                        <span class="fw-bold">สถานะ 5 มิติ</span>
                                     </li>
                                     <li>
-                                        <field name="actual_ratio" widget="progressbar" />
+                                        <div class="progress" style="height: 1.5rem">
+                                            <div
+                                                class="progress-bar bg-primary"
+                                                role="progressbar"
+                                                t-attf-style="width: {{ (record.heal_progress.raw_value) ? '17%' : '0%'}}"
+                                                aria-valuenow="15"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                สุขภาพ
+                                            </div>
+                                            <div
+                                                class="progress-bar bg-danger"
+                                                role="progressbar"
+                                                t-attf-style="width: {{ (record.soci_progress.raw_value == true) ? '15%' : '0%'}}"
+                                                aria-valuenow="15"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                สังคม
+                                            </div>
+                                            <div
+                                                class="progress-bar bg-warning"
+                                                role="progressbar"
+                                                t-attf-style="width: {{ (record.econ_progress.raw_value == true) ? '20%' : '0%'}}"
+                                                aria-valuenow="30"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                เศรษฐกิจ
+                                            </div>
+                                            <div
+                                                class="progress-bar bg-success"
+                                                role="progressbar"
+                                                t-attf-style="width: {{ (record.envi_progress.raw_value == true) ? '25%' : '0%'}}"
+                                                aria-valuenow="20"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                สิ่งแวดล้อม
+                                            </div>
+                                            <div
+                                                class="progress-bar bg-info"
+                                                role="progressbar"
+                                                t-attf-style="width: {{ (record.tech_progress.raw_value == true) ? '23%' : '0%'}}"
+                                                aria-valuenow="20"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                            >
+                                                เทคโนโลยี
+                                            </div>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

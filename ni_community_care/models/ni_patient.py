@@ -41,6 +41,27 @@ class Patient(models.Model):
     condition_other = fields.Char()
     allergy_other = fields.Char()
 
+    heal_progress = fields.Boolean(default=False, compute="_compute_category_progress")
+    soci_progress = fields.Boolean(default=True, compute="_compute_category_progress")
+    econ_progress = fields.Boolean(default=True, compute="_compute_category_progress")
+    envi_progress = fields.Boolean(default=False, compute="_compute_category_progress")
+    tech_progress = fields.Boolean(default=True, compute="_compute_category_progress")
+
+    @api.depends("service_event_ids")
+    def _compute_category_progress(self):
+        for rec in self:
+            grp = self.env["ni.service.event"].read_group(
+                [("plan_patient_ids", "=", rec.id)], ["count"], "service_category_id"
+            )
+            rec.heal_progress = True
+            for g in grp:
+                cat_id = self.env["ni.service.category"].browse(
+                    g.get("service_category_id")[0]
+                )
+                f = "{}_progress".format(cat_id["code"])
+                if f in self._fields:
+                    rec[f] = bool(g.get("service_category_id_count"))
+
     def action_view_service_event(self):
         action = (
             self.env["ir.actions.act_window"]
