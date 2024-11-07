@@ -22,7 +22,7 @@ from xml.sax.saxutils import escape
 
 NOUPDATE = 1
 BOOLEAN = ("True", "False")
-ERP_HEADER = """<?xml version="1.0"?>
+ERP_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
 <odoo noupdate="%s">
     <!-- prettier-ignore-start -->"""
 
@@ -51,8 +51,8 @@ for csv_file in glob.glob("*.csv"):
     if csv_file in FILES_WITH_UPDATE:
         no_update = 0
     xml_file = csv_file.replace(".", "_").replace("_csv", "_data.xml")
-    csv_data = csv.reader(open(csv_file))
-    xml_data = open(xml_file, "w")
+    csv_data = csv.reader(open(csv_file, encoding="utf-8"))
+    xml_data = open(xml_file, "w", encoding="utf-8")
     xml_data.write(ERP_HEADER % NOUPDATE + "\n\n\n")
     row_num = 0
     for row in csv_data:
