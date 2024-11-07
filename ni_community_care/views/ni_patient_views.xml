@@ -3,6 +3,22 @@
   ~ Copyright (c) 2024 NSTDA
   -->
 <odoo>
+    <record id="ni_patient_view_search" model="ir.ui.view">
+        <field name="name">ni.patient.view.search</field>
+        <field name="model">ni.patient</field>
+        <field name="inherit_id" ref="ni_patient.ni_patient_view_search" />
+        <field name="priority" eval="200" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="replace">
+                <search>
+                    <field name="name" filter_domain="['|' ,('name', 'ilike', self), ('identifier', 'ilike', self)]" />
+                    <searchpanel>
+                        <field name="type_id" enable_counters="1" />
+                    </searchpanel>
+                </search>
+            </xpath>
+        </field>
+    </record>
     <record id="ni_patient_view_form_inherit" model="ir.ui.view">
         <field name="name">ni.patient.view.form.inherit</field>
         <field name="model">ni.patient</field>
@@ -55,51 +71,6 @@
                             <div class="oe_kanban_details">
                                 <div name="kanban_top" class="o_kanban_record_top">
                                     <div class="o_kanban_record_headings">
-                                        <div class="float-end" t-if="record.presence_state.raw_value == 'unknown'">
-                                            <span
-                                                name="presence_to_define"
-                                                aria-label="Unknown"
-                                                class="fa fa-circle text-secondary"
-                                                role="img"
-                                                title="Unknown"
-                                            />
-                                        </div>
-                                        <div class="float-end" t-if="record.presence_state.raw_value == 'draft'">
-                                            <span
-                                                name="presence_draft"
-                                                aria-label="Draft"
-                                                class="fa fa-circle text-info"
-                                                role="img"
-                                                title="Draft"
-                                            />
-                                        </div>
-                                        <div class="float-end" t-if="record.presence_state.raw_value == 'planned'">
-                                            <span
-                                                name="presence_planned"
-                                                aria-label="Planned"
-                                                class="fa fa-circle text-warning"
-                                                role="img"
-                                                title="Planned"
-                                            />
-                                        </div>
-                                        <div class="float-end" t-if="record.presence_state.raw_value == 'in-progress'">
-                                            <span
-                                                name="presence_in_progress"
-                                                aria-label="Treating"
-                                                class="fa fa-circle text-success"
-                                                role="img"
-                                                title="Treating"
-                                            />
-                                        </div>
-                                        <div class="float-end" t-if="record.presence_state.raw_value == 'finished'">
-                                            <span
-                                                name="presence_finished"
-                                                aria-label="Treated"
-                                                class="fa fa-circle text-primary"
-                                                role="img"
-                                                title="Treated"
-                                            />
-                                        </div>
                                         <div class="float-end" t-if="record.presence_state.raw_value == 'deceased'">
                                             <span
                                                 name="presence_deceased"
@@ -114,32 +85,34 @@
                                         </span>
                                     </div>
                                 </div>
-                                <ul>
-                                    <li t-if="record.gender.value or record.age.value &gt; 0">
+                                <field
+                                    name="type_id"
+                                    widget="badge"
+                                    decoration-primary="type_decoration == 'primary'"
+                                    decoration-success="type_decoration == 'success'"
+                                    decoration-info="type_decoration == 'info'"
+                                    decoration-warning="type_decoration == 'warning'"
+                                    decoration-danger="type_decoration == 'danger'"
+                                    decoration-muted="type_decoration == 'muted'"
+                                />
+                                <ul class="mt-2">
+                                    <li
+                                        t-if="record.gender.value or record.age.value &gt; 0 or record.gender.raw_value"
+                                    >
+                                        <field name="function" class="me-1" />
                                         <field name="gender" />
                                         <t t-if="record.age.value &gt; 0">
                                             <t t-if="record.gender.value">,</t>
-                                            <field name="age" />
+                                            <field name="age" class="me-1" />
                                             <span>ปี</span>
                                         </t>
-                                        <field
-                                            name="type_id"
-                                            widget="badge"
-                                            class="mx-2"
-                                            decoration-primary="type_decoration == 'primary'"
-                                            decoration-success="type_decoration == 'success'"
-                                            decoration-info="type_decoration == 'info'"
-                                            decoration-warning="type_decoration == 'warning'"
-                                            decoration-danger="type_decoration == 'danger'"
-                                            decoration-muted="type_decoration == 'muted'"
-                                        />
                                     </li>
                                     <li t-if="context.show_deceased and record.deceased_date.value">
                                         <span>Deceased:</span>
                                         <field name="deceased_date" />
                                     </li>
-                                    <li class="mt-2">
-                                        <span class="fw-bold">สถานะ 5 มิติ</span>
+                                    <li>
+                                        <span class="fw-bold small">สถานะบริบาลคุ้มครอง 5 มิติ</span>
                                     </li>
                                     <li>
                                         <div class="progress" style="height: 1.5rem">
