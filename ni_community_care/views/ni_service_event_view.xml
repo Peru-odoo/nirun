@@ -4,14 +4,15 @@
   -->
 <odoo>
     <record id="ni_service_event_action_from_patient" model="ir.actions.act_window">
-        <field name="name">Service Event</field>
+        <field name="name">กิจกรรมการดูแลผู้สูงอายุ</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">ni.service.event</field>
         <field name="view_mode">kanban,calendar,tree,pivot,form</field>
         <field name="context">{'default_plan_patient_ids': [(6, [active_id])]}</field>
         <field name="domain">[('plan_patient_ids', '=', active_id)]</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">No Service Event found. Let's create one!</p>
+            <p class="o_view_nocontent_smiling_face">ไม่พบกิจกรรมการดูแลผู้สูง</p>
+            <p>กดปุ่ม + ที่แต่ละมิติเพื่อเริ่มบันทึก</p>
         </field>
     </record>
     <record id="ni_service_event_view_form_inherit" model="ir.ui.view">

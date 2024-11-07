@@ -18,6 +18,7 @@ class Patient(models.Model):
     service_event_ids = fields.One2many(
         "ni.service.event", compute="_compute_service_event"
     )
+    service_event_count = fields.Integer(compute="_compute_service_event")
 
     plan = fields.Text("แนวทางในการให้ความช่วยเหลือดูแล")
 
@@ -89,6 +90,7 @@ class Patient(models.Model):
                 [("plan_patient_ids", "=", rec.id)], order="start desc"
             )
             rec.service_event_ids = event
+            rec.service_event_count = len(event)
 
     @api.depends("risk_assessment_ids")
     def _compute_risk_assessment(self):

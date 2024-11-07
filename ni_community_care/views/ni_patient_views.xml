@@ -362,6 +362,10 @@
                                 </div>
                             </group>
                         </page>
+                        <page name="benefit" string="สิทธิผู้สูงอายุ" badge="benefit_count" icon="fa-shield">
+                            <field name="benefit_ids" widget="many2many_checkboxes" />
+                            <field name="benefit_count" invisible="1" />
+                        </page>
                         <page name="observation" string="ผลการประเมินผล" icon="fa-stethoscope">
                             <field name="patient_observation_ids" mode="kanban" />
                             <button
@@ -372,7 +376,12 @@
                                 context="{'default_patient_id': id}"
                             />
                         </page>
-                        <page name="service" string="กิจกรรมการดูแลผู้สูงอายุ" icon="fa-life-ring">
+                        <page
+                            name="service"
+                            string="กิจกรรมการดูแลผู้สูงอายุ"
+                            icon="fa-life-ring"
+                            badge="service_event_count"
+                        >
                             <div>
                                 <button
                                     name="action_view_service_event"
@@ -388,9 +397,10 @@
                                 string="ประวัติการทำกิจกรรม"
                                 class="mt-4 text-black fw-bold"
                             />
+                            <field name="service_event_count" invisible="1" />
                             <field name="service_event_ids">
                                 <tree>
-                                    <field name="start" string="วันที่" widget="remaining_days" />
+                                    <field name="start" string="วันที่" widget="remaining_days" class="text-body" />
                                     <field
                                         name="service_category_ids"
                                         string="มิติ"

@@ -16,6 +16,7 @@
         "ni_allergy",
         "account",
         "ni_questionnaire",
+        "ni_benefit",
     ],
     "data": [
         "datas/ir_sequence_data.xml",
@@ -32,6 +33,7 @@
         "report/elder_report_templates.xml",
         "report/elder_report.xml",
     ],
+    "assets": {"web.assets_backend": ["ni_community_care/static/src/scss/custom.css"]},
     "application": True,
     "auto_install": False,
     "installable": True,
