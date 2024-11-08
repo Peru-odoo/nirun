@@ -3,6 +3,27 @@
   ~ Copyright (c) 2024 NSTDA
   -->
 <odoo>
+    <record id="ni_service_event_action_my_pivot" model="ir.actions.act_window">
+        <field name="name">รายงานกิจกรรมการดูแลผู้สูงอายุ</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ni.service.event</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="context">{'search_default_start':1}</field>
+        <field name="domain">[('create_uid', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">ไม่พบกิจกรรมการดูแลผู้สูงอายุ</p>
+        </field>
+    </record>
+    <record id="ni_service_event_view_search" model="ir.ui.view">
+        <field name="name">ni.service.event.view.search</field>
+        <field name="model">ni.service.event</field>
+        <field name="inherit_id" ref="ni_service.ni_service_event_view_search" />
+        <field name="arch" type="xml">
+            <field position="after" name="partner_ids">
+                <filter string="กิจกรรมของฉัน" name="my_service" domain="[('create_uid', '=', uid)]" />
+            </field>
+        </field>
+    </record>
     <record id="ni_service_event_action_from_patient" model="ir.actions.act_window">
         <field name="name">กิจกรรมการดูแลผู้สูงอายุ</field>
         <field name="type">ir.actions.act_window</field>
