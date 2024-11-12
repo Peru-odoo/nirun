@@ -17,10 +17,17 @@
                             options="{'no_create': True, 'no_open':True}"
                         />
                         <field name="class_id" options="{'no_create': True, 'no_open':True}" />
-                        <field name="period_start" />
-                        <field name="calendar_id" options="{'no_create': True, 'no_open':True}" />
+                        <label for="period_start" />
+                        <div class="o_row">
+                            <field name="period_start" />
+                            <i class="fa fa-users ms-2 text-muted" aria-hidden="true" title="Patient" />
+                            <label for="encounter_patient_count" class="ms-2" string="Patient" />
+                            <field name="encounter_patient_count" class="oe_inline" />
+                        </div>
+                        <field name="calendar_id" options="{'no_create': True, 'no_open':True}" widget="radio" />
                     </group>
                     <separator string="Patient" />
+                    <field name="encounter_patient_ids" invisible="1" />
                     <field name="patient_ids">
                         <tree>
                             <field name="identifier" />

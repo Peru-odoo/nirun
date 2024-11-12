@@ -1,8 +1,9 @@
 #  Copyright (c) 2024 NSTDA
 import ast
 import logging
+from datetime import datetime
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -16,7 +17,20 @@ class EncounterBulk(models.TransientModel):
         "ni.encounter.class", default=lambda self: self.env.company.encounter_class_id
     )
     period_start = fields.Datetime(default=lambda _: fields.Datetime.now())
-    patient_ids = fields.Many2many("ni.patient", required=True, check_company=True)
+    patient_ids = fields.Many2many(
+        "ni.patient",
+        required=True,
+        check_company=True,
+        domain="[('id', 'not in', encounter_patient_ids)]",
+    )
+    encounter_patient_ids = fields.Many2many(
+        "ni.patient",
+        help="Patient at Selected Time",
+        compute="_compute_encounter_patient_ids",
+    )
+    encounter_patient_count = fields.Integer(
+        help="Patient count at Selected Time", compute="_compute_encounter_patient_ids"
+    )
     calendar_id = fields.Many2one(
         "resource.calendar",
         check_company=True,
@@ -31,6 +45,34 @@ class EncounterBulk(models.TransientModel):
         string="Status",
         default="confirm",
     )
+
+    @api.depends("period_start")
+    def _compute_encounter_patient_ids(self):
+        for rec in self:
+            date_start = datetime.combine(
+                rec.period_start, datetime.min.time()
+            ).strftime("%Y-%m-%d %H:%M:%S")
+            date_end = datetime.combine(rec.period_start, datetime.max.time()).strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
+            pat = (
+                self.env["ni.encounter"]
+                .search(
+                    [
+                        ("state", "in", ["draft", "planned", "in-progress"]),
+                        ("period_start", ">=", date_start),
+                        ("period_start", "<=", date_end),
+                        ("period_end", "=", False),
+                    ]
+                )
+                .mapped("patient_id")
+            )
+            rec.update(
+                {
+                    "encounter_patient_ids": [(6, 0, pat.ids)],
+                    "encounter_patient_count": len(pat),
+                }
+            )
 
     def action_create(self):
         pat_ids = [
