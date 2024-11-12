@@ -5,7 +5,7 @@
 <templates xml:space="preserve">
     <t t-inherit="web.FormLabel" t-inherit-mode="extension" owl="1">
         <xpath expr="//sup" position="before">
-            <span t-if="isRequired" class="o_form_label_asterisk">*</span>
+            <span class="o_form_label_asterisk">*</span>
         </xpath>
     </t>
 </templates>
