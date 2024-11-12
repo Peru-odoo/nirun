@@ -17,6 +17,7 @@
         "account",
         "ni_questionnaire",
         "ni_benefit",
+        "l10n_th_ni_patient_address",
     ],
     "data": [
         "datas/ir_sequence_data.xml",
