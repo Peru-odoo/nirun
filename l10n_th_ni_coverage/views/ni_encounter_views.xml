@@ -6,13 +6,10 @@
     <record id="ni_encounter_view_form_inherit" model="ir.ui.view">
         <field name="name">ni.encounter.view.form.inherit</field>
         <field name="model">ni.encounter</field>
-        <field name="inherit_id" ref="ni_patient.ni_encounter_view_form" />
+        <field name="inherit_id" ref="ni_coverage.ni_encounter_view_form_inherit" />
         <field name="arch" type="xml">
             <field name="coverage_type_ids" position="after">
-                <field name="coverage_type_id" />
-            </field>
-            <field name="coverage_type_ids" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <field name="coverage_type_id" widget="radio" attrs="{'invisible': [('coverage_type_ids', '=', [])]}" />
             </field>
         </field>
     </record>
