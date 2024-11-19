@@ -16,7 +16,7 @@
                         <strong>รูปแบบบริการ:</strong>
                         <span class="me-3" t-esc="rec.class_id.name" />
                     </div>
-                    <table class="table table-sm o_main_table table-borderless mt-4" id="-table">
+                    <table class="table table-sm table-bordered border-dark o_main_table mt-4" id="-table">
                         <thead style="display: table-row-group">
                             <tr class="py-4">
                                 <th name="th_date" class="text-start">วันที่</th>
