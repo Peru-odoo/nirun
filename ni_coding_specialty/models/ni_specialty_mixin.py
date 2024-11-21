@@ -25,7 +25,7 @@ class SpecialtyMixin(models.AbstractModel):
         if (
             self._context.get("specialty_test", True)
             and user.employee_id.job_id
-            and not user.has_group("base.group_system")
+            and not user.has_group("base.group_no_one")
         ):
             _logger.debug(
                 "Filter coding({}) for specialty={}".format(

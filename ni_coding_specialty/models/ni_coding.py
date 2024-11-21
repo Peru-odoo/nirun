@@ -9,4 +9,4 @@ _logger = logging.getLogger(__name__)
 
 class Coding(models.AbstractModel):
     _name = "ni.coding"
-    _inherit = ["ni.coding", "ni.specialty.mixin"]
+    _inherit = ["ni.coding"]
