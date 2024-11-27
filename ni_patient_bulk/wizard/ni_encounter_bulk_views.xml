@@ -25,28 +25,18 @@
                             <field name="encounter_patient_count" class="oe_inline" />
                         </div>
                         <field name="calendar_id" options="{'no_create': True, 'no_open':True}" widget="radio" />
-                    </group>
-                    <separator string="Patient" />
-                    <field name="encounter_patient_ids" invisible="1" />
-                    <field name="patient_ids">
-                        <tree>
-                            <field name="identifier" />
-                            <field name="identification_id" optional="hide" />
-                            <field name="partner_id" widget="many2one_avatar" string="name" />
-                            <field name="age" />
-                        </tree>
-                    </field>
-                    <group>
+                        <field name="encounter_patient_ids" invisible="1" />
+                        <field
+                            name="patient_ids"
+                            widget="many2many_tags_avatar"
+                            class="w-100"
+                            placeholder="ค้นหาผู้สูงอายุ..."
+                        />
                         <field name="state" widget="radio" options="{'horizontal': True}" />
                     </group>
                 </sheet>
                 <footer>
-                    <button
-                        name="action_create"
-                        type="object"
-                        string="เข้ารับบริการ"
-                        attrs="{'invisible': [('patient_ids', '=', False)]}"
-                    />
+                    <button name="action_create" type="object" string="บันทึกเข้ารับบริการ" class="btn-primary" />
                     <button special="cancel" string="ยกเลิก" />
                 </footer>
             </form>
