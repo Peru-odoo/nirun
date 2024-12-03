@@ -36,13 +36,12 @@ class Dosage(models.Model):
         "Method",
         help="Technique for administering medication",
     )
-    as_need = fields.Boolean(
-        "As need?",
-        default=False,
+    as_need = fields.Boolean("As need?", default=False, help='Take "as needed"')
+    dose = fields.Float(help="Amount of medication per dose")
+    dose_unit_id = fields.Many2one("uom.uom", help="Unit of medication per dose")
+    display_dose = fields.Char(
+        compute="_compute_display_dose", help="Amount of medication per dose"
     )
-    dose = fields.Float()
-    dose_unit_id = fields.Many2one("uom.uom")
-    display_dose = fields.Char(compute="_compute_display_dose")
 
     @api.depends("dose", "dose_unit_id")
     def _compute_display_dose(self):

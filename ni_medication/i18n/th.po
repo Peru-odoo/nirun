@@ -756,7 +756,7 @@ msgstr "แม่แบบวิธีการใช้ยา"
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_statement__dose
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication_suggest_line__dose
 msgid "Dose"
-msgstr "ปริมาณ"
+msgstr "ปริมาณต่อครั้ง"
 
 #. module: ni_medication
 #: model:ir.model.fields,field_description:ni_medication.field_ni_medication__dose_unit_id

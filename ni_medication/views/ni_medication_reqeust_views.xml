@@ -130,16 +130,17 @@
                                         </div>
                                         <label for="dose" />
                                         <div class="o_row">
-                                            <field name="dose" class="narrow_field" />
+                                            <field name="dose" />
                                             <field
                                                 name="dose_unit_id"
                                                 attrs="{'required': [('dose', '!=', 0 )]}"
-                                                options="{'no_open': True}"
+                                                placeholder="ex. tab, ml"
                                             />
                                         </div>
-                                        <field name="route_id" options="{'no_open': True}" />
-                                        <field name="method_id" options="{'no_open': True}" />
-                                        <field name="site_id" options="{'no_open': True}" />
+                                        <field name="as_need" />
+                                        <field name="route_id" placeholder="ex. IV, po" />
+                                        <field name="method_id" placeholder="ex. Inj" />
+                                        <field name="site_id" placeholder="ex. OD, OS" />
                                         <field
                                             name="additional_ids"
                                             widget="many2many_tags"
