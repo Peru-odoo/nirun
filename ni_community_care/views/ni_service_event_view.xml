@@ -101,4 +101,14 @@
             </form>
         </field>
     </record>
+    <record id="ni_service_event_view_pivot_inherit" model="ir.ui.view">
+        <field name="name">ni.service.event.view.pivot.inherit</field>
+        <field name="model">ni.service.event</field>
+        <field name="inherit_id" ref="ni_service.ni_service_event_view_pivot" />
+        <field name="arch" type="xml">
+            <field name="start" position="after">
+                <field name="start" type="col" interval="day" />
+            </field>
+        </field>
+    </record>
 </odoo>
