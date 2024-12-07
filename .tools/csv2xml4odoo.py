@@ -23,10 +23,13 @@ from xml.sax.saxutils import escape
 NOUPDATE = 1
 BOOLEAN = ("True", "False")
 ERP_HEADER = """<?xml version="1.0" encoding="UTF-8"?>
-<odoo noupdate="%s">
-    <!-- prettier-ignore-start -->"""
+<odoo>
+    <!-- prettier-ignore-start -->
+    <data noupdate="%s">
+    """
 
-ERP_FOOTER = """    <!-- prettier-ignore-end -->
+ERP_FOOTER = """    </data>
+    <!-- prettier-ignore-end -->
 </odoo>
 """
 
@@ -53,7 +56,7 @@ for csv_file in glob.glob("*.csv"):
     xml_file = csv_file.replace(".", "_").replace("_csv", "_data.xml")
     csv_data = csv.reader(open(csv_file, encoding="utf-8"))
     xml_data = open(xml_file, "w", encoding="utf-8")
-    xml_data.write(ERP_HEADER % NOUPDATE + "\n\n\n")
+    xml_data.write(ERP_HEADER % NOUPDATE + "\n")
     row_num = 0
     for row in csv_data:
         if row_num == 0:
@@ -68,7 +71,7 @@ for csv_file in glob.glob("*.csv"):
                 if tags[i][-5:] == "|char":
                     char = True
                 numeric = False
-                begin = '       <field name="'
+                begin = '            <field name="'
                 try:
                     float(row[i])
                     numeric = True
@@ -76,7 +79,10 @@ for csv_file in glob.glob("*.csv"):
                     pass
                 if tags[i] == "id":
                     # 'id' column is supposed to be the first left
-                    line = '   <record id="%s" model="%s">\n' % (row[i], csv_file[:-4])
+                    line = '        <record id="%s" model="%s">\n' % (
+                        row[i],
+                        csv_file[:-4],
+                    )
                 elif "/" in tags[i] or ":" in tags[i]:
                     # relationnal fields
                     xml_suffix = convert_relationnal_field2xml(tags[i], row[i])
@@ -91,7 +97,7 @@ for csv_file in glob.glob("*.csv"):
                     line = '%s%s">%s</field>\n' % (begin, tags[i], escape(row[i]))
                 if row[i] or tags[i] == "id":
                     xml_data.write(line)
-            xml_data.write("    </record>" + "\n\n")
+            xml_data.write("        </record>" + "\n\n")
         row_num += 1
     xml_data.write(ERP_FOOTER)
     xml_data.close()
