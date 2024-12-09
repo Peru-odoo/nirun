@@ -11,6 +11,7 @@ class SpecialtyMixin(models.AbstractModel):
     _description = "Specialty mixin"
 
     specialty_ids = fields.Many2many("hr.job")
+    _specialty_groups = "base.group_system"
 
     def _search(
         self,
@@ -25,7 +26,7 @@ class SpecialtyMixin(models.AbstractModel):
         if (
             self._context.get("specialty_test", True)
             and user.employee_id.job_id
-            and not user.has_group("base.group_no_one")
+            and not user.user_has_groups(self._specialty_groups)
         ):
             _logger.debug(
                 "Filter coding({}) for specialty={}".format(
@@ -37,4 +38,14 @@ class SpecialtyMixin(models.AbstractModel):
                 ("specialty_ids", "=", False),
                 ("specialty_ids", "=", user.employee_id.job_id.id),
             ]
+        else:
+            logging.debug(
+                "Not filter coding({}) [specialty_test={}, job_id={}, not group({})={}]".format(
+                    self._name,
+                    self._context.get("specialty_test", True),
+                    user.employee_id.job_id if user.employee_id else None,
+                    self._specialty_groups,
+                    not user.user_has_groups(self._specialty_groups),
+                )
+            )
         return super()._search(domain, offset, limit, order, count, access_rights_uid)
