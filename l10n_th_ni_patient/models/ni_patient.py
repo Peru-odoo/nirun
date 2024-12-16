@@ -27,7 +27,7 @@ class Patient(models.Model):
     @api.depends("identification_id")
     def _compute_display_identification_id(self):
         for rec in self:
-            if rec.nationality_id.code == "TH" and rec.identification_id:
+            if rec.identification_id and rec.nationality_id.code == "TH":
                 rec.display_identification_id = pin.format(rec.identification_id)
             else:
                 rec.display_identification_id = rec.identification_id
@@ -35,6 +35,8 @@ class Patient(models.Model):
     @api.constrains("identification_id", "nationality_id")
     def _check_identification_id(self):
         for rec in self:
+            if not rec.identifier or rec.nationality_id.code != "TH":
+                continue
             try:
                 pin.validate(rec.identification_id)
                 if pin.compact(rec.identification_id) != rec.identification_id:
