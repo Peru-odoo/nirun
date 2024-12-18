@@ -35,7 +35,7 @@ class Patient(models.Model):
     @api.constrains("identification_id", "nationality_id")
     def _check_identification_id(self):
         for rec in self:
-            if not rec.identifier or rec.nationality_id.code != "TH":
+            if not rec.identification_id or rec.nationality_id.code != "TH":
                 continue
             try:
                 pin.validate(rec.identification_id)
