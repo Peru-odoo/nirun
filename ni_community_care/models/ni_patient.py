@@ -8,6 +8,15 @@ from odoo import api, fields, models
 class Patient(models.Model):
     _inherit = "ni.patient"
 
+    @api.model
+    def default_get(self, fields):
+        res = super(Patient, self).default_get(fields)
+        if "condition_categ_id" in fields and "condition_categ_id" not in res:
+            categ = self.env["ni.condition.category"].search([], limit=1)
+            if categ:
+                res["condition_categ_id"] = categ.id
+        return res
+
     family_count = fields.Integer("จำนวนสมาชิกในครอบครัว")
     family_relation = fields.Many2one("ni.family.relation", "ความสัมพันธ์ในครับครัว")
 
@@ -39,8 +48,11 @@ class Patient(models.Model):
     risk_assessment_count = fields.Integer(compute="_compute_risk_assessment")
     attend_event_id = fields.Many2many("ni.service.event", "ni_patient_service_attend")
 
-    condition_other = fields.Char()
-    allergy_other = fields.Char()
+    condition_categ_id = fields.Many2one(
+        "ni.condition.category",
+    )
+    condition_other = fields.Char("ปัญหาอื่นๆ")
+    allergy_other = fields.Char("แพ้ยาอาหารอื่นๆ")
 
     heal_progress = fields.Boolean(default=False, compute="_compute_category_progress")
     soci_progress = fields.Boolean(default=True, compute="_compute_category_progress")

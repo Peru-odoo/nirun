@@ -38,6 +38,14 @@
                                     <br />
                                     ครอบครัว
                                 </th>
+                                <th name="th_condition" class="text-start">สภาพปัญหา</th>
+                                <th name="th_plan" class="text-start">
+                                    แนวทางการ
+                                    <br />
+                                    ให้ความช่วย
+                                    <br />
+                                    เหลือดูแล
+                                </th>
                                 <th name="th_phone" class="text-start">เบอร์โทรศัพท์</th>
                             </tr>
                         </thead>
@@ -63,6 +71,23 @@
                                 </td>
                                 <td name="td_family_relation">
                                     <span t-field="line.family_relation" />
+                                </td>
+                                <td name="td_condition">
+                                    <t t-foreach="line.condition_code_ids" t-as="cond">
+                                        <span t-field="cond.name" />
+                                        <t t-if="not cond_last">
+                                            <br />
+                                        </t>
+                                    </t>
+                                    <t t-if="line.condition_other">
+                                        <t t-if="line.condition_code_ids">
+                                            <br />
+                                        </t>
+                                        <span t-field="line.condition_other" />
+                                    </t>
+                                </td>
+                                <td name="td_plan">
+                                    <span t-field="line.plan" />
                                 </td>
                                 <td name="td_phone">
                                     <span t-field="line.mobile" t-if="line.mobile" />

@@ -22,6 +22,9 @@
     "data": [
         "datas/ir_sequence_data.xml",
         "datas/ni_patient_type_data.xml",
+        "datas/ni_condition_categ_data.xml",
+        "datas/ni_condition_code_data.xml",
+        "datas/ni_family_relation_data.xml",
         "security/ir.model.access.csv",
         "security/ir_rules_data.xml",
         "views/ni_service_views.xml",

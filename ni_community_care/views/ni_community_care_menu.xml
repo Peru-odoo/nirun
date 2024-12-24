@@ -24,7 +24,8 @@
     <!--        sequence="0"-->
     <!--    />-->
     <record model="ir.ui.menu" id="ni_patient.patient_menu_root">
-        <field name="active" eval="0" />
+        <field name="active" eval="1" />
+        <field name="groups_id" eval="[(6,0, [ref('base.group_no_one')])]" />
     </record>
     <record model="ir.ui.menu" id="ni_service.root_menu">
         <field name="web_icon">ni_community_care,static/description/service.png</field>
