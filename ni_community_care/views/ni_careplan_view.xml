@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2024 NSTDA
+  -->
+<odoo>
+    <record id="ni_careplan_view_tree" model="ir.ui.view">
+        <field name="name">ni.careplan.view.tree</field>
+        <field name="model">ni.careplan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="condition_category_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                <field name="problem_text" />
+                <field name="goal_text" />
+                <field name="action_text" />
+                <field name="outcome" />
+            </tree>
+        </field>
+    </record>
+    <record id="ni_careplan_view_form" model="ir.ui.view">
+        <field name="name">ni.careplan.view.form</field>
+        <field name="model">ni.careplan</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="condition_category_id" widget="radio" options="{'horizontal': True}" />
+                    <separator string="ประเด็นปัญหา/ความต้องการ" />
+                    <field name="condition_ids" widget="many2many_checkboxes" />
+                    <field
+                        name="condition_text"
+                        placeholder="อธิบายประเด็นปัญหา/ความต้องการเพิ่มเติมได้ที่นี้..."
+                        attrs="{'required': [('condition_ids', '=', False)]}"
+                    />
+                    <field name="problem_text" invisible="1" />
+                    <separator string="เป้าหมาย" />
+                    <field name="goal_text" placeholder="ระบุเป้าหมายของแผนการช่วยเหลือที่นี้..." />
+                    <separator string="แผนการให้ความช่วยเหลือ" />
+                    <field name="service_category_id" invisible="1" />
+                    <field name="service_ids" widget="many2many_checkboxes" />
+                    <field name="service_text" placeholder="อธิบายแผนการให้ความช่วยเหลือเพิ่มเติมได้ที่นี้..." />
+                    <field name="action_text" invisible="1" />
+                    <separator string="ผลการให้ความช่วยเหลือ" />
+                    <field name="outcome" placeholder="ระบุผลการช่วยเหลือเพิ่มเติมได้ที่นี้..." />
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

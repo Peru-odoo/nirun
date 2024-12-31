@@ -30,6 +30,13 @@ class Patient(models.Model):
     service_event_count = fields.Integer(compute="_compute_service_event")
 
     plan = fields.Text("แนวทางในการให้ความช่วยเหลือดูแล")
+    careplan_ids = fields.One2many("ni.careplan", "patient_id")
+    careplan_count = fields.Integer(compute="_compute_careplan_count")
+
+    @api.depends("careplan_ids")
+    def _compute_careplan_count(self):
+        for rec in self:
+            rec.careplan_count = len(rec.careplan_ids)
 
     plan_service_ids = fields.Many2many(
         "ni.service",

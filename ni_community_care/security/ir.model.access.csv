@@ -6,3 +6,4 @@ access_ni_cc_report_monthly_line,access_ni_cc_report_monthly_line,model_ni_cc_re
 access_ni_service_event_outcome,access_ni_service_event_outcome,model_ni_service_event_outcome,,1,1,1,1
 access_ni_risk_assessment,access_ni_risk_assessment,model_ni_risk_assessment,,1,1,1,1
 access_ni_risk_assessment_prediction,access_ni_risk_assessment_prediction,model_ni_risk_assessment_prediction,,1,1,1,1
+access_ni_careplan,access_ni_careplan,model_ni_careplan,ni_patient.group_user,1,1,1,1

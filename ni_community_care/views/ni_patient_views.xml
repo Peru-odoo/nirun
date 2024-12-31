@@ -380,6 +380,10 @@
                                 context="{'default_patient_id': id}"
                             />
                         </page>
+                        <page name="plan" string="แผนการให้ความช่วยเหลือ" badge="careplan_count" icon="fa-tasks">
+                            <field name="careplan_count" invisible="1" />
+                            <field name="careplan_ids" context="{'default_patient_id': id}" />
+                        </page>
                         <page
                             name="service"
                             string="กิจกรรมการดูแลผู้สูงอายุ"
@@ -483,24 +487,6 @@
                                 </kanban>
                             </field>
                         </page>
-                        <!--                        <page-->
-                        <!--                            name="assessment"-->
-                        <!--                            string="ประวัติการประเมินผู้สูงอายุ"-->
-                        <!--                            icon="fa-life-ring"-->
-                        <!--                            badge="risk_assessment_count"-->
-                        <!--                        >-->
-                        <!--                            <field name="risk_assessment_count" invisible="1" />-->
-                        <!--                            <field name="risk_assessment_ids" readonly="1" />-->
-                        <!--                            <div class="text-center">-->
-                        <!--                                <button-->
-                        <!--                                    name="action_risk"-->
-                        <!--                                    type="object"-->
-                        <!--                                    class="btn-primary"-->
-                        <!--                                    icon="fa-life-ring"-->
-                        <!--                                    string="ทำการประเมิน"-->
-                        <!--                                />-->
-                        <!--                            </div>-->
-                        <!--                        </page>-->
                     </notebook>
                 </sheet>
             </form>
