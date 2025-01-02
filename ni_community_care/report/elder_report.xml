@@ -3,18 +3,6 @@
   ~ Copyright (c) 2023 NSTDA
   -->
 <odoo>
-    <record id="report_paperformat_a4_landscape" model="report.paperformat">
-        <field name="name">A4 Landscape</field>
-        <field name="default" eval="False" />
-        <field name="format">A4</field>
-        <field name="orientation">Landscape</field>
-        <field name="margin_top">25</field>
-        <field name="margin_bottom">10</field>
-        <field name="margin_left">10</field>
-        <field name="margin_right">10</field>
-        <field name="header_spacing">25</field>
-        <field name="dpi">90</field>
-    </record>
     <record id="elder_action_report" model="ir.actions.report">
         <field name="name">ช้อมูลพื้นฐานผู้สูงอายุ</field>
         <field name="model">ni.patient</field>
@@ -24,7 +12,7 @@
         <field name="print_report_name">("%s_report" % (object.identifier))</field>
         <field name="binding_model_id" ref="ni_patient.model_ni_patient" />
         <field name="binding_type">report</field>
-        <field name="binding_view_types">list,form</field>
+        <field name="binding_view_types">list</field>
         <field name="paperformat_id" ref="report_paperformat_a4_landscape" />
     </record>
 </odoo>
