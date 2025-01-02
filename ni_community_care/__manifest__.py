@@ -36,7 +36,6 @@
         "views/ni_risk_assessment_views.xml",
         "views/ni_community_care_menu.xml",
         "views/ni_careplan_view.xml",
-        "views/menu.xml",
         "report/elder_report_templates.xml",
         "report/elder_report.xml",
     ],

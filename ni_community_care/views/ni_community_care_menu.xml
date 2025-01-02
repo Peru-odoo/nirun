@@ -23,11 +23,14 @@
     <!--        action="ni_cc_report_monthly_action"-->
     <!--        sequence="0"-->
     <!--    />-->
-    <record model="ir.ui.menu" id="ni_patient.patient_menu_root">
+    <record id="ni_patient.patient_menu_root" model="ir.ui.menu">
         <field name="active" eval="1" />
         <field name="groups_id" eval="[(6,0, [ref('base.group_no_one')])]" />
     </record>
-    <record model="ir.ui.menu" id="ni_service.root_menu">
+    <record id="ni_patient.configuration_menu" model="ir.ui.menu">
+        <field name="parent_id" eval="ref('ni_community_care.elder_menu')" />
+    </record>
+    <record id="ni_service.root_menu" model="ir.ui.menu">
         <field name="web_icon">ni_community_care,static/description/service.png</field>
     </record>
     <menuitem
@@ -55,5 +58,12 @@
         name="รายกิจกรรม"
         parent="assessment_report_menu"
         action="ni_risk_assessment_prediction_action_pivot_service"
+    />
+    <menuitem
+        id="my_service_event_report_menu"
+        name="รายการกิจกรรมของฉัน"
+        action="ni_service_event_action_my_pivot"
+        sequence="3"
+        web_icon="ni_community_care,static/description/pivot-table.png"
     />
 </odoo>
