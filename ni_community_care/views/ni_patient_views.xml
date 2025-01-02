@@ -262,12 +262,7 @@
                                         <field
                                             name="street"
                                             class="o_address_street"
-                                            placeholder="ที่อยู่บรรทัดที่ 1..."
-                                        />
-                                        <field
-                                            name="street2"
-                                            class="o_address_street"
-                                            placeholder="ที่อยู่บรรทัดที่ 2..."
+                                            placeholder="บ้านเลขที่ หมู่ ซอย ถนน..."
                                         />
                                         <field
                                             name="zip_id"
@@ -297,12 +292,12 @@
                                             invisible="1"
                                         />
                                     </div>
-                                    <field
-                                        name="other_address_id"
-                                        placeholder="เช่น ที่อยู่ปัจจุบัน, ที่อยู่บุตรหลาน"
-                                        options="{'always_reload':True, 'no_quick_create': True}"
-                                        context="{'form_view_ref': 'base.res_partner_view_form_private', 'default_type': 'private', 'default_name': 'Home Address', 'show_address': True, 'show_name': False, 'no_bank':True, 'default_ref': identifier}"
-                                    />
+                                    <!--                                    <field-->
+                                    <!--                                        name="other_address_id"-->
+                                    <!--                                        placeholder="เช่น ที่อยู่ปัจจุบัน, ที่อยู่บุตรหลาน"-->
+                                    <!--                                        options="{'always_reload':True, 'no_quick_create': True}"-->
+                                    <!--                                        context="{'form_view_ref': 'base.res_partner_view_form_private', 'default_type': 'private', 'default_name': 'Home Address', 'show_address': True, 'show_name': False, 'no_bank':True, 'default_ref': identifier}"-->
+                                    <!--                                    />-->
                                 </group>
                                 <group name="family" string="ครอบครัว">
                                     <field name="marital_status" />

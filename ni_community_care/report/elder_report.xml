@@ -4,7 +4,7 @@
   -->
 <odoo>
     <record id="elder_action_report" model="ir.actions.report">
-        <field name="name">ช้อมูลพื้นฐานผู้สูงอายุ</field>
+        <field name="name">ข้อมูลพื้นฐานผู้สูงอายุ ศผ.01</field>
         <field name="model">ni.patient</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">ni_community_care.encounter_report_template</field>
