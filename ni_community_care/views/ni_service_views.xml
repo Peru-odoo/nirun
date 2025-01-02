@@ -3,12 +3,24 @@
   ~ Copyright (c) 2024 NSTDA
   -->
 <odoo>
+    <record id="ni_service_action_my" model="ir.actions.act_window">
+        <field name="name">My Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ni.service</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('my_service', '=', True)]</field>
+        <field name="context">{'default_user_id': uid}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">My Service not found. Let's create one!</p>
+        </field>
+    </record>
     <record id="ni_service_view_form_inherit" model="ir.ui.view">
         <field name="name">ni.service.view.form.inherit</field>
         <field name="model">ni.service</field>
         <field name="inherit_id" ref="ni_service.ni_service_view_form" />
         <field name="arch" type="xml">
             <xpath position="inside" expr="//sheet/group/group[2]">
+                <field name="user_id" widget="many2one_avatar_user" />
                 <field name="target_type_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
                 <label for="target" />
                 <div class="o_row">
@@ -26,6 +38,15 @@
                 <page name="benefit" string="ผลประโยชน์" icon="fa-gift">
                     <field name="benefit" placeholder="ผลประโยชน์..." />
                 </page>
+            </xpath>
+            <xpath expr="//page[@name='employee']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='calendar']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='description']" position="attributes">
+                <attribute name="string">หมายเหตุ</attribute>
             </xpath>
         </field>
     </record>

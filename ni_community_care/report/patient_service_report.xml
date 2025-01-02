@@ -3,27 +3,29 @@
   ~ Copyright (c) 2023-2025 NSTDA
   -->
 <odoo>
-    <record id="patient_careplan_action_report" model="ir.actions.report">
-        <field name="name">แผนการให้ความช่วยเหลือดูแลผู้สูงอายุ ศผ.04</field>
+    <record id="patient_service_action_report" model="ir.actions.report">
+        <field name="name">ผลการปฎิบัติงานดูแลผู้สูงอายุ ศผ.02</field>
         <field name="model">ni.patient</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">ni_community_care.patient_careplan_report_template</field>
-        <field name="report_file">ni_community_care.patient_careplan_report_template</field>
-        <field name="print_report_name">("%s_careplan" % (object.identifier))</field>
+        <field name="report_name">ni_community_care.patient_service_report_template</field>
+        <field name="report_file">ni_community_care.patient_service_report_template</field>
+        <field name="print_report_name">("%s_service" % (object.identifier))</field>
         <field name="binding_model_id" ref="ni_patient.model_ni_patient" />
         <field name="binding_type">report</field>
         <field name="binding_view_types">list,form</field>
         <field name="paperformat_id" ref="report_paperformat_a4_landscape" />
     </record>
-    <template id="patient_careplan_report_template">
+    <template id="patient_service_report_template">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
                 <div class="page">
+                    <t t-set="lang_id" t-value="request.env['res.lang'].search([('code', '=', user.lang)], limit=1)" />
+                    <t t-set="dt_format" t-value="'{} {}'.format(lang_id.date_format, lang_id.time_format)" />
                     <div class="oe_structure" />
                     <t t-foreach="docs" t-as="o">
                         <h2 name="title">
-                            <span>แผนการให้ความช่วยเหลือดูแลผู้สูงอายุรายบุคคล</span>
-                            <small class="text-muted mx-2">แบบ ศผ.04</small>
+                            <span>รายงานผลการปฎิบัติงานการดูแลผู้สูงอายุ (รายบุคคล)</span>
+                            <small class="text-muted mx-2 border p-1 float-end">แบบ ศผ.02</small>
                         </h2>
                         <div class="row" id="caregiver">
                             <div class="col-auto col-5 mw-100">
@@ -64,44 +66,56 @@
                                     <span t-field="o.phone" t-else="" />
                                 </p>
                             </div>
-                            <div class="col-auto col-2 mw-100">
+                            <div class="col-auto col-1 mw-100">
                                 <strong>สถานะสุขภาพ:</strong>
                                 <p name="m-0">
                                     <span t-field="o.type_id" />
                                 </p>
                             </div>
                         </div>
-                        <table class="table table-condensed mt-4" t-if="o.careplan_ids">
+                        <table class="table table-condensed mt-4">
                             <thead>
                                 <tr>
+                                    <th class="text-start">วันที่</th>
                                     <th class="text-start">มิติ</th>
+                                    <th class="text-start">วิธีการหรือบริการให้ความช่วยเหลือดูแล</th>
                                     <th class="text-start">
-                                        ประเด็นปัญหา/
+                                        เวลา
                                         <br />
-                                        ความต้องการ
+                                        เริ่ม
                                     </th>
-                                    <th class="text-start">เป้าหมาย</th>
-                                    <th class="text-start">แผนการให้ความช่วยเหลือดูแล</th>
                                     <th class="text-start">
-                                        ผลการให้ความ
+                                        เวลา
                                         <br />
-                                        ช่วยเหลือดูแล
+                                        เลิก
                                     </th>
+                                    <th class="text-start">
+                                        รวม
+                                        <br />
+                                        (ชั่วโมง)
+                                    </th>
+                                    <th class="text-start">ผลการให้ความช่วยเหลือ</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr t-foreach="o.careplan_ids" t-as="d">
+                                <tr t-foreach="o.service_event_ids" t-as="d">
                                     <td>
-                                        <span t-esc="d.condition_category_id.name" />
+                                        <span t-esc="context_timestamp(d.start).strftime(lang_id.date_format)" />
                                     </td>
                                     <td>
-                                        <span t-esc="d.problem_text" />
+                                        <span t-esc="d.service_category_id.name" />
                                     </td>
                                     <td>
-                                        <span t-esc="d.goal_text" />
+                                        <span t-esc="d.name" />
                                     </td>
                                     <td>
-                                        <span t-esc="d.action_text" />
+                                        <span t-esc="context_timestamp(d.start).strftime(lang_id.time_format)" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="context_timestamp(d.stop).strftime(lang_id.time_format)" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="d.duration" />
                                     </td>
                                     <td>
                                         <span t-esc="d.outcome" />
@@ -109,17 +123,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <t t-else="">
-                            <div class="my-4 text-center">
-                                <h3 class=" text-muted">
-                                    <span>ไม่พบแผนให้ความช่วยเหลือดูแลผู้สูงอายุท่านนี้</span>
-                                </h3>
-                                <span>
-                                    อาจเกิดจากท่านไม่มีสิทธิเข้าถึงแผนการให้ความช่วยเหลือของผู้สูงอายุท่านนี้
-                                    หรือผู้บริบาลยังไม่ได้จัดทำแผน
-                                </span>
-                            </div>
-                        </t>
                         <p style="page-break-after: always;" />
                     </t>
                 </div>

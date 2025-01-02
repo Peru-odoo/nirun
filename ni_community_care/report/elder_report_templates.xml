@@ -10,7 +10,7 @@
                     <div class="oe_structure" />
                     <h2 name="title">
                         <span>ข้อมูลพื้นฐานของผู้สูงอายุในชุมชน</span>
-                        <small class="text-muted mx-2">แบบ ศผ.01</small>
+                        <small class="text-muted mx-2 border p-1 float-end">แบบ ศผ.01</small>
                     </h2>
                     <table class="table table-sm o_main_table table-borderless mt-4" id="elder-table">
                         <thead style="display: table-row-group">

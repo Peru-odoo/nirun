@@ -60,6 +60,13 @@
         action="ni_risk_assessment_prediction_action_pivot_service"
     />
     <menuitem
+        id="my_service_menu"
+        name="รายการกิจกรรมของฉัน"
+        parent="ni_service.root_menu"
+        action="ni_service_action_my"
+        sequence="0"
+    />
+    <menuitem
         id="my_service_event_report_menu"
         name="รายการกิจกรรมของฉัน"
         action="ni_service_event_action_my_pivot"

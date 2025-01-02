@@ -1,10 +1,12 @@
 #  Copyright (c) 2024 NSTDA
-from odoo import fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Service(models.Model):
     _inherit = "ni.service"
 
+    user_id = fields.Many2one("res.users")
     objective = fields.Html("วัตถุประสงค์")
     procedure = fields.Html("ขั้นตอนการดำเนินงาน")
     benefit = fields.Html("ประโยชน์ที่ได้รับ")
@@ -19,6 +21,19 @@ class Service(models.Model):
     description = fields.Html("หมายเหตุ")
 
     category_color = fields.Integer(related="category_id.color")
+    my_service = fields.Boolean(
+        compute="_compute_my_service", search="_search_my_service"
+    )
+
+    @api.depends("user_id")
+    def _compute_my_service(self):
+        for rec in self:
+            rec.my_service = rec.user_id == self.env.user.id
+
+    def _search_my_service(self, operator, operand):
+        if operator == "=" and bool(operand):
+            return [("user_id", "=" if bool(operand) else "!=", self.env.user.id)]
+        raise ValidationError(_("my_service support only '=', 'True' or 'False'"))
 
 
 class ServiceCalendar(models.Model):
