@@ -7,3 +7,6 @@ access_ni_service_event_outcome,access_ni_service_event_outcome,model_ni_service
 access_ni_risk_assessment,access_ni_risk_assessment,model_ni_risk_assessment,,1,1,1,1
 access_ni_risk_assessment_prediction,access_ni_risk_assessment_prediction,model_ni_risk_assessment_prediction,,1,1,1,1
 access_ni_careplan,access_ni_careplan,model_ni_careplan,ni_patient.group_user,1,1,1,1
+access_ni_need,access_ni_need,model_ni_need,ni_patient.group_viewer,1,0,0,0
+access_ni_need_manager,access_ni_need_manager,model_ni_need,ni_patient.group_manager,1,1,1,1
+access_ni_patient_need,access_ni_patient_need,model_ni_patient_need,ni_patient.group_user,1,1,1,1

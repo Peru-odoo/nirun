@@ -17,6 +17,32 @@ class Patient(models.Model):
                 res["condition_categ_id"] = categ.id
         return res
 
+    need_ids = fields.Many2many("ni.need", "ni_patient_need", "patient_id", "need_id")
+    need_count = fields.Integer(compute="_compute_need_count")
+
+    @api.depends("need_ids")
+    def _compute_need_count(self):
+        for rec in self:
+            rec.need_count = len(rec.need_ids)
+
+    def action_patient_need(self):
+        self.ensure_one()
+        ctx = dict(self.env.context)
+        ctx.update(
+            {
+                "default_patient_id": self.id,
+            }
+        )
+        view = {
+            "name": "Need",
+            "res_model": "ni.patient.need",
+            "type": "ir.actions.act_window",
+            "target": self.env.context.get("target", "current"),
+            "view_mode": "list,form",
+            "context": ctx,
+        }
+        return view
+
     family_count = fields.Integer("จำนวนสมาชิกในครอบครัว")
     family_relation = fields.Many2one("ni.family.relation", "ความสัมพันธ์ในครับครัว")
 

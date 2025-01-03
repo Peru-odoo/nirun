@@ -30,6 +30,12 @@
     <record id="ni_patient.configuration_menu" model="ir.ui.menu">
         <field name="parent_id" eval="ref('ni_community_care.elder_menu')" />
     </record>
+    <menuitem
+        id="need_menu"
+        name="ความต้องการ"
+        parent="ni_patient.configuration_menu"
+        action="ni_community_care.ni_need_action"
+    />
     <record id="ni_service.root_menu" model="ir.ui.menu">
         <field name="web_icon">ni_community_care,static/description/service.png</field>
     </record>

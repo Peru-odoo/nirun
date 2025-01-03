@@ -357,13 +357,29 @@
                                         domain="[('category_id', '=', condition_categ_id)]"
                                     />
                                 </div>
-                                <field name="condition_other" placeholder="โรคประจำตัวอื่นๆ..." />
+                                <field name="condition_other" placeholder="ปัญหาอื่นๆ..." />
                                 <field name="plan" />
                             </group>
                         </page>
-                        <page name="benefit" string="สิทธิผู้สูงอายุ" badge="benefit_count" icon="fa-shield">
-                            <field name="benefit_ids" widget="many2many_checkboxes" />
-                            <field name="benefit_count" invisible="1" />
+                        <page name="benefit" string="สิทธิผู้สูงอายุ &amp; ความต้องการผู้สูงอายุ" icon="fa-shield">
+                            <div class="row">
+                                <div class="col-12 col-xl-6">
+                                    <separator string="สิทธิผู้สูงอายุ" />
+                                    <field name="benefit_ids" widget="many2many_checkboxes" />
+                                    <field name="benefit_count" invisible="1" />
+                                </div>
+                                <div class="col-12 col-xl-6">
+                                    <separator string="ความต้องการของผู้สูงอายุ" />
+                                    <field name="need_ids" widget="many2many_checkboxes" />
+                                    <field name="need_count" invisible="1" />
+                                    <button
+                                        name="action_patient_need"
+                                        type="object"
+                                        string="View need"
+                                        groups="base.group_no_one"
+                                    />
+                                </div>
+                            </div>
                         </page>
                         <page name="observation" string="ผลการประเมินผล" icon="fa-stethoscope">
                             <field name="patient_observation_ids" mode="kanban" />
