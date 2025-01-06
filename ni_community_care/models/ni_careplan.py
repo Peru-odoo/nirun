@@ -38,7 +38,11 @@ class Careplan(models.Model):
     goal_text = fields.Text("เป้าหมาย", required=True)
     service_category_id = fields.Many2one("ni.service.category")
     service_ids = fields.Many2many(
-        "ni.service", domain="[('category_id', '=?', service_category_id)]"
+        "ni.service",
+        "ni_careplan_service",
+        "careplan_id",
+        "service_id",
+        domain="[('category_id', '=?', service_category_id)]",
     )
     service_text = fields.Text("แผนการให้ความช่วยเหลืออื่นๆ")
     action_text = fields.Text("แผนการให้ความช่วยเหลือ", compute="_compute_action_text")
