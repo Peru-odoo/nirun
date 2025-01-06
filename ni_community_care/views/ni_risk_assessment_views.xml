@@ -109,14 +109,13 @@
                                     <field name="actual_ratio" widget="progressbar" />
                                 </group>
                             </group>
-                            <separator string="รายการแผนกิจกรรม" />
-                            <field
-                                name="prediction_ids"
-                                context="{'default_assessment_id': id}"
-                                widget="section_and_note_one2many"
-                            >
-
-                            </field>
+                            <!--                            <separator string="รายการแผนกิจกรรม" />-->
+                            <!--                            <field-->
+                            <!--                                name="prediction_ids"-->
+                            <!--                                context="{'default_assessment_id': id}"-->
+                            <!--                                widget="section_and_note_one2many"-->
+                            <!--                            >-->
+                            <!--                            </field>-->
                         </page>
                     </notebook>
                 </sheet>
