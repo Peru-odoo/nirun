@@ -36,6 +36,16 @@
             <p>กดปุ่ม + ที่แต่ละมิติเพื่อเริ่มบันทึก</p>
         </field>
     </record>
+    <record id="ni_service_event_view_form_quick_create_inherit" model="ir.ui.view">
+        <field name="name">ni.service.event.view.form.quick.create.inherit</field>
+        <field name="model">ni.service.event</field>
+        <field name="inherit_id" ref="ni_service.ni_service_event_view_form_quick_create" />
+        <field name="arch" type="xml">
+            <field name="duration" position="after">
+                <field name="outcome" />
+            </field>
+        </field>
+    </record>
     <record id="ni_service_event_view_form_inherit" model="ir.ui.view">
         <field name="name">ni.service.event.view.form.inherit</field>
         <field name="model">ni.service.event</field>
@@ -87,7 +97,7 @@
                         <field name="user_id" invisible="1" />
                         <field name="partner_id" invisible="1" />
                     </group>
-                    <field name="outcome" placeholder="หมายเหตุ..." />
+                    <field name="outcome" placeholder="ผลการให้ความช่วยเหลือ..." />
                     <label for="image_1" string="ภาพประกอบ" class="mt-4" />
                     <div class="row mt-4">
                         <div class="col-12 col-lg-6">
