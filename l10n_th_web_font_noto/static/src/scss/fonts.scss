@@ -9,7 +9,7 @@
 
 @mixin module-font-Thai($family, $type, $weight, $style) {
     @font-face {
-        font-family: "#{$family}Thai";
+        font-family: $family;
         src: url("../fonts/google/#{$family}Thai/#{$family}Thai-#{$type}.ttf") format("truetype");
         font-weight: $weight;
         font-style: $style;
